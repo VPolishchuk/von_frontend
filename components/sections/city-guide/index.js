@@ -1,14 +1,14 @@
-import React from 'react';
-import Img1 from '../../../public/static/city-guide/1.png';
-import Img2 from '../../../public/static/city-guide/2.png';
-import Img3 from '../../../public/static/city-guide/3.png';
-import Img4 from '../../../public/static/city-guide/4.png';
-import SearchForm from '../../search-component/index';
-import { saveIcon }  from '../../../icon/index.js';
-import * as H from '../../../helpers';
+import React from 'react'
+import Img1 from '../../../public/static/city-guide/1.png'
+import Img2 from '../../../public/static/city-guide/2.png'
+import Img3 from '../../../public/static/city-guide/3.png'
+import Img4 from '../../../public/static/city-guide/4.png'
+import SearchForm from '../../search-component/index'
+import { saveIcon } from '../../../icon/index.js'
+import * as H from '../../../helpers'
 
-import './style.scss';
-//////////////////////////////////////////////
+import './style.scss'
+/// ///////////////////////////////////////////
 
 const locations = [
   {
@@ -16,34 +16,34 @@ const locations = [
     name: 'Sketch',
     image: Img1,
     status: 'closed',
-    price: '',
+    price: ''
   },
   {
     type: 'Vegeterian',
     name: 'Ottolenghi',
     image: Img2,
     status: 'open now',
-    price: '',
+    price: ''
   },
   {
     type: 'Bakery',
     name: 'Luminary Bakery',
     image: Img3,
     status: 'open now',
-    price: '',
+    price: ''
   },
   {
     type: 'Japanese',
     name: 'Nanban',
     image: Img4,
     status: 'open now',
-    price: '',
-  },
-];
+    price: ''
+  }
+]
 
 const LocationsComponents = ({ url, locations }) => {
   const goToDetails = () => {
-    H.goToRoute('/detail-guide');
+    H.goToRoute('/detail-guide')
   }
   return (
     <div className='grid-wrap'>
@@ -51,7 +51,7 @@ const LocationsComponents = ({ url, locations }) => {
         locations.map(
           (item, i) => (
             <div key={i} className='place-wrap'>
-              <img alt='img' src={item.image}/>
+              <img alt='img' src={item.image} />
               <p>{item.name}</p>
               <p>{item.type}</p>
               <button onClick={() => goToDetails()}>
@@ -71,7 +71,7 @@ const MainSection = (props) => (
     <div>
       <h2>where do you wanna go?</h2>
       <div className='form-wrap'>
-        <SearchForm {...props} guidePage={true}/>
+        <SearchForm {...props} guidePage />
       </div>
     </div>
   </div>
@@ -81,9 +81,9 @@ export const CityGuideSection = (props) => (
     <MainSection {...props} />
     <div className='container'>
       <h2>Restaurants in London</h2>
-      <LocationsComponents  {...props} locations={locations} />
+      <LocationsComponents {...props} locations={locations} />
     </div>
   </div>
 )
 
-export default React.memo(CityGuideSection);
+export default React.memo(CityGuideSection)

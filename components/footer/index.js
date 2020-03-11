@@ -1,8 +1,7 @@
 import React from 'react';
-import * as R from 'ramda';
 import Link from 'next/link';
-import './style.scss'
-//////////////////////////////////////
+import { Footer } from './ui';
+/// ///////////////////////////////////
 
 const navConfig = [
   {
@@ -24,7 +23,7 @@ const navConfig = [
   {
     path: '/support-page',
     name: 'FAQ'
-  },
+  }
 ];
 
 const Nav = (props) => (
@@ -39,22 +38,22 @@ const Nav = (props) => (
       )
     }
   </nav>
-);
+)
 
 const FooterComponent = (props) => {
   return (
-    <footer>
+    <Footer>
       <div className='container'>
-        <div className='footer-logo'/>
+        <div className='footer-logo' />
         <Nav {...props} />
-        <div className='contacts'> 
+        <div className='contacts'>
           <span>Vonder GmbH Schlüterstr. 45, 10707 Berlin</span>
           <span>Info@www.vondereurope.com</span>
         </div>
         <Nav {...props} />
       </div>
-    </footer>
-  )   
-};
+    </Footer>
+  )
+}
 
 export default FooterComponent;

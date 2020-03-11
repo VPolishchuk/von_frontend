@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import * as R from 'ramda';
-import classNames from 'classnames';
-import * as I from '../../../icon';
-import CheckboxInputComponent from '../../fieldset/checkbox';
-import './style.scss';
-///////////////////////////////////////////////////////////////////
+import React, { useState } from 'react'
+import * as R from 'ramda'
+import classNames from 'classnames'
+import * as I from '../../../icon'
+import CheckboxInputComponent from '../../fieldset/checkbox'
+import './style.scss'
+/// ////////////////////////////////////////////////////////////////
 
 const Document = ({
   docs
 }) => {
-  const keys = R.keys(docs);
+  const keys = R.keys(docs)
   return (
     <div className='docs-wrap'>
       <p>Uploaded documents</p>
@@ -27,19 +27,19 @@ const Document = ({
   )
 }
 const ReviewSec = (props) => {
-  const values = R.path(['values'], props);
+  const values = R.path(['values'], props)
   const labels = R.keys(R.omit([
     'idCard',
     'confirm',
     'selfAssesment',
     'salaryStatements',
-    'certificateOfRentDebtFreeStatus',
-  ], values));
+    'certificateOfRentDebtFreeStatus'
+  ], values))
   const docs = R.pick([
     'idCard',
     'selfAssesment',
     'salaryStatements',
-    'certificateOfRentDebtFreeStatus',
+    'certificateOfRentDebtFreeStatus'
   ], values)
   return (
     <div className='review-wrap'>
@@ -59,11 +59,11 @@ const ReviewSec = (props) => {
           type='checkbox'
           label='Confirm and send to verify'
         />
-        <hr/>
+        <hr />
       </div>
       <Document docs={docs} />
     </div>
   )
-};
+}
 
-export default ReviewSec;
+export default ReviewSec

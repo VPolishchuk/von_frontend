@@ -1,14 +1,14 @@
-import React from 'react';
-import * as R from 'ramda';
+import React from 'react'
+import * as R from 'ramda'
 import { useRouter } from 'next/router';
 import useModal from '../../hook/useModal';
-// import HeaderComponent from '../header';
-// import FooterComponent from '../footer';
-// import Modal from '../../components/modal';
-// import '../styles.global.scss';
+import HeaderComponent from '../header';
+import FooterComponent from '../footer';
+import Modal from '../../components/modal';
 import { GlobalStyle } from '../../ui/index';
 import {
-  Layout
+  Layout,
+  LoaderBlock
 } from './ui';
 // //////////////////////////////////////////////
 
@@ -16,7 +16,7 @@ import {
 export const Loader = (props) => {
   return (
     <div className='preloader'>
-      <div className="lds-hourglass"></div>
+      <LoaderBlock />
       <style>
         {`
           body {
@@ -42,9 +42,9 @@ export const Loader = (props) => {
   )
 }
 export const LayoutBox = (props) => {
-  const router = useRouter();
-  const { open, openModal, closeModal } = useModal();
-  const localUrl = R.path(['route'], router);
+  const router = useRouter()
+  const { open, openModal, closeModal } = useModal()
+  const localUrl = R.path(['route'], router)
   const url = [
     '/sing-up',
     '/sing-in',
@@ -55,10 +55,10 @@ export const LayoutBox = (props) => {
     '/detail-apartments',
     '/city-guide-page-coolcousin'
   ]
-  const blackHeader = R.includes(localUrl, url);
+  const blackHeader = R.includes(localUrl, url)
   return (
     <Layout>
-      {/* <HeaderComponent {...props} blackHeader={blackHeader} /> */}
+      <HeaderComponent {...props} blackHeader={blackHeader} />
       {props.children}
       {/* {open ? (
         <Modal
@@ -66,7 +66,7 @@ export const LayoutBox = (props) => {
         render={() => <h1>This is a Modal using Portals!</h1>}
         />
         ) : null} */}
-      {/* <FooterComponent {...props} /> */}
+      <FooterComponent {...props} />
       <GlobalStyle />
     </Layout>
   )

@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import * as R from 'ramda';
-import Link from 'next/link';
+import React, { useState } from 'react'
+import * as R from 'ramda'
+import Link from 'next/link'
 import ComLogo from '../../../public/static/career-page/2.png'
-import { arrowDownIcon, locationMarkerIcon, uploadIcon }  from '../../../icon/index.js';
-import InputFile from '../../fieldset/input-file';
+import { arrowDownIcon, locationMarkerIcon, uploadIcon } from '../../../icon/index.js'
+import InputFile from '../../fieldset/input-file'
 
-import './style.scss';
-//////////////////////////////////////////////
+import './style.scss'
+/// ///////////////////////////////////////////
 const fieldSettings = [
   {
     type: 'text',
-    placeholder: 'Your name',
+    placeholder: 'Your name'
   },
   {
     type: 'email',
-    placeholder: 'Email',
+    placeholder: 'Email'
   },
   {
     type: 'file',
-    id: "file",
-    label: 'Resume file',
-  },
-];
+    id: 'file',
+    label: 'Resume file'
+  }
+]
 
 const JobForm = (props) => {
   return (
@@ -40,7 +40,7 @@ const JobForm = (props) => {
                 return (
                   <div key={i} className='input-wrap'>
                     {
-                      filed.label && 
+                      filed.label &&
                       <label>{filed.label}</label>
                     }
                     <input {...filed} />
@@ -54,7 +54,7 @@ const JobForm = (props) => {
       </div>
     </form>
   )
-};
+}
 
 export const CareerDetailSection = (props) => (
   <div className='wrapper'>
@@ -82,57 +82,56 @@ export const CareerDetailSection = (props) => (
           </div>
           London, United Kingdom
         </div>
-        <hr/>
+        <hr />
         <h5>Goals & Objectives</h5>
         <p>
-          Creation of a collaborative environment 
-          amongst our members through events 
-          and personal introductions<br/>
-          Maintenance of 100% occupancy by 
-          achieving sales goals, and managing 
-          churn<br/>
+          Creation of a collaborative environment
+          amongst our members through events
+          and personal introductions<br />
+          Maintenance of 100% occupancy by
+          achieving sales goals, and managing
+          churn<br />
 
           Ensuring that building is fully operational
-          and processes are running smoothly<br/>
+          and processes are running smoothly<br />
 
-          Driving growth and promotion of 
-          WeWork-provided service offerings<br/>
+          Driving growth and promotion of
+          WeWork-provided service offerings<br />
 
-          Maintaining company standards and 
-          expectations<br/>
+          Maintaining company standards and
+          expectations<br />
 
-          Managing building KPI’s<br/>
+          Managing building KPI’s<br />
         </p>
-        <hr/>
+        <hr />
         <h5>Duties & Responsibilities</h5>
         <p>
-          Recommend best practices, including 
-          but not limited to: community 
-          management, sales, events, training, 
-          and member experience on a 
-          company-wide level<br/>
+          Recommend best practices, including
+          but not limited to: community
+          management, sales, events, training,
+          and member experience on a
+          company-wide level<br />
 
           Exercise discretion in guiding prospective
-          members, including possibly gatekeeping 
-          where business may not be in the 
-          interests of greater community<br/>
+          members, including possibly gatekeeping
+          where business may not be in the
+          interests of greater community<br />
 
-          Resolve member complaints regarding 
-          other members through neutral fact 
+          Resolve member complaints regarding
+          other members through neutral fact
           investigation and process termination of
-          membership when warranted<br/>
+          membership when warranted<br />
 
           Explain WeWork policies and procedures
-          to members, including but not limited 
-          to: membership agreement and billing 
-          procedures<br/>
+          to members, including but not limited
+          to: membership agreement and billing
+          procedures<br />
         </p>
         <button>Apply Now</button>
       </div>
-      <JobForm {...props}/>
+      <JobForm {...props} />
     </div>
   </div>
 )
 
-export default React.memo(CareerDetailSection);
-
+export default React.memo(CareerDetailSection)

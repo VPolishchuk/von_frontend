@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import './style.scss';
-//////////////////////////////////////////////
+import './style.scss'
+/// ///////////////////////////////////////////
 
 const list = [
-    'CLUB HOUSE',
-    'GALLERY',
-    'COFFEE CONTAINER',
-    'URBAN PLAYGROUND',
-    'HÖR RADIO STATION',
+  'CLUB HOUSE',
+  'GALLERY',
+  'COFFEE CONTAINER',
+  'URBAN PLAYGROUND',
+  'HÖR RADIO STATION'
 ]
 export const LifestyleSection = (props) => (
   <div className='section-6'>
@@ -64,6 +64,6 @@ export const LifestyleSection = (props) => (
       the perpetual flow of caffeine.
     </p>
   </div>
-);
+)
 
-export default LifestyleSection;
+export default LifestyleSection

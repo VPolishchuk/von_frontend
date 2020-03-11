@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import * as R from 'ramda';
-import { saveIcon, earthIcon, clockIcon, phoneIcon, locationMarkerIcon }  from '../../../icon/index.js';
+import React, { useState } from 'react'
+import * as R from 'ramda'
+import { saveIcon, earthIcon, clockIcon, phoneIcon, locationMarkerIcon } from '../../../icon/index.js'
 
-import './style.scss';
-//////////////////////////////////////////////
+import './style.scss'
+/// ///////////////////////////////////////////
 
 const schedule = [
   {
@@ -55,12 +55,12 @@ const schedule = [
       to: '17:00'
     }
   }
-];
+]
 
 const DayBox = (props) => (
   <div className='day-wrap'>
     <p>{props.item.day}</p>
-    <span>{`${R.path(['item', 'time', 'from'], props)} - ${R.path(['item', 'time', 'to'], props)}`}</span> 
+    <span>{`${R.path(['item', 'time', 'from'], props)} - ${R.path(['item', 'time', 'to'], props)}`}</span>
   </div>
 )
 
@@ -78,7 +78,7 @@ const LeftBox = (props) => (
       <div className='icon-wrap'>
         {locationMarkerIcon(20, 20, '#D72066')}
       </div>
-      71-73 Allen Rd, Stoke Newington, 
+      71-73 Allen Rd, Stoke Newington,
       London N16 8RY, UK
     </div>
     <div className='info-wrap'>
@@ -94,13 +94,13 @@ const LeftBox = (props) => (
       open now
     </div>
     <p>
-      Lorem ipsum dolor sit amet, consectetur elit. 
-      Eget fermentumblandit egestas auctor est 
+      Lorem ipsum dolor sit amet, consectetur elit.
+      Eget fermentumblandit egestas auctor est
       phasellus condimentum diam. Ipsum aliquet
-      euismod quam quam quam feugiat vel 
+      euismod quam quam quam feugiat vel
       cursus.
     </p>
-    <hr/>
+    <hr />
     <div className='info-wrap uppercase'>
       <div className='icon-wrap'>
         {clockIcon(20, 20)}
@@ -110,24 +110,24 @@ const LeftBox = (props) => (
     {
       schedule.map(
         (item, i) => (
-          <DayBox item={item} i={i} key={i}/>
+          <DayBox item={item} i={i} key={i} />
         )
       )
     }
     <button>
-      book now 
+      book now
       <span>{saveIcon(20, 20)}</span>
     </button>
   </div>
-);
+)
 
 const RightBox = (props) => (
   <div className='right-box'>
     <div className='info-wrap'>
-      71-73 Allen Rd, Stoke Newington, 
+      71-73 Allen Rd, Stoke Newington,
       London N16 8RY, UK
     </div>
-    <hr/>
+    <hr />
     <div className='info-wrap'>
       <div className='icon-wrap'>
         {phoneIcon(20, 20)}
@@ -140,7 +140,7 @@ const RightBox = (props) => (
       </div>
       Official Website
     </div>
-    <hr/>
+    <hr />
     <div className='info-wrap uppercase'>
       <div className='icon-wrap'>
         {clockIcon(20, 20)}
@@ -150,12 +150,12 @@ const RightBox = (props) => (
     {
       schedule.map(
         (item, i) => (
-          <DayBox item={item} i={i} key={i}/>
+          <DayBox item={item} i={i} key={i} />
         )
       )
     }
   </div>
-);
+)
 
 export const GuideDetailSection = (props) => (
   <div className='wrapper'>
@@ -169,4 +169,4 @@ export const GuideDetailSection = (props) => (
   </div>
 )
 
-export default React.memo(GuideDetailSection);
+export default React.memo(GuideDetailSection)

@@ -1,8 +1,8 @@
-import React, { useEffect, useState }from 'react';
-import DatePicker from "react-datepicker";
-import * as I from '../../icon/index';
-import "react-datepicker/dist/react-datepicker.css";
-//////////////////////////////////////////////////////////
+import React, { useEffect, useState } from 'react'
+import DatePicker from 'react-datepicker'
+import * as I from '../../icon/index'
+import 'react-datepicker/dist/react-datepicker.css'
+/// ///////////////////////////////////////////////////////
 
 // export const DatepickerComponent = (props) => {
 //   const [startDate, setStartDate] = useState(new Date("2014/02/08"));
@@ -29,8 +29,8 @@ import "react-datepicker/dist/react-datepicker.css";
 // };
 
 export const DatepickerComponent = (props) => {
-  const [startDate, setStartDate] = useState(new Date("2014/02/08"));
-  const [endDate, setEndDate] = useState(new Date("2014/02/10"));
+  const [startDate, setStartDate] = useState(new Date('2014/02/08'))
+  const [endDate, setEndDate] = useState(new Date('2014/02/10'))
   return (
     <div className='input-wrap date'>
       {
@@ -60,10 +60,10 @@ export const DatepickerComponent = (props) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DatepickerComponent;
+export default DatepickerComponent
 
 // const Calendar = (props) => {
 //   const [startDate, setStartDate] = useState(new Date());

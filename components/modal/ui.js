@@ -1,5 +1,7 @@
+import styled from 'styled-components'
+// /////////////////////////////////////////////////////////////
 
-.modal-body {
+export const ModalBox = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -7,4 +9,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+`

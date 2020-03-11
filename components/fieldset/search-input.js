@@ -1,16 +1,15 @@
-import React from 'react';
-import * as R from 'ramda';
+import React from 'react'
 import * as I from '../../icon/index'
-import './style.scss'
-/////////////////////////////////////////
+import { SearchWrap } from './ui'
+/// //////////////////////////////////////
 
 export const SearchInput = (props) => {
   return (
-    <div className='search-wrap'>
+    <SearchWrap className='search-wrap'>
       <label htmlFor='search'>{I.searchIcon(25, 20, props.class ? '#D72066' : '#fff')}</label>
-      <input className={props.class} type='text' id='search' name='search' placeholder='Search'/>
-    </div>
+      <input className={props.class} type='text' id='search' name='search' placeholder='Search' />
+    </SearchWrap>
   )
 }
 
-export default SearchInput;
+export default SearchInput

@@ -1,15 +1,15 @@
-import React from 'react';
-import Head from 'next/head';
-import Layout from '../components/layout';
+import React from 'react'
+import Head from 'next/head'
+import Layout from '../components/layout'
 // import SectionComponent from '../components/sections/home-page';
 // //////////////////////////////////////////////////
 
 class HomePage extends React.Component {
   static pageTransitionDelayEnter = true
- 
+
   constructor (props) {
-    super(props);
-    this.state = { loaded: false };
+    super(props)
+    this.state = { loaded: false }
   }
 
   // componentDidMount() {
@@ -29,7 +29,7 @@ class HomePage extends React.Component {
       <div>
         <Head>
           <title>Home</title>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel='icon' href='/favicon.ico' />
         </Head>
         <Layout>
           ,mnf,dsmnf,sdmn,
@@ -40,4 +40,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default HomePage

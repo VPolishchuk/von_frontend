@@ -1,9 +1,8 @@
-@import '../ui/mixims.scss';
-@import '../ui/constants.scss';
-@import '../ui/common-style.scss';
-//////////////////////////////////////////////////////
+import styled from 'styled-components'
 
-header {
+// ///////////////////////////////////////
+
+export const Header = styled.header`
   top: 0;
   left: 0;
   width: 100%;
@@ -216,9 +215,6 @@ header {
     }
   }
   @media (min-width: $phone) {
-    // &.black {
-    //   background-color: transparent;
-    // }
     & .container {
       img + .search-input {
         display: flex;
@@ -309,4 +305,4 @@ header {
       }
     }
   }
-};
+`

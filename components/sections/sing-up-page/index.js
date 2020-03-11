@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import CheckboxInputComponent from '../../fieldset/checkbox';
-import BgImage from '../../../public/static/form-page/bg-1.png';
-import * as I  from '../../../icon/index.js';
-import './style.scss';
-//////////////////////////////////////////////
+import React, { useState } from 'react'
+import Link from 'next/link'
+import CheckboxInputComponent from '../../fieldset/checkbox'
+import BgImage from '../../../public/static/form-page/bg-1.png'
+import * as I from '../../../icon/index.js'
+import './style.scss'
+/// ///////////////////////////////////////////
 const fieldSettings = [
   {
     type: 'text',
     name: 'name',
     id: 'mane',
-    label: 'Your name',
+    label: 'Your name'
   },
   {
     type: 'email',
     name: 'email',
     id: 'email',
-    placeholder: 'Email',
+    placeholder: 'Email'
   },
   {
     type: 'checkbox',
-    label: 'I’ve accept Terms of Use and Privacy Policy',
-  },
-];
+    label: 'I’ve accept Terms of Use and Privacy Policy'
+  }
+]
 
 const FormComponent = (props) => {
   return (
@@ -40,7 +40,7 @@ const FormComponent = (props) => {
               <div key={i} className='input-wrap'>
                 <input {...filed} />
                 {
-                  filed.label && 
+                  filed.label &&
                   <label for={filed.id}>{filed.label}</label>
                 }
               </div>
@@ -57,7 +57,7 @@ const FormComponent = (props) => {
       </p>
     </form>
   )
-};
+}
 export const SingUpComponent = (props) => (
   <div className='wrapper'>
     <div className='container'>
@@ -69,4 +69,4 @@ export const SingUpComponent = (props) => (
   </div>
 )
 
-export default React.memo(SingUpComponent);
+export default React.memo(SingUpComponent)

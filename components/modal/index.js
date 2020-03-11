@@ -1,8 +1,8 @@
-import React from 'react';
-import * as R from 'ramda';
-import { Portal } from '../../hook/useModal';
-import './style.scss';
-///////////////////////////////////
+import React from 'react'
+import * as R from 'ramda'
+import { Portal } from '../../hook/useModal'
+import { ModalBox } from './ui'
+/// ////////////////////////////////
 
 const ModalComponent = ({ children, close, render }) => {
   return (
@@ -10,30 +10,30 @@ const ModalComponent = ({ children, close, render }) => {
       <div>
         <div
           style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%"
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%'
           }}
         >
           <div
             style={{
-            position: "relative",
-            background: "white",
-            borderRadius: "2px",
-            padding: "15px",
-            minWidth: "320px",
-            maxWidth: "600px",
-            maxHeight: "600px",
-            zIndex: 10,
-            boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.3)",
-            marginBottom: "100px"
+              position: 'relative',
+              background: 'white',
+              borderRadius: '2px',
+              padding: '15px',
+              minWidth: '320px',
+              maxWidth: '600px',
+              maxHeight: '600px',
+              zIndex: 10,
+              boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.3)',
+              marginBottom: '100px'
             }}
-            >
+          >
             {render(children) || children}
             <hr />
             <button onClick={close}>Close</button>
@@ -41,18 +41,18 @@ const ModalComponent = ({ children, close, render }) => {
         </div>
         <div
           style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          top: 0,
-          left: 0,
-          background: "black",
-          opacity: 0.5
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: 0,
+            left: 0,
+            background: 'black',
+            opacity: 0.5
           }}
         />
       </div>
     </Portal>
   )
-};
+}
 
-export default ModalComponent;
+export default ModalComponent

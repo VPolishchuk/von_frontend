@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import * as R from 'ramda';
-import Select from 'react-select';
-import './style.scss';
-////////////////////////////////////////////////////
+import React, { useEffect, useState } from 'react'
+import * as R from 'ramda'
+import Select from 'react-select'
+import './style.scss'
+/// /////////////////////////////////////////////////
 
 const SelectInputComponent = ({
   name,
@@ -26,24 +26,24 @@ const SelectInputComponent = ({
       display: 'flex',
       borderWidth: '0',
       width: '100%',
-      alignItems: 'center',
+      alignItems: 'center'
     }),
     input: () => ({
       width: '100%',
-      height: '50px',
+      height: '50px'
     }),
     singleValue: () => ({
       left: '0',
       fontSize: '24px',
       lineHeight: '28px',
       fontFamily: 'Roboto',
-      position: 'absolute',
+      position: 'absolute'
     }),
     indicatorSeparator: () => ({
       display: 'none'
     }),
     placeholder: () => ({
-      display: 'none',
+      display: 'none'
     })
   }
   return (
@@ -58,7 +58,7 @@ const SelectInputComponent = ({
         styles={customStyles}
         onChange={(newOpt) => handelCastomChange(name, newOpt)}
       />
-    {/* {R.or(R.has(name.value, touched), R.has(name.value, errors)) ? (
+      {/* {R.or(R.has(name.value, touched), R.has(name.value, errors)) ? (
         <div
         className="error"
         style={{
@@ -72,6 +72,6 @@ const SelectInputComponent = ({
     ) : null} */}
     </div>
   )
-};
+}
 
-export default SelectInputComponent;
+export default SelectInputComponent

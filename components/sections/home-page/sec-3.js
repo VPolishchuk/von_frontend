@@ -1,6 +1,6 @@
-import React from 'react';
-import './style.scss';
-//////////////////////////////////////////////
+import React from 'react'
+import './style.scss'
+/// ///////////////////////////////////////////
 
 const list = [
   {
@@ -30,7 +30,7 @@ const list = [
   {
     location: 'BERLIN',
     img: ''
-  },
+  }
 ]
 export const LocationSection = (props) => (
   <div className='section-3'>
@@ -51,4 +51,4 @@ export const LocationSection = (props) => (
   </div>
 )
 
-export default LocationSection;
+export default LocationSection

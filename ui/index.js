@@ -847,7 +847,7 @@ export const Abstract = (tag) => styled(tag)`
   ${mediaMaxMainStyles} */
 `;
 
-export const Box = Abstract('div')
+export const Box = Abstract('div');
 
 export const Img = Abstract('img');
 

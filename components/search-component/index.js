@@ -1,9 +1,9 @@
-import React, { useEffect, useState }from 'react';
-import * as R from 'ramda';
-import SelectInputComponent from '../fieldset/select';
-import DatepickerComponent from '../fieldset/datepiker';
-import './style.scss';
-/////////////////////////////////////////////////////////////
+import React, { useEffect, useState } from 'react'
+import * as R from 'ramda'
+import SelectInputComponent from '../fieldset/select'
+import DatepickerComponent from '../fieldset/datepiker'
+import './style.scss'
+/// //////////////////////////////////////////////////////////
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -12,37 +12,37 @@ const options = [
 ]
 
 export const SearchForm = (props) => {
-  const [selectedOption, setSelectedOption] = useState();
+  const [selectedOption, setSelectedOption] = useState()
   const handelCastomChange = (opt) => {
-    setSelectedOption(opt);
+    setSelectedOption(opt)
   }
-  if(props.guidePage) {
+  if (props.guidePage) {
     return (
       <form id='search-form'>
-      <SelectInputComponent 
-        {...props}
-        options={options}
-        label='Choose Location'
-        selectedOption={selectedOption}
-        handelCastomChange={handelCastomChange}
-      />
-      <DatepickerComponent {...props} label='Booking Time' />
-      <button className='gradient '>
+        <SelectInputComponent
+          {...props}
+          options={options}
+          label='Choose Location'
+          selectedOption={selectedOption}
+          handelCastomChange={handelCastomChange}
+        />
+        <DatepickerComponent {...props} label='Booking Time' />
+        <button className='gradient '>
         Search
-      </button>
-    </form>
+        </button>
+      </form>
     )
   }
   return (
     <form id='search-form'>
-      <SelectInputComponent 
+      <SelectInputComponent
         {...props}
         options={options}
         label='Choose Location'
         selectedOption={selectedOption}
         handelCastomChange={handelCastomChange}
       />
-      <SelectInputComponent 
+      <SelectInputComponent
         {...props}
         options={options}
         label='Choose Location'
@@ -54,6 +54,7 @@ export const SearchForm = (props) => {
         Search
       </button>
     </form>
-)}
+  )
+}
 
-export default SearchForm;
+export default SearchForm
