@@ -2,11 +2,14 @@ import React from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import useModal from '../../hook/useModal';
-import HeaderComponent from '../header';
-import FooterComponent from '../footer';
-import Modal from '../../components/modal';
-import '../styles.global.scss';
-import './style.scss';
+// import HeaderComponent from '../header';
+// import FooterComponent from '../footer';
+// import Modal from '../../components/modal';
+// import '../styles.global.scss';
+import { GlobalStyle } from '../../ui/index';
+import {
+  Layout
+} from './ui';
 // //////////////////////////////////////////////
 
 // //////////////////////////////////////////
@@ -38,7 +41,7 @@ export const Loader = (props) => {
     </div>
   )
 }
-export const Layout = (props) => {
+export const LayoutBox = (props) => {
   const router = useRouter();
   const { open, openModal, closeModal } = useModal();
   const localUrl = R.path(['route'], router);
@@ -54,18 +57,19 @@ export const Layout = (props) => {
   ]
   const blackHeader = R.includes(localUrl, url);
   return (
-    <div className='layout'>
-      <HeaderComponent {...props} blackHeader={blackHeader} />
+    <Layout>
+      {/* <HeaderComponent {...props} blackHeader={blackHeader} /> */}
       {props.children}
-      {open ? (
+      {/* {open ? (
         <Modal
         close={closeModal}
         render={() => <h1>This is a Modal using Portals!</h1>}
         />
-        ) : null}
-      <FooterComponent {...props} />
-    </div>
+        ) : null} */}
+      {/* <FooterComponent {...props} /> */}
+      <GlobalStyle />
+    </Layout>
   )
 }
 
-export default Layout;
+export default LayoutBox;

@@ -4,14 +4,7 @@
 @import './constants.scss';
 /////////////////////////////////////////
 
-@mixin mainLayoutStyle {
-  width: 100vw;
-  display: flex;
-  min-height: 100vh;
-  position: relative;
-  flex-direction: column;
-  max-height: max-content;
-}
+
 
 @mixin paragraph {
   color: $blackL;
