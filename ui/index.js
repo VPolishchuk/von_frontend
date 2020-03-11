@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import styled, { css, createGlobalStyle, keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import {
   top,
   left,

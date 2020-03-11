@@ -1,7 +1,7 @@
 import React from 'react';
 import * as R from 'ramda';
 import * as I from '../../icon/index'
-// import './style.scss'
+import './style.scss'
 /////////////////////////////////////////
 
 export const SearchInput = (props) => {

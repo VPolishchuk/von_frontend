@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as R from 'ramda';
 import * as I from '../../icon/index';
 
-// import './style.scss';
+import './style.scss';
 /////////////////////////////////////////////////
 
 const InputFile = (props) => {
