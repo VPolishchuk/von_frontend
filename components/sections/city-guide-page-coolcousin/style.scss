@@ -1,0 +1,12 @@
+@import '../../ui/mixims.scss';
+@import '../../ui/constants.scss';
+@import '../../ui/common-style.scss';
+//////////////////////////////////////////////////////
+
+.wrapper {
+  iframe {
+    width: 100%;
+    height: 100vh;
+    margin-top: 60px;
+  }
+}

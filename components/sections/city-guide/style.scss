@@ -1,0 +1,143 @@
+@import '../../ui/constants.scss';
+@import '../../ui/mixims.scss';
+@import '../../ui/common-style.scss';
+///////////////////////////////////////////////////
+
+.wrapper {
+  .main-section-guide {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: url('../../../public/static/city-guide/bg-main.png') no-repeat 50% 0%; 
+    background-size: 100% 100%;
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(191.27deg, #000000 -11.45%, rgba(0, 0, 0, 0.1) 75.3%);
+      width: 100%;
+      height: 100%;
+      & > h2 {
+        color: $white;
+        margin-bottom: 0.5em;
+        text-transform: capitalize;
+      }
+      .form-wrap {
+        width: calc(100% - 10%);
+        height: max-content;
+        position: absolute;
+        bottom: -4%;
+        left: 5%;            
+      }
+    }
+  }
+  .container {
+    & > h2 {
+      margin-bottom: 30px;
+    }
+    @include sectionMargin;
+    .grid-wrap {
+      @include gridWrap;
+      .place-wrap {
+        box-shadow: 0px 2px 20px rgba(30, 27, 28, 0.14);
+        border-radius: 10px;
+        & > img {
+          margin: 15px 0;
+          width: 100%;
+          height: auto;
+          margin-top: 0;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+        p {
+          width: 100%;
+          padding: 0.5rem 1rem;
+          color: $darkGrey;
+          font-weight: bold;
+          font-size: $fSMediumTable;
+        }
+        p + p {
+          color: $pink;
+          font-weight: normal;
+          font-size: $fSMediumPhone;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $phone) {
+    .place-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      & > button {
+        margin: 15px;
+        align-self: flex-start;
+      }
+    }
+  }
+  & button {
+      height: 50px;
+      margin: 25px auto 35px;
+      text-transform: capitalize;
+      & span {
+        height: 20px;
+        width: 20px;
+        margin: 0 5px;
+    }
+  }
+
+  & > p {
+    text-align: left;
+    &.second {
+      text-align: left;
+      line-height: $lHMPhone;
+    }
+    & > span {
+      color: $pink;
+      &.gradient {
+        @include gradient;
+      }
+    }
+  }
+
+  @media (min-width: $phone) {
+    & > .main-section-guide {
+      height: 70vh;
+      & > div {
+        flex-direction: column;
+        .form-wrap {
+          max-width: $maxWidth;
+          height: max-content;
+          position: static;
+          & ~ form {
+            display: flex;
+            flex-direction: row;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: $tablets) {
+    & > .main-section-guide {
+      height: 70vh;
+      & > div {
+        .form-wrap {
+          position: static;
+        }
+
+      }
+    }
+  }
+  @media (min-width: $desktops) {
+    & > .main-section-guide {
+      height: 70vh;
+      & > div {
+        .form-wrap {
+          position: static;
+        }
+
+      }
+    }
+  }
+};

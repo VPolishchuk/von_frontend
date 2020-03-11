@@ -1,0 +1,242 @@
+// @import './fonts.scss';
+@import './mixims.scss';
+@import './constants.scss';
+///////////////////////////////////
+
+.layout {
+  @include mainLayoutStyle
+}
+
+.wrapper {
+  width: 100%;
+  height: max-content;
+}
+  
+.container {
+  margin: 0 auto;
+  max-width: $maxWidth;
+  min-width: $minWidth;
+}
+
+h2 {
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  font-size: $fSLLLaptop;
+  font-family: Roboto-Bold;
+  line-height: $lHBigDesktop;
+  text-transform: uppercase;
+  color: $pink;
+  &.gradient {
+    @include gradient;
+  }
+  &.black {
+    color: $dark;
+  }
+  @include largeFontSizeH2;
+  @include commonPadding;
+  @include commonMargin;
+}
+
+h3 {
+  color:$pink;
+  margin: 15px 0;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  font-family: Roboto;
+  font-size: $fSLLaptop;
+  text-transform: uppercase;
+  line-height: $lHBigLaptop;
+  @include commonPadding;
+
+}
+
+h4 {
+  color: $blackL;
+  margin: 15px 0;
+  text-align: left;
+  font-weight: bold;
+  font-style: normal;
+  font-family: Roboto;
+  font-size: $fSBigTable;
+  line-height: $lHMediumLaptop;
+  @include commonPadding;
+}
+
+h5 {
+  color:$pink;
+  margin: 15px 0;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  font-family: Roboto;
+  line-height: $lHMTable;
+  text-transform: uppercase;
+  font-size: $fSMediumTable;
+  @include largeFontSizeH3;
+  @include commonPadding;
+}
+
+h6 {
+  color:$blackL;
+  margin: 15px 0;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  font-family: Roboto;
+  line-height: $lHBPhone;
+  text-transform: uppercase;
+  font-size: $fSMediumTable;
+  @include largeFontSizeH6;
+  @include commonPadding;
+}
+
+p {
+  @include paragraph;
+}
+
+button {
+  @include buttonStyle;
+  &:active,
+  &:focus,
+  &:hover {
+    box-shadow: 0px 2px 20px rgba(30, 27, 28, 0.14);
+  }
+}
+
+
+.info-wrap {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 15px 0;
+  display: flex;
+  font-size: 15px;
+  align-items: center; 
+  white-space: normal;
+  .icon-wrap {
+    margin: 0 5px;
+    height: 20px;
+    width: 20px;
+  }
+  & + &.uppercase {
+    display: none;
+  }
+  &.uppercase {
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+}
+
+// form && inputs
+
+.input-wrap {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  margin: 14px 0;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  input {
+    width: 100%;
+    height: 50px;
+    max-width: 450px;
+    padding-left: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid $lightGrey;
+  }
+  & > label {
+    position: absolute;
+    // width: 100%;
+    top: 16px;
+    // height: 50px;
+    left: 10px;
+    font-size: 12px;
+    transition: all 0.4s;
+    transform: translate(0, 0);
+  }
+
+  &.file {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > label {
+      position: unset;
+      font-size: 14px;
+      // font-weight: bold;
+    }
+  }
+  input:focus + label,
+  input:active + label {
+    font-size: 10px;
+    transform: translate(-10px, -34px);
+  }
+}
+// input {
+//   margin: 10px 0;
+//   width: 100%;
+//   height: 50px;
+//   max-width: 450px;
+//   padding-left: 10px;
+//   border-radius: 5px;
+//   box-sizing: border-box;
+//   border: 1px solid $lightGrey;
+// }
+
+.custom-file-wrap {
+  width: 150px;
+  height: 50px;
+  position: relative;
+  input[type='file'] {
+    opacity: 0;
+    margin: 0;
+  }
+  & > div {
+    position: absolute;
+    z-index: -1;
+    padding: 10px 15px; 
+    width: max-content;
+    height: 50px;
+    min-width: 150px;
+    justify-content: center;
+    color: $pink;
+    font-weight: bold;
+    font-size: $fontSizeSmall;
+    background: $white;
+    border: 1px solid $pink;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    white-space: pre;
+    & > span {
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+    }
+  }
+  &.bg-pink > div {
+    color: $white;
+    background-color: $pink;
+    & svg {
+      fill: $white;
+      color: $white;
+    }
+  }
+}
+
+// textarea {
+//   margin: 10px 0;
+//   border: 0;
+//   width: 100%;
+//   height: 215px;
+//   resize: none;
+//   max-width: 450px;
+//   padding: 10px;
+//   border-radius: 7px;
+//   box-shadow: 0px 2.79914px 27.9914px rgba(30, 27, 28, 0.14);
+// }

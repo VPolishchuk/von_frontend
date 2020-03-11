@@ -1,0 +1,182 @@
+@import '../../ui/mixims.scss';
+@import '../../ui/constants.scss';
+@import '../../ui/common-style.scss';
+//////////////////////////////////////////////////////
+
+.wrapper {
+  & .container.career-detail {
+    @include sectionMargin;
+    .route-wrap {
+      padding: 20px 0;
+      & a {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        color: $pink;
+        font-size: $fSBigPhone;
+        .icon-wrap {
+          margin-right: 15px;
+          transform: rotateZ(90deg); 
+        }
+      }
+    }
+
+    .career-wrap {
+      width: 100%;
+      display: flex;
+      padding: 15px 0;
+      border-radius: 5px;
+      flex-direction: column;
+      justify-content: flex-start;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);
+
+      img {
+        object-fit: none;
+        height: auto;
+        width: 100%;
+      }
+
+      h3 {
+        text-align: left;
+        color: $darkGrey;
+        margin: 10px 0;
+
+      }
+
+      h3 + div {
+        @include commonPadding;
+        span {
+          color: $pink;
+          display: block;
+          text-align: left;
+          font-weight: normal; 
+          font-size: $fSBigPhone;
+          line-height: $lHMPhone;
+          text-transform: uppercase;
+        }
+        span + span {
+          color: $darkGrey;
+          text-transform: initial;
+
+        }
+      }
+
+      & .info-wrap {
+        width: 100%;
+        margin: 15px 0;
+        display: flex;
+        color: $darkGrey;
+        font-weight: bold;
+        font-family: Roboto;
+        align-items: center; 
+        font-size: $fSBigPhone;
+        @include commonPadding;
+        .icon-wrap {
+          margin: 0 5px;
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      hr {
+        margin: 10px 0;
+      }
+
+      h5 {
+        color: $pink;
+        margin: 15px 0;
+        text-align: left;
+        font-weight: bold;
+        font-size: $fSMediumLaptop;
+      }
+
+      p {
+        text-align: justify;
+        line-height: $lHMPhone;
+      }
+
+      button {
+        align-self: flex-start;
+        margin: 1em 0 25px 1em;
+      }
+    }
+
+    .career-wrap + #job-form {
+      display: none;
+    }
+  }
+
+
+  @media (min-width: $phone) {
+    & .container.career-detail {
+      .career-wrap {
+        padding: 0 15px;
+
+        & .info-wrap {
+          padding: 0;
+        }
+        img {
+          object-fit: none;
+          height: auto;
+          width: 20%;
+        }
+
+        h3 + div {
+          display: flex;
+          justify-content: space-between;
+          span + span {
+            color: $darkGrey;
+            line-height: 3px;
+            text-transform: initial;
+          }
+        }
+
+        button {
+          align-self: flex-start;
+          margin: 1em 0 ;
+        }
+      }
+
+      #job-form {
+        width: 60%;
+        margin-top: 50px;
+        min-width: 320px;
+        // max-width: 500px;
+        padding: 30px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);
+  
+        legend {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          display: flex;
+          align-items: center;
+          text-transform: capitalize;
+          color: $pink;
+          margin: 20px 0;
+        }
+        & > div {
+          display: flex;
+          align-items: flex-start;
+          & > button {
+            margin: 10px;
+          }
+          & > div {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            & > .input-wrap {
+              width: 46%;
+              position: relative;
+              & > label {
+                color: $blackL;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

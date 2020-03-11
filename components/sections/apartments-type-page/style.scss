@@ -1,0 +1,136 @@
+@import '../../ui/constants.scss';
+@import '../../ui/mixims.scss';
+@import '../../ui/common-style.scss';
+///////////////////////////////////////////////////
+
+.wrapper {
+  .apartments-wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: url('../../../public/static/apartments-type-page/bg-main.png') no-repeat center;
+    background-size: 100% 100%;
+    & > div {
+      background: linear-gradient(185.2deg, #050505 -56.47%, rgba(0, 0, 0, 0.13) 89.18%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    & h2 {
+      color: $white;
+      margin-bottom: 15px;
+      text-transform: capitalize;
+    }
+    & .form-wrap {
+      width: calc(100% - 10%);
+      height: max-content;
+      position: absolute;
+      bottom: -4%;
+      left: 5%;            
+    }
+    
+  }
+
+  .apartments-wrapper + .container {
+    padding-top: 50px;
+    padding-bottom: 120px;
+    & > h2 {
+      color: $pink;
+      text-transform: capitalize;
+    }
+  }
+
+  .grid-wrap {
+    @include gridWrap;
+    .apartment-wrap {
+      width: 100%;
+      display: flex;
+      height: max-content;
+      align-items: center;
+      flex-direction: column;
+
+      div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        & p {
+          margin: 5px 0;
+          font-weight: 500;
+          span {
+            font-weight: bold;
+          }
+        }
+        & > button {
+          height: 50px;
+          margin: 25px auto;
+          & span {
+            margin: 0 7px;
+          }
+        }
+      }
+      & > img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @media (min-width: $phone) {
+    .apartments-wrapper {
+      & > div {
+        align-items: flex-end;
+        justify-content: center;
+        .form-wrap {
+          position: unset;
+          margin-bottom: 5%;
+        }
+        .form-wrap,
+        h2 {
+          width: 100%;
+          max-width: $maxWidth;
+        }
+        h2 {
+          text-align: left;
+        }
+      }
+    }
+    .apartments-wrapper + .container {
+      & > h2 {
+        display: none;
+      }
+    }
+    .grid-wrap {
+      .apartment-wrap {
+        div {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: space-between;
+          & > div {
+            width: max-content
+          }
+          & > button {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: $tablets) {
+    & > .apartments-wrapper {
+      height: 80vh;
+    }
+  }
+
+  @media (min-width: $desktops) {
+    & > .apartments-wrapper {
+      height: 70vh;
+    }
+  }
+};
