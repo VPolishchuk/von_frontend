@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import * as R from 'ramda'
-import SelectInputComponent from '../fieldset/select'
-import DatepickerComponent from '../fieldset/datepiker'
-// import './style.scss'
+import {
+  DatepickerComponent,
+  SelectInputComponent} from '../fieldset/index';
 import { SearchFormWrap } from './ui';
 import { Button } from '../../ui/common';
 /// //////////////////////////////////////////////////////////
@@ -29,9 +29,9 @@ export const SearchForm = (props) => {
           handelCastomChange={handelCastomChange}
         />
         <DatepickerComponent {...props} label='Booking Time' />
-        <button className='gradient '>
+        <Button className='gradient '>
         Search
-        </button>
+        </Button>
       </SearchFormWrap>
     );
   }

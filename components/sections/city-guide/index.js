@@ -6,8 +6,17 @@ import Img4 from '../../../public/static/city-guide/4.png'
 import SearchForm from '../../search-component/index'
 import { saveIcon } from '../../../icon/index.js'
 import * as H from '../../../helpers'
-
-import './style.scss'
+import {
+  H2,
+  Wrapper,
+  Button,
+  Paragraph,
+} from '../../../ui';
+import {
+  GridWrap,
+  SectionWrap,
+  ContainerSec
+} from './ui';
 /// ///////////////////////////////////////////
 
 const locations = [
@@ -39,51 +48,51 @@ const locations = [
     status: 'open now',
     price: ''
   }
-]
+];
 
 const LocationsComponents = ({ url, locations }) => {
   const goToDetails = () => {
-    H.goToRoute('/detail-guide')
-  }
+    H.goToRoute('/detail-guide');
+  };
   return (
-    <div className='grid-wrap'>
+    <GridWrap className='grid-wrap'>
       {
         locations.map(
           (item, i) => (
             <div key={i} className='place-wrap'>
               <img alt='img' src={item.image} />
-              <p>{item.name}</p>
-              <p>{item.type}</p>
-              <button onClick={() => goToDetails()}>
+              <Paragraph>{item.name}</Paragraph>
+              <Paragraph>{item.type}</Paragraph>
+              <Button onClick={() => goToDetails()}>
                 book now
                 <span>{saveIcon(20, 20)}</span>
-              </button>
+              </Button>
             </div>
           )
         )
       }
-    </div>
-  )
-}
+    </GridWrap>
+  );
+};
 
 const MainSection = (props) => (
-  <div className='main-section-guide'>
+  <SectionWrap className='main-section-guide'>
     <div>
-      <h2>where do you wanna go?</h2>
+      <H2>where do you wanna go?</H2>
       <div className='form-wrap'>
         <SearchForm {...props} guidePage />
       </div>
     </div>
-  </div>
+  </SectionWrap>
 )
 export const CityGuideSection = (props) => (
-  <div className='wrapper'>
+  <Wrapper className='wrapper'>
     <MainSection {...props} />
-    <div className='container'>
-      <h2>Restaurants in London</h2>
+    <ContainerSec className='container'>
+      <H2>Restaurants in London</H2>
       <LocationsComponents {...props} locations={locations} />
-    </div>
-  </div>
-)
+    </ContainerSec>
+  </Wrapper>
+);
 
-export default React.memo(CityGuideSection)
+export default React.memo(CityGuideSection);

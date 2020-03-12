@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout';
-import CityGuideSection from '../components/sections/city-guide'
+import CityGuideSection from '../components/sections/city-guide';
 //////////////////////////////////////////////
 
 class CityGuidePage extends React.Component {

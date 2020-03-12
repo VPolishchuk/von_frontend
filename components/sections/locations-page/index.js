@@ -19,7 +19,6 @@ import {
   GridWrap,
   LocationsWrapper,
 } from './ui';
-// import './style.scss'
 /// ///////////////////////////////////////////
 
 const locations = [
