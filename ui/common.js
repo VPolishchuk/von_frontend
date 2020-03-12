@@ -103,7 +103,7 @@ export const Paragraph = styled.p`
   ${container};
 `;
 
-export const Button = styled.p`
+export const Button = styled.button`
   border: 0;
   height: 50px;
   color: ${C.white};
@@ -121,7 +121,6 @@ export const Button = styled.p`
   font-size: ${C.fSSmallTable};
   text-transform: capitalize;
   min-width: 150px;
-  // width: 100%;
   width: max-content;
   padding: 10px 15px;
   &.gradient {

@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
-import * as R from 'ramda'
-import { Formik } from 'formik'
-import classNames from 'classnames'
-import InputFile from '../../fieldset/input-file'
-import * as I from '../../../icon/index.js'
-import ReviewSec from './review-sec'
-import './style.scss'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import * as R from 'ramda';
+import { Formik } from 'formik';
+import classNames from 'classnames';
+import InputFile from '../../fieldset/input-file';
+import * as I from '../../../icon/index.js';
+import ReviewSec from './review-sec';
+// import './style.scss'
 /// ///////////////////////////////////////////
 const fieldSettings = {
   1: {

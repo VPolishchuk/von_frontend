@@ -1,14 +1,25 @@
-import React from 'react'
-import Img1 from '../../../public/static/locations/1.png'
-import Img2 from '../../../public/static/locations/2.png'
-import Img3 from '../../../public/static/locations/3.png'
-import Img4 from '../../../public/static/locations/4.png'
-import Img5 from '../../../public/static/locations/5.png'
-import Img6 from '../../../public/static/locations/6.png'
-import Img7 from '../../../public/static/locations/7.png'
-import * as H from '../../../helpers'
-
-import './style.scss'
+import React from 'react';
+import Img1 from '../../../public/static/locations/1.png';
+import Img2 from '../../../public/static/locations/2.png';
+import Img3 from '../../../public/static/locations/3.png';
+import Img4 from '../../../public/static/locations/4.png';
+import Img5 from '../../../public/static/locations/5.png';
+import Img6 from '../../../public/static/locations/6.png';
+import Img7 from '../../../public/static/locations/7.png';
+import * as H from '../../../helpers';
+import {
+  H2,
+  Wrapper,
+  Container,
+  Button,
+  Paragraph,
+} from '../../../ui';
+import {
+  VWrap,
+  GridWrap,
+  LocationsWrapper,
+} from './ui';
+// import './style.scss'
 /// ///////////////////////////////////////////
 
 const locations = [
@@ -35,11 +46,12 @@ const locations = [
 ]
 
 const VonderBox = (props) => (
-  <>'   '<div className='v-wrap first'>
-    <div>
-      <h2>Become a Vonderer</h2>
-      <img alt='img' src={Img6} />
-      <p>
+  <>
+    <VWrap className='v-wrap first'>
+      <div>
+        <H2>Become a Vonderer</H2>
+        <img alt='img' src={Img6} />
+        <Paragraph>
           Vonder isn’t just about the housing,
           it’s a way of life tailored for digital
           nomads and young professionals
@@ -47,33 +59,34 @@ const VonderBox = (props) => (
           curious, if you’re creative, if you’re
           even a little bit or a whole lot of an
           adventurer,  a traveler or local, <br />
-        <span>you’re definitely vonder material.</span>
-      </p>
-      <button
-        className='gradient'
-        onClick={() => props.goToDetails('/apartments-type-page')}
-      >
+          <span>you’re definitely vonder material.</span>
+        </Paragraph>
+        <Button
+          className='gradient'
+          onClick={() => props.goToDetails('/apartments-type-page')}
+        >
           Become a Vonderer
-      </button>
-    </div>
-    <img alt='img' src={Img6} />
-  </div>'   '<div className='v-wrap two'>
-    <img alt='img' src={Img7} />
-    <div>
-      <img alt='img' src={Img5} />
-      <p>
+        </Button>
+      </div>
+      <img alt='img' src={Img6} />
+    </VWrap>
+    <VWrap className='v-wrap two'>
+      <img alt='img' src={Img7} />
+      <div>
+        <img alt='img' src={Img5} />
+        <Paragraph>
           Come meet a new set of people from
           around the world – socialize, create
           and work in one of our many
           inspiring locations.
-      </p>
-    </div>
-  </div>'
- '</>
-)
+        </Paragraph>
+      </div>
+    </VWrap>
+  </>
+);
 
 const LocationsComponents = (props) => (
-  <div className='grid-wrap'>
+  <GridWrap className='grid-wrap'>
     {
       props.locations.map(
         (item, i) => (
@@ -84,15 +97,15 @@ const LocationsComponents = (props) => (
                 <p>{item.name}</p>
                 <p className='address'>{item.address}</p>
               </div>
-              <button onClick={() => props.goToDetails('/detail-location')}>
+              <Button onClick={() => props.goToDetails('/detail-location')}>
                 Explore
-              </button>
+              </Button>
             </div>
           </div>
         )
       )
     }
-  </div>
+  </GridWrap>
 )
 
 export const LocationsSection = (props) => {
@@ -100,17 +113,17 @@ export const LocationsSection = (props) => {
     H.goToRoute(path);
   };
   return (
-    <div className='wrapper'>
-      <div className='locations-wrapper'>
+    <Wrapper className='wrapper'>
+      <LocationsWrapper className='locations-wrapper'>
         <div>
-          <h2>Our locations in London</h2>
+          <H2>Our locations in London</H2>
         </div>
-      </div>
-      <div className='container'>
+      </LocationsWrapper>
+      <Container className='container'>
         <LocationsComponents locations={locations} goToDetails={goToDetails} />
         <VonderBox {...props} goToDetails={goToDetails} />
-      </div>
-    </div>
+      </Container>
+    </Wrapper>
   );
 };
 
