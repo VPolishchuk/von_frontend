@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout'
-// import SectionComponent from '../components/sections/home-page';
+import SectionComponent from '../components/sections/home-page';
 // //////////////////////////////////////////////////
 
 class HomePage extends React.Component {
@@ -26,18 +26,18 @@ class HomePage extends React.Component {
   render () {
     // if (!this.state.loaded) return null
     return (
-      <div>
+      <>
         <Head>
           <title>Home</title>
           <link rel='icon' href='/favicon.ico' />
         </Head>
         <Layout>
-          ,mnf,dsmnf,sdmn,
-          {/* <SectionComponent {...this.props} /> */}
+          <SectionComponent {...this.props} />
         </Layout>
-      </div>
+      </>
     )
   }
 }
 
-export default HomePage
+export default HomePage;
+

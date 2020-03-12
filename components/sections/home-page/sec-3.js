@@ -1,5 +1,6 @@
-import React from 'react'
-import './style.scss'
+import React from 'react';
+import { H2 } from '../../../ui/common';
+import { Section3 } from './ui';
 /// ///////////////////////////////////////////
 
 const list = [
@@ -33,8 +34,8 @@ const list = [
   }
 ]
 export const LocationSection = (props) => (
-  <div className='section-3'>
-    <h2>OUR LOCATIONS</h2>
+  <Section3 className='section-3'>
+    <H2>OUR LOCATIONS</H2>
     <div className='location-wrap'>
       <ul>
         {
@@ -48,7 +49,7 @@ export const LocationSection = (props) => (
         }
       </ul>
     </div>
-  </div>
+  </Section3>
 )
 
-export default LocationSection
+export default LocationSection;

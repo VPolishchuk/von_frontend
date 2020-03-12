@@ -1,44 +1,19 @@
-import React from 'react'
-import { useSpring, animated } from 'react-spring'
-import SearchForm from '../../search-component/index'
-import './style.scss'
+import React from 'react';
+import SearchForm from '../../search-component/index';
+// import './style.scss'
+import { Section1 } from './ui';
 /// ///////////////////////////////////////////
 
 export const MainSection = (props) => {
-  const animStyleFilter = useSpring({
-    to: {
-      opacity: 1,
-      transition: 'all 0.4s',
-      transform: 'translateY(0px)'
-    },
-    from: {
-      opacity: 0,
-      transition: 'all 0.4s',
-      transform: 'translateY(100vh)'
-    }
-  })
-  const animStyle = useSpring({
-    to: {
-      opacity: 1,
-      transform: 'scale(1)'
-    },
-    from: {
-      opacity: 0.8,
-      transform: 'scale(1.3)'
-    }
-  })
   return (
-    <animated.div
-      className='section-1'
-      style={animStyle}
-    >
+    <Section1 className='section-1'>
       <div>
-        <animated.div className='form-wrap' style={animStyleFilter}>
+        <div className='form-wrap'>
           <SearchForm {...props} guidePage={false} />
-        </animated.div>
+        </div>
       </div>
-    </animated.div>
+    </Section1>
   )
 }
 
-export default MainSection
+export default MainSection;

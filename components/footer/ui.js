@@ -1,7 +1,8 @@
-import styled, { css }  from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as C from '../../ui/constant';
+import FLogo from '../../public/static/logo-footer.png';
 // ///////////////////////////////////////
-export const mediaMinWidthStyles = css`
+const mediaMinWidthStyles = css`
   @media (min-width: ${C.phone}) {
     & {
       height: 100px;
@@ -30,14 +31,14 @@ export const mediaMinWidthStyles = css`
 
 export const Footer = styled.footer`
   width: 100%;
-  background-color: $dark;
+  background-color: ${C.dark};
   height: 250px;
   .container {
     max-width: 1200px;
     min-width: 320px;
     margin: 0 auto;
     padding: 15px;
-    color: $white;
+    color: ${C.white};
     display: flex;
     flex-wrap: wrap;
     height: 100%;
@@ -45,7 +46,7 @@ export const Footer = styled.footer`
       background-size: contain;
       width: 86px;
       height: 80px;
-      background: url('../../public/static/logo-footer.png') no-repeat center;
+      background: url(${FLogo}) no-repeat center;
     }
     .footer-logo + nav {
       display: none;

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import * as R from 'ramda'
 import SelectInputComponent from '../fieldset/select'
 import DatepickerComponent from '../fieldset/datepiker'
-import './style.scss'
+// import './style.scss'
+import { SearchFormWrap } from './ui';
+import { Button } from '../../ui/common';
 /// //////////////////////////////////////////////////////////
 
 const options = [
@@ -12,13 +14,13 @@ const options = [
 ]
 
 export const SearchForm = (props) => {
-  const [selectedOption, setSelectedOption] = useState()
+  const [selectedOption, setSelectedOption] = useState();
   const handelCastomChange = (opt) => {
-    setSelectedOption(opt)
-  }
+    setSelectedOption(opt);
+  };
   if (props.guidePage) {
     return (
-      <form id='search-form'>
+      <SearchFormWrap id='search-form'>
         <SelectInputComponent
           {...props}
           options={options}
@@ -30,11 +32,11 @@ export const SearchForm = (props) => {
         <button className='gradient '>
         Search
         </button>
-      </form>
-    )
+      </SearchFormWrap>
+    );
   }
   return (
-    <form id='search-form'>
+    <SearchFormWrap id='search-form'>
       <SelectInputComponent
         {...props}
         options={options}
@@ -50,11 +52,11 @@ export const SearchForm = (props) => {
         handelCastomChange={handelCastomChange}
       />
       <DatepickerComponent {...props} label='Booking Time' />
-      <button className='gradient '>
+      <Button className='gradient '>
         Search
-      </button>
-    </form>
+      </Button>
+    </SearchFormWrap>
   )
 }
 
-export default SearchForm
+export default SearchForm;

@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import * as C from '../../ui/constant';
 // ///////////////////////////////////////////
 
 export const SearchWrap = styled.div`
@@ -23,7 +24,7 @@ export const SearchWrap = styled.div`
     height: 30px;
     opacity: 0;
     margin: 0;
-    color: $llGrey;
+    color: ${C.llGrey};
     padding-left: 40px;
     transition: all 0.4s;
     &.mob-search,
@@ -33,7 +34,7 @@ export const SearchWrap = styled.div`
       transition: all 0.4s;
       border-radius: 0;
       // height: 50px;
-      border-bottom: 1px solid $llGrey;
+      border-bottom: 1px solid ${C.llGrey};
     }
   }
 `

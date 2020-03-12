@@ -1,5 +1,5 @@
-import React from 'react'
-import * as R from 'ramda'
+import React from 'react';
+import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import useModal from '../../hook/useModal';
 import HeaderComponent from '../header';
@@ -42,9 +42,9 @@ export const Loader = (props) => {
   )
 }
 export const LayoutBox = (props) => {
-  const router = useRouter()
-  const { open, openModal, closeModal } = useModal()
-  const localUrl = R.path(['route'], router)
+  const router = useRouter();
+  const { open, openModal, closeModal } = useModal();
+  const localUrl = R.path(['route'], router);
   const url = [
     '/sing-up',
     '/sing-in',
@@ -55,7 +55,7 @@ export const LayoutBox = (props) => {
     '/detail-apartments',
     '/city-guide-page-coolcousin'
   ]
-  const blackHeader = R.includes(localUrl, url)
+  const blackHeader = R.includes(localUrl, url);
   return (
     <Layout>
       <HeaderComponent {...props} blackHeader={blackHeader} />

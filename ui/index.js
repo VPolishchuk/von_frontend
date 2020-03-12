@@ -59,6 +59,18 @@ import {
 const fontPath = '../public/fonts';
 
 export const GlobalStyle = createGlobalStyle`
+  body, ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    margin: 0;
+    outline: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+
   @import url('https://fonts.googleapis.com/css?family=Lato|Rubik&display=swap');
   a {
     color: inherit;
@@ -73,17 +85,6 @@ export const GlobalStyle = createGlobalStyle`
 
   li {
     list-style: none;
-  }
-  body, ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  * {
-    margin: 0;
-    outline: 0;
-    border: none;
-    box-sizing: border-box;
   }
 
   *::-webkit-scrollbar-track {
@@ -792,251 +793,251 @@ export const hoverStyles = css`
 //   }
 // `;
 
-export const Abstract = (tag) => styled(tag)`
-  ${flex}
-  ${size}
-  ${color}
-  ${space}
-  ${width}
-  ${order}
-  ${height}
-  ${border}
-  ${zIndex}
-  ${opacity}
-  ${display}
-  ${fontSize}
-  ${overflow}
-  ${maxWidth}
-  ${minWidth}
-  ${textAlign}
-  ${maxHeight}
-  ${minHeight}
-  ${boxShadow}
-  ${borderTop}
-  ${fontWeight}
-  ${fontFamily}
-  ${fontWeight}
-  ${lineHeight}
-  ${borderLeft}
-  ${background}
-  ${borderRight}
-  ${borderBottom}
-  ${borderRadius}
-  ${letterSpacing}
-  ${backgroundSize}
-  ${backgroundImage}
-  float: ${({ float }) => float};
-  transform: ${({ transform }) => transform};
-  animation: ${({ animation }) => animation};
-  overflow-x: ${({ overflowX }) => overflowX};
-  word-break: ${({ wordBreak }) => wordBreak};
-  transition: ${({ transition }) => transition};
-  line-height: ${({ lineHeight }) => lineHeight};
-  white-space: ${({ whiteSpace }) => whiteSpace};
-  border-style: ${({ borderStyle }) => borderStyle};
-  border-color: ${({ borderColor }) => borderColor};
-  cursor: ${({ cursor }) => R.or(cursor, 'initial')};
-  text-overflow: ${({ textOverflow }) => textOverflow};
-  text-transform: ${({ textTransform }) => textTransform};
-  border-top-left-radius: ${({ borderTLR }) => borderTLR};
-  border-top-right-radius: ${({ borderTRR }) => borderTRR};
-  border-bottom-left-radius: ${({ borderBLR }) => borderBLR};
-  border-bottom-right-radius: ${({ borderBRR }) => borderBRR};
-  ${({ additionalStyles }) => additionalStyles};
-  /* ${mediaMinMainStyles}
-  ${mediaMaxMainStyles} */
-`;
+// export const Abstract = (tag) => styled(tag)`
+//   ${flex}
+//   ${size}
+//   ${color}
+//   ${space}
+//   ${width}
+//   ${order}
+//   ${height}
+//   ${border}
+//   ${zIndex}
+//   ${opacity}
+//   ${display}
+//   ${fontSize}
+//   ${overflow}
+//   ${maxWidth}
+//   ${minWidth}
+//   ${textAlign}
+//   ${maxHeight}
+//   ${minHeight}
+//   ${boxShadow}
+//   ${borderTop}
+//   ${fontWeight}
+//   ${fontFamily}
+//   ${fontWeight}
+//   ${lineHeight}
+//   ${borderLeft}
+//   ${background}
+//   ${borderRight}
+//   ${borderBottom}
+//   ${borderRadius}
+//   ${letterSpacing}
+//   ${backgroundSize}
+//   ${backgroundImage}
+//   float: ${({ float }) => float};
+//   transform: ${({ transform }) => transform};
+//   animation: ${({ animation }) => animation};
+//   overflow-x: ${({ overflowX }) => overflowX};
+//   word-break: ${({ wordBreak }) => wordBreak};
+//   transition: ${({ transition }) => transition};
+//   line-height: ${({ lineHeight }) => lineHeight};
+//   white-space: ${({ whiteSpace }) => whiteSpace};
+//   border-style: ${({ borderStyle }) => borderStyle};
+//   border-color: ${({ borderColor }) => borderColor};
+//   cursor: ${({ cursor }) => R.or(cursor, 'initial')};
+//   text-overflow: ${({ textOverflow }) => textOverflow};
+//   text-transform: ${({ textTransform }) => textTransform};
+//   border-top-left-radius: ${({ borderTLR }) => borderTLR};
+//   border-top-right-radius: ${({ borderTRR }) => borderTRR};
+//   border-bottom-left-radius: ${({ borderBLR }) => borderBLR};
+//   border-bottom-right-radius: ${({ borderBRR }) => borderBRR};
+//   ${({ additionalStyles }) => additionalStyles};
+//   /* ${mediaMinMainStyles}
+//   ${mediaMaxMainStyles} */
+// `;
 
-export const Box = Abstract('div');
+// export const Box = Abstract('div');
 
-export const Img = Abstract('img');
+// export const Img = Abstract('img');
 
-export const Iframe = Abstract('iframe');
+// export const Iframe = Abstract('iframe');
 
-export const Flex = styled(Box)`
-  ${flex}
-  ${flexWrap}
-  ${alignSelf}
-  ${alignItems}
-  ${flexDirection}
-  ${justifyContent}
-  display: ${({ display }) => R.or(display, 'flex')};
-  /* ${mediaMinFlexStyles} */
-  /* ${mediaMaxFlexStyles} */
-`;
+// export const Flex = styled(Box)`
+//   ${flex}
+//   ${flexWrap}
+//   ${alignSelf}
+//   ${alignItems}
+//   ${flexDirection}
+//   ${justifyContent}
+//   display: ${({ display }) => R.or(display, 'flex')};
+//   /* ${mediaMinFlexStyles} */
+//   /* ${mediaMaxFlexStyles} */
+// `;
 
-export const Grid = styled(Box)`
-  ${gridGap}
-  ${gridRow}
-  ${gridColumn}
-  ${gridAutoRows}
-  ${gridAutoColumns}
-  ${gridTemplateRows}
-  ${gridTemplateColumns}
-  display: ${({ display }) => R.or(display, 'grid')};
-  /* ${mediaMinGridStyles}
-  ${mediaMaxGridStyles} */
-`;
+// export const Grid = styled(Box)`
+//   ${gridGap}
+//   ${gridRow}
+//   ${gridColumn}
+//   ${gridAutoRows}
+//   ${gridAutoColumns}
+//   ${gridTemplateRows}
+//   ${gridTemplateColumns}
+//   display: ${({ display }) => R.or(display, 'grid')};
+//   /* ${mediaMinGridStyles}
+//   ${mediaMaxGridStyles} */
+// `;
 
-export const PositionedBox = styled(Box)`
-  ${top}
-  ${left}
-  ${right}
-  ${bottom}
-  ${position}
-  /* ${mediaMinPositionStyles}
-  ${mediaMaxPositionStyles} */
-`;
+// export const PositionedBox = styled(Box)`
+//   ${top}
+//   ${left}
+//   ${right}
+//   ${bottom}
+//   ${position}
+//   /* ${mediaMinPositionStyles}
+//   ${mediaMaxPositionStyles} */
+// `;
 
-export const PositionedFlex = styled(Flex)`
-  ${top}
-  ${left}
-  ${right}
-  ${bottom}
-  ${position}
-  /* ${mediaMinPositionStyles}
-  ${mediaMaxPositionStyles} */
-`;
+// export const PositionedFlex = styled(Flex)`
+//   ${top}
+//   ${left}
+//   ${right}
+//   ${bottom}
+//   ${position}
+//   /* ${mediaMinPositionStyles}
+//   ${mediaMaxPositionStyles} */
+// `;
 
-export const PositionedGrid = styled(Grid)`
-  ${top}
-  ${left}
-  ${right}
-  ${bottom}
-  ${position}
-  /* ${mediaMinPositionStyles}
-  ${mediaMaxPositionStyles} */
-`;
+// export const PositionedGrid = styled(Grid)`
+//   ${top}
+//   ${left}
+//   ${right}
+//   ${bottom}
+//   ${position}
+//   /* ${mediaMinPositionStyles}
+//   ${mediaMaxPositionStyles} */
+// `;
 
-export const Button = styled.button`
-  ${color}
-  ${space}
-  ${width}
-  ${height}
-  ${border}
-  ${zIndex}
-  ${opacity}
-  ${fontSize}
-  ${alignSelf}
-  ${boxShadow}
-  ${fontWeight}
-  ${fontFamily}
-  ${background}
-  ${borderRadius}
-  cursor: ${({ cursor }) => R.or(cursor, 'initial')};
-  text-transform: ${({ textTransform }) => textTransform};
-  ${({ additionalStyles }) => additionalStyles}
-  /* ${mediaMinMainStyles}
-  ${mediaMaxMainStyles} */
-`;
+// export const Button = styled.button`
+//   ${color}
+//   ${space}
+//   ${width}
+//   ${height}
+//   ${border}
+//   ${zIndex}
+//   ${opacity}
+//   ${fontSize}
+//   ${alignSelf}
+//   ${boxShadow}
+//   ${fontWeight}
+//   ${fontFamily}
+//   ${background}
+//   ${borderRadius}
+//   cursor: ${({ cursor }) => R.or(cursor, 'initial')};
+//   text-transform: ${({ textTransform }) => textTransform};
+//   ${({ additionalStyles }) => additionalStyles}
+//   /* ${mediaMinMainStyles}
+//   ${mediaMaxMainStyles} */
+// `;
 
-export const Header = styled.header`
-  ${color}
-  ${space}
-  ${width}
-  ${zIndex}
-  ${display}
-  ${fontSize}
-  ${position}
-  ${boxShadow}
-  ${alignItems}
-  ${background}
-  transition: ${({ transition }) => transition};
-`;
+// export const Header = styled.header`
+//   ${color}
+//   ${space}
+//   ${width}
+//   ${zIndex}
+//   ${display}
+//   ${fontSize}
+//   ${position}
+//   ${boxShadow}
+//   ${alignItems}
+//   ${background}
+//   transition: ${({ transition }) => transition};
+// `;
 
-export const Footer = styled.footer`
-  ${color}
-  ${space}
-  ${display}
-  ${position}
-  ${fontSize}
-  ${borderTop}
-  ${alignItems}
-  ${background}
-  border-color: ${({ borderColor }) => borderColor};
-`;
+// export const Footer = styled.footer`
+//   ${color}
+//   ${space}
+//   ${display}
+//   ${position}
+//   ${fontSize}
+//   ${borderTop}
+//   ${alignItems}
+//   ${background}
+//   border-color: ${({ borderColor }) => borderColor};
+// `;
 
-export const Label = styled.label`
-  ${space}
-  ${width}
-  ${color}
-  ${display}
-  ${fontSize}
-  ${alignItems}
-  &.required::after {
-    content: '*';
-    color: red;
-  }
-`;
+// export const Label = styled.label`
+//   ${space}
+//   ${width}
+//   ${color}
+//   ${display}
+//   ${fontSize}
+//   ${alignItems}
+//   &.required::after {
+//     content: '*';
+//     color: red;
+//   }
+// `;
 
-export const Input = styled.input`
-  ${space}
-  ${width}
-  ${height}
-  ${border}
-  ${display}
-  ${opacity}
-  ${minWidth}
-  ${fontSize}
-  ${background}
-  ${borderRadius}
-  cursor: ${({ cursor }) => cursor};
-  &:focus {
-    box-shadow: 0 0 5px 0 rgba(206, 40, 40, 0.5);
-  }
-`;
+// export const Input = styled.input`
+//   ${space}
+//   ${width}
+//   ${height}
+//   ${border}
+//   ${display}
+//   ${opacity}
+//   ${minWidth}
+//   ${fontSize}
+//   ${background}
+//   ${borderRadius}
+//   cursor: ${({ cursor }) => cursor};
+//   &:focus {
+//     box-shadow: 0 0 5px 0 rgba(206, 40, 40, 0.5);
+//   }
+// `;
 
-export const Image = styled.img`
-  ${width}
-  ${height}
-  /* ${mediaMinMainStyles}
-  ${mediaMaxMainStyles} */
-  border-radius: ${({ borderRadius }) => borderRadius}
-`;
+// export const Image = styled.img`
+//   ${width}
+//   ${height}
+//   /* ${mediaMinMainStyles}
+//   ${mediaMaxMainStyles} */
+//   border-radius: ${({ borderRadius }) => borderRadius}
+// `;
 
-export const SelectComponent = styled.select`
-  ${space}
-  ${width}
-  ${height}
-  ${border}
-  ${fontSize}
-  ${position}
-  ${background}
-  ${lineHeight}
-  ${borderRadius}
-  appearance: none;
-  &:focus {
-    box-shadow: 0 0 5px 0 rgba(206, 40, 40, 0.5);
-  }
-`;
+// export const SelectComponent = styled.select`
+//   ${space}
+//   ${width}
+//   ${height}
+//   ${border}
+//   ${fontSize}
+//   ${position}
+//   ${background}
+//   ${lineHeight}
+//   ${borderRadius}
+//   appearance: none;
+//   &:focus {
+//     box-shadow: 0 0 5px 0 rgba(206, 40, 40, 0.5);
+//   }
+// `;
 
-export const reversFlexStyles = css`
-  & > ${Flex}:nth-child(2n) {
-    & > ${Flex} {
-      padding-left: 0px;
-    }
-  }
-  /* ${createMinWithMediaQuery(C.DESKTOP_UI_BREAKPOINT)} {
-    & > ${Flex}:nth-child(2n) {
-      flex-direction: row-reverse;
-      & > ${Flex} {
-        padding-left: 100px;
-      }
-    }
-  } */
-`;
+// export const reversFlexStyles = css`
+//   & > ${Flex}:nth-child(2n) {
+//     & > ${Flex} {
+//       padding-left: 0px;
+//     }
+//   }
+//   /* ${createMinWithMediaQuery(C.DESKTOP_UI_BREAKPOINT)} {
+//     & > ${Flex}:nth-child(2n) {
+//       flex-direction: row-reverse;
+//       & > ${Flex} {
+//         padding-left: 100px;
+//       }
+//     }
+//   } */
+// `;
 
-export const animateShowPhoto = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(-800px) scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px) scale(1);
-  }
-`;
+// export const animateShowPhoto = keyframes`
+//   0% {
+//     opacity: 0;
+//     transform: translateY(-800px) scale(0);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0px) scale(1);
+//   }
+// `;
 
-export const showPhotoStyle = () => css`
-  ${animateShowPhoto} 0.5s linear;
-`;
+// export const showPhotoStyle = () => css`
+//   ${animateShowPhoto} 0.5s linear;
+// `;

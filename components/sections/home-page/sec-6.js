@@ -1,6 +1,6 @@
-import React from 'react'
-
-import './style.scss'
+import React from 'react';
+import { H2, Paragraph } from '../../../ui/common';
+import { Section6 } from './ui';
 /// ///////////////////////////////////////////
 
 const list = [
@@ -11,14 +11,14 @@ const list = [
   'HÖR RADIO STATION'
 ]
 export const LifestyleSection = (props) => (
-  <div className='section-6'>
-    <h2 className='container'>LIFESTYLE</h2>
-    <p className='container'>
+  <Section6 className='section-6'>
+    <H2 className='container'>LIFESTYLE</H2>
+    <Paragraph className='container'>
       Vonder provides digital nomads and young professionals a home away
       from home to connect, experience and embark on urban adventures.
       We’ve built a platform where we empower the community by supporting local artists ,
       artisans, vendors and creators.
-    </p>
+    </Paragraph>
     <div className='list-wrap'>
       <ul>
         {
@@ -32,7 +32,7 @@ export const LifestyleSection = (props) => (
         }
       </ul>
     </div>
-    <h2 className='gradient'>VONDER CLUB HOUSE</h2>
+    <H2 className='gradient'>VONDER CLUB HOUSE</H2>
     <div alt='image' className='lifeStyle-img'>
       <div>
         <ul>
@@ -47,23 +47,23 @@ export const LifestyleSection = (props) => (
           } */}
         </ul>
         <div>
-          <h2 className='gradient'>VONDER CLUB HOUSE</h2>
-          <p className='white'>
+          <H2 className='gradient'>VONDER CLUB HOUSE</H2>
+          <Paragraph className='white'>
             A marriage between a great event venue and a co-working space
             that can be used to network, eat, hang out and learn. A space
             to showcase talent, create connections and enjoy
             the perpetual flow of caffeine.
-          </p>
+          </Paragraph>
         </div>
       </div>
     </div>
-    <p>
+    <Paragraph>
       A marriage between a great event venue and a co-working space
       that can be used to network, eat, hang out and learn. A space
       to showcase talent, create connections and enjoy
       the perpetual flow of caffeine.
-    </p>
-  </div>
+    </Paragraph>
+  </Section6>
 )
 
-export default LifestyleSection
+export default LifestyleSection;

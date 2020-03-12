@@ -1,7 +1,6 @@
 // import App from 'next/app'
 // import { register, unregister } from 'next-offline/runtime';
-
-import React from 'react'
+import React from 'react';
 // ////////////////////////////////////////////////////////////////d
 
 class App extends React.Component {
@@ -13,7 +12,7 @@ class App extends React.Component {
   // }
 
   render () {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
     return (
       <div>
         <Component {...pageProps} />
@@ -22,4 +21,5 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;
+

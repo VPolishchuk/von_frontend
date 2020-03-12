@@ -1,24 +1,25 @@
-import React from 'react'
-import Img from '../../../public/static/home-page/contact-us/1.png'
-import './style.scss'
+import React from 'react';
+import Img from '../../../public/static/home-page/contact-us/1.png';
+import { H2, H3, Paragraph, Button } from '../../../ui/common';
+import { Section7 } from './ui';
 /// ///////////////////////////////////////////
 
 export const ContactUsSection = (props) => (
-  <div className='section-7 container'>
-    <h2 className='gradient'>Contact Us</h2>
+  <Section7 className='section-7 container'>
+    <H2 className='gradient'>Contact Us</H2>
     <div className='contact-wrap'>
       <div className='form-wrap'>
-        <h3>
+        <H3>
 					That's what's up!<br />
           <span>Say hello!</span>
-        </h3>
+        </H3>
         <form id='send'>
           <input type='name' placeholder='Name' />
           <input type='email' placeholder='Email' />
           <textarea placeholder='Message' rows='30' />
-          <button className='gradient'>
+          <Button className='gradient'>
 						Send
-          </button>
+          </Button>
         </form>
       </div>
       <div className='social-wrap'>
@@ -33,7 +34,7 @@ export const ContactUsSection = (props) => (
         </div>
       </div>
     </div>
-  </div>
+  </Section7>
 )
 
-export default ContactUsSection
+export default ContactUsSection;

@@ -10,12 +10,12 @@ import { ExperienceMoreSection } from './sec-5'
 // hook
 import { useWindowsHeight } from '../../../hook/useWindowHeight'
 // style
-import './style.scss'
+import { Wrapper } from '../../../ui/common';
 /// //////////////////////////////////////////////////
 const SectionComponent = (props) => {
-  const { lastYPos } = useWindowsHeight()
+  const { lastYPos } = useWindowsHeight();
   return (
-    <div className='wrapper'>
+    <Wrapper className='wrapper'>
       <MainSection {...props} scrollPosY={lastYPos} />
       <AboutSection {...props} scrollPosY={lastYPos} />
       <LocationSection {...props} scrollPosY={lastYPos} />
@@ -23,8 +23,8 @@ const SectionComponent = (props) => {
       <ExperienceMoreSection {...props} scrollPosY={lastYPos} />
       <LifestyleSection {...props} scrollPosY={lastYPos} />
       <ContactUsSection {...props} scrollPosY={lastYPos} />
-    </div>
+    </Wrapper>
   )
 }
 
-export default React.memo(SectionComponent)
+export default React.memo(SectionComponent);

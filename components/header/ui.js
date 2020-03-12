@@ -1,6 +1,99 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components';
+import * as C from '../../ui/constant';
+import {downArrow} from '../../ui/common';
+// //////////////////////////////////////////////
 
-// ///////////////////////////////////////
+const mediaMinWidthStyles = css`
+  @media (min-width: ${C.phone}) {
+    & .container {
+      img + .search-input {
+        display: flex;
+        justify-content: flex-end;
+        & > div {
+          width: max-content;
+        }
+      }
+      nav {
+        height: 100%;
+        min-height: 100%;
+        position: unset;;
+        transition: transform 0.4s;
+        transform: translateY(0vh);
+        & > .mob-nav-bar {
+          display: none;
+        }
+        & .link-wrap {
+          display: flex;
+          min-height: 100%;
+          min-width: 150px;
+          color: ${C.white};
+          flex-direction: column;
+          font-size: ${C.fSMediumPhone};
+          font-weight: bold;
+          height: max-content;
+          position: relative;
+          align-items: center;
+          translate: all 0.4s;
+
+          & > div {
+            display: flex;
+            align-items: center;
+            height: 60px;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 15px;
+            & > .down-arrow {
+              ${downArrow};
+              margin: 0 5px;
+              width: 20px;
+              height: 20px;
+            }
+          }
+          div + div {
+            display: none;
+          }
+          &:hover div + div {
+            display: flex;
+            position: absolute;
+            translate: all 0.4s;
+            left: 0;
+            top: 60px;
+            flex-direction: column;
+            padding: 0;
+            height: max-content;
+            background: rgba(0, 0, 0, 0.28);
+            border-radius: 0px 0px 5px 5px;
+            & a {
+              display: flex;
+              height: 60px;
+              align-items: center;
+              width: 100%;
+              padding: 0 15px;
+              justify-content: flex-start;
+              &:hover {
+                color: $pink;
+                background-color: ${C.white};
+              }
+            }
+          }
+          &.active,
+          &:hover {
+            background: rgba(0, 0, 0, 0.28);
+            cursor: pointer;
+          }
+        }
+      }
+      img {
+        margin: 0;
+        object-fit: none;
+        object-position: center;
+      }
+      .search-input + .burger {
+        display: none;
+      }
+    }
+  }
+`;
 
 export const Header = styled.header`
   top: 0;
@@ -12,7 +105,7 @@ export const Header = styled.header`
   transition: all 0.5s;
   &.black {
     transition: all 0.4s;
-    background-color: $dark;
+    background-color: ${C.dark};
   }
   & .container {
     height: 100%;
@@ -44,7 +137,7 @@ export const Header = styled.header`
       cursor: pointer;
       border-radius: 2px;
       margin: 0 15px;
-      background-color: $white;
+      background-color: ${C.white};
       transition: all 0.3s;
       &::after {
         content: '';
@@ -54,7 +147,7 @@ export const Header = styled.header`
         height: 4px;
         border-radius: 2px;
         transition: all 0.3s;
-        background-color: $white;
+        background-color: ${C.white};
       }
       &::before {
         content: '';
@@ -64,23 +157,23 @@ export const Header = styled.header`
         height: 4px;
         border-radius: 2px;
         transition: all 0.3s;
-        background-color: $white;
+        background-color: ${C.white};
       }
       &.active {
         height: 0;
         z-index: 9990;
         cursor: pointer;
-        background-color: $blackL;
+        background-color: ${C.blackL};
         &::after {
           top: 0;
           transition: all 0.3s;
-          background-color: $blackL;
+          background-color: ${C.blackL};
           transform: rotateZ(-45deg);
         }
         &::before {
           top: 0;
           transition: all 0.3s;
-          background-color: $blackL;
+          background-color: ${C.blackL};
           transform: rotateZ(45deg);
         }
       }
@@ -111,7 +204,7 @@ export const Header = styled.header`
           display: flex;
           flex-direction: column;
           padding: 15px 0;
-          background-color: $white;
+          background-color: ${C.white};
           border-radius: 0px 0px 10px 10px;
           box-shadow: 0px 2px 20px rgba(30, 27, 28, 0.14);
           & .search-input {
@@ -126,7 +219,7 @@ export const Header = styled.header`
             height: max-content;
             display: flex;
             align-items: center;
-            color: $blackL;
+            color: ${C.blackL};
             transition: transform 0.4s;
             flex-direction: column;
             justify-content: space-between;
@@ -137,7 +230,7 @@ export const Header = styled.header`
             &.active > div {
               &:first-child:hover {
                 background: $pink;
-                color: $white;
+                color: ${C.white};
                 cursor: pointer;
               }
             }
@@ -149,7 +242,7 @@ export const Header = styled.header`
               justify-content: space-between;
               padding: 0 15px;
               & > .down-arrow {
-                @include downArrow;
+                ${downArrow};
                 margin: 0 5px;
                 width: 20px;
                 height: 20px;
@@ -166,12 +259,12 @@ export const Header = styled.header`
                 height: 30px;
                 align-items: center;
                 width: 100%;
-                color: $llGrey;
+                color: ${C.llGrey};
                 padding: 0 15px;
                 justify-content: flex-start;
                 &:hover {
                   background: $pink;
-                  color: $white;
+                  color: ${C.white};
                   cursor: pointer;
                 }
               }
@@ -214,95 +307,5 @@ export const Header = styled.header`
       }
     }
   }
-  @media (min-width: $phone) {
-    & .container {
-      img + .search-input {
-        display: flex;
-        justify-content: flex-end;
-        & > div {
-          width: max-content;
-        }
-      }
-      nav {
-        height: 100%;
-        min-height: 100%;
-        position: unset;;
-        transition: transform 0.4s;
-        transform: translateY(0vh);
-        & > .mob-nav-bar {
-          display: none;
-        }
-        & .link-wrap {
-          display: flex;
-          min-height: 100%;
-          min-width: 150px;
-          color: $white;
-          flex-direction: column;
-          font-size: $fontSizeSmaller2;
-          font-weight: bold;
-          height: max-content;
-          position: relative;
-          align-items: center;
-          translate: all 0.4s;
-
-          & > div {
-            display: flex;
-            align-items: center;
-            height: 60px;
-            width: 100%;
-            justify-content: space-between;
-            padding: 0 15px;
-            & > .down-arrow {
-              @include downArrow;
-              margin: 0 5px;
-              width: 20px;
-              height: 20px;
-            }
-          }
-          div + div {
-            display: none;
-          }
-          &:hover div + div {
-            display: flex;
-            position: absolute;
-            translate: all 0.4s;
-            left: 0;
-            top: 60px;
-            flex-direction: column;
-            padding: 0;
-            height: max-content;
-            background: rgba(0, 0, 0, 0.28);
-            border-radius: 0px 0px 5px 5px;
-            & a {
-              display: flex;
-              height: 60px;
-              align-items: center;
-              width: 100%;
-              padding: 0 15px;
-              justify-content: flex-start;
-              &:hover {
-                color: $pink;
-                background-color: $white;
-              }
-            }
-          }
-          &.active,
-          &:hover {
-            background: rgba(0, 0, 0, 0.28);
-            cursor: pointer;
-          }
-        }
-      }
-      img {
-        margin: 0;
-        object-fit: none;
-        object-position: center;
-        -o-object-fit: none;
-        -o-object-position: center;
-      }
-      .search-input + .burger {
-        display: none;
-      }
-    }
-  }
-`
+  ${mediaMinWidthStyles}
+`;

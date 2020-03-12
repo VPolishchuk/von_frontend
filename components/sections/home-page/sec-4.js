@@ -10,8 +10,9 @@ import Img8 from '../../../public/static/home-page/services/8.png'
 import Img9 from '../../../public/static/home-page/services/9.png'
 import Img10 from '../../../public/static/home-page/services/10.png'
 import Img11 from '../../../public/static/home-page/services/11.png'
-import Img12 from '../../../public/static/home-page/services/12.png'
-import './style.scss'
+import Img12 from '../../../public/static/home-page/services/12.png';
+import { H2, Paragraph } from '../../../ui/common';
+import { Section4 } from './ui';
 /// ////////////////////////////////////////////////////////////////////
 
 const services = [
@@ -66,21 +67,22 @@ const services = [
 ]
 
 export const ServicesSection = (props) => (
-  <div className='section-4 container'>
-    <h2 className='gradient'>What's included?</h2>
+  <Section4 className='section-4 container'>
+    <H2 className='gradient'>What's included?</H2>
     <div className='services-wrap'>
       {
         services.map(
           (item, i) => (
             <div key={i}>
               <img key={i} src={item.image} alt={`img-${1}`} />
-              <p>{item.title}</p>
+              <Paragraph>{item.title}</Paragraph>
             </div>
           )
         )
       }
     </div>
-  </div>
+  </Section4>
 )
 
-export default ServicesSection
+export default ServicesSection;
+

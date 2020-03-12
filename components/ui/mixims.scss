@@ -1,136 +1,136 @@
 // @mixin arrow_down_icon() {
 //   background-image: url('data:image/svg+xml,<svg viewBox="0 0 16 10" fill="none" xmlns="https://www.w3.org/2000/svg"><path d="M13.5481 0.64915L7.99254 5.95254L2.43701 0.649149C2.30445 0.522603 2.14708 0.422223 1.97388 0.353737C1.80068 0.28525 1.61504 0.25 1.42757 0.25C1.2401 0.25 1.05446 0.28525 0.881262 0.353737C0.70806 0.422223 0.550686 0.522603 0.418123 0.649149C0.285561 0.775694 0.180409 0.925927 0.108667 1.09127C0.0369251 1.25661 6.99008e-07 1.43382 6.83004e-07 1.61278C6.66999e-07 1.79174 0.036925 1.96895 0.108667 2.13429C0.180409 2.29963 0.285561 2.44987 0.418123 2.57641L6.99025 8.85027C7.12272 8.97698 7.28006 9.07751 7.45327 9.1461C7.62649 9.21469 7.81217 9.25 7.9997 9.25C8.18722 9.25 8.37291 9.21469 8.54612 9.1461C8.71933 9.07751 8.87668 8.97698 9.00914 8.85027L15.5813 2.57641C15.714 2.44996 15.8193 2.29976 15.8912 2.13441C15.963 1.96905 16 1.7918 16 1.61278C16 1.43377 15.963 1.25651 15.8912 1.09116C15.8193 0.925804 15.714 0.775602 15.5813 0.64915C15.0229 0.129745 14.1065 0.116077 13.5481 0.64915Z" fill="#D0D0D0"/></svg>');
 // }
-@import './constants.scss';
+// @import './constants.scss';
 /////////////////////////////////////////
 
 
 
-@mixin paragraph {
-  color: $blackL;
-  font-style: normal;
-  font-weight: normal;
-  white-space: normal;
-  font-family: Roboto;
-  line-height: $lHMPhone;
-  font-size: $fSBigPhone;
-  &.black {
-    color: $blackL;
-    line-height: $lHLaptop;
-    font-size: $fSMediumLaptop;
-  }
-  &.white {
-    color: $white;
-    line-height: $lHBPhone;
-    font-size: $fSSmallTable;
-  }
-  @include commonPadding;
-}
+// @mixin paragraph {
+//   color: $blackL;
+//   font-style: normal;
+//   font-weight: normal;
+//   white-space: normal;
+//   font-family: Roboto;
+//   line-height: $lHMPhone;
+//   font-size: $fSBigPhone;
+//   &.black {
+//     color: $blackL;
+//     line-height: $lHLaptop;
+//     font-size: $fSMediumLaptop;
+//   }
+//   &.white {
+//     color: $white;
+//     line-height: $lHBPhone;
+//     font-size: $fSSmallTable;
+//   }
+//   @include commonPadding;
+// }
 
-@mixin buttonStyle {
-  border: 0;
-  height: 50px;
-  color: $white;
-  display: flex;
-  cursor: pointer;
-  font-weight: 500;
-  background: $pink;
-  font-style: normal;
-  border-radius: 5px;
-  align-items: center;
-  font-family: Roboto;
-  max-width: max-content;
-  line-height: $lHBPhone;
-  justify-content: center;
-  font-size: $fSSmallTable;
-  text-transform: capitalize;
-  min-width: 150px;
-  // width: 100%;
-  width: max-content;
-  padding: 10px 15px;
-  &.gradient {
-    background: linear-gradient(90deg, #D3136D 0%, #F4892B 100%);
-  }
-  &.blackL {
-    color: $llGrey;
-    background-color: $lightGrey;
-  }
-}
+// @mixin buttonStyle {
+//   border: 0;
+//   height: 50px;
+//   color: $white;
+//   display: flex;
+//   cursor: pointer;
+//   font-weight: 500;
+//   background: $pink;
+//   font-style: normal;
+//   border-radius: 5px;
+//   align-items: center;
+//   font-family: Roboto;
+//   max-width: max-content;
+//   line-height: $lHBPhone;
+//   justify-content: center;
+//   font-size: $fSSmallTable;
+//   text-transform: capitalize;
+//   min-width: 150px;
+//   // width: 100%;
+//   width: max-content;
+//   padding: 10px 15px;
+//   &.gradient {
+//     background: linear-gradient(90deg, #D3136D 0%, #F4892B 100%);
+//   }
+//   &.blackL {
+//     color: $llGrey;
+//     background-color: $lightGrey;
+//   }
+// }
 
-@mixin gradient {
-  background: -webkit-linear-gradient(90deg, #D3136D 0%, #F4892B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+// @mixin gradient {
+//   background: -webkit-linear-gradient(90deg, #D3136D 0%, #F4892B 100%);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
 
-@mixin sectionMargin {
-  margin-top: 70px;
-  margin-bottom: 70px;
-}
+// @mixin sectionMargin {
+//   margin-top: 70px;
+//   margin-bottom: 70px;
+// }
 
-@mixin gridWrap {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 20px;
-  @media (min-width: $phone) {
-    column-gap: 60px;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+// @mixin gridWrap {
+//   display: grid;
+//   grid-template-columns: repeat(1, 1fr);
+//   grid-gap: 20px;
+//   @media (min-width: $phone) {
+//     column-gap: 60px;
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
 
-@mixin downArrow  {
-  width: 20px; 
-  height: 20px;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: all 0.4s;
-  background-size: contain;
-  &.rotate,
-  &:hover {
-    transform: rotateX(180deg);
-    transition: all 0.4s;
-  }
-  // &.rotate {
-  //   transform: rotateX(180deg);
-  //   transition: all 0.4s;
-  // }
-}
+// @mixin downArrow  {
+//   width: 20px; 
+//   height: 20px;
+//   margin: 0 5px;
+//   cursor: pointer;
+//   transition: all 0.4s;
+//   background-size: contain;
+//   &.rotate,
+//   &:hover {
+//     transform: rotateX(180deg);
+//     transition: all 0.4s;
+//   }
+//   // &.rotate {
+//   //   transform: rotateX(180deg);
+//   //   transition: all 0.4s;
+//   // }
+// }
 
-@mixin largeFontSizeH2 {
-  @media (max-width: $phone) {
-    font-size: $fSBigTable;
-    line-height: $lHMediumLaptop;
-  }
-}
+// @mixin largeFontSizeH2 {
+//   @media (max-width: $phone) {
+//     font-size: $fSBigTable;
+//     line-height: $lHMediumLaptop;
+//   }
+// }
 
-@mixin fontTemplate {
-  font-size: $fSBigTable;
-  line-height: $lHMediumLaptop;
-}
+// @mixin fontTemplate {
+//   font-size: $fSBigTable;
+//   line-height: $lHMediumLaptop;
+// }
 
-@mixin largeFontSizeH3 {
-  @media (max-width: $phone) {
-    font-size: $fSBigTable;
-    line-height: $lHMediumLaptop;
-  }
-}
+// @mixin largeFontSizeH3 {
+//   @media (max-width: $phone) {
+//     font-size: $fSBigTable;
+//     line-height: $lHMediumLaptop;
+//   }
+// }
 
 
-@mixin largeFontSizeH6 {
-  @media (max-width: $phone) {
-    font-size: $fSBigPhone;
-    line-height: $lHSPhone;
-  }
-}
+// @mixin largeFontSizeH6 {
+//   @media (max-width: $phone) {
+//     font-size: $fSBigPhone;
+//     line-height: $lHSPhone;
+//   }
+// }
 
-@mixin commonPadding {
-  @media (max-width: $phone) {
-    padding: 0 1rem;
-  }
-}
+// @mixin commonPadding {
+//   @media (max-width: $phone) {
+//     padding: 0 1rem;
+//   }
+// }
 
-@mixin commonMargin {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
+// @mixin commonMargin {
+//   margin-top: 1em;
+//   margin-bottom: 1em;
+// }
 

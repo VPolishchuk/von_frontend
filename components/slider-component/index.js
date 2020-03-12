@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import * as R from 'ramda'
-import Slider from '@farbenmeer/react-spring-slider'
+// import Slider from '@farbenmeer/react-spring-slider'
 // images
 import Img5 from '../../public/static/city-guide/1.png'
 import Img6 from '../../public/static/city-guide/2.png'
 import Img3 from '../../public/static/city-guide/3.png'
 import Img4 from '../../public/static/city-guide/4.png'
 
-import './style.scss'
+// import './style.scss';
 /// /////////////////////////////////////////////////
 
 const images = [Img5, Img6, Img3, Img4]
@@ -27,14 +27,14 @@ const BulletComponent = ({ onClick, isActive }) => (
   />
 )
 
-const useSlider = () => {
-  const [] = useState()
-  const [] = useState()
+// const useSlider = () => {
+//   const [] = useState()
+//   const [] = useState()
 
-  useEffect(() => {
+//   useEffect(() => {
 
-  }, [])
-}
+//   }, [])
+// }
 
 const SliderComponent = (props) => {
   let sliderSetting = {
@@ -44,7 +44,7 @@ const SliderComponent = (props) => {
   sliderSetting = R.not(R.isEmpty(R.path(['slSetting'], props))) && R.merge(sliderSetting, props.slSetting)
   return (
     <div className='slider-wrap'>
-      <Slider
+      {/* <Slider
         {...sliderSetting}
       >
         {
@@ -67,9 +67,10 @@ const SliderComponent = (props) => {
             }
           )
         }
-      </Slider>
+      </Slider> */}
     </div>
   )
 }
 
-export default SliderComponent
+export default SliderComponent;
+
