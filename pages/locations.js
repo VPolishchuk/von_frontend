@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Layout from '../components/layout';
 import LocationsSection from '../components/sections/locations-page';
-//////////////////////////////////////////////
+// ////////////////////////////////////////////
 
 class LocationPage extends React.Component {
   static pageTransitionDelayEnter = true

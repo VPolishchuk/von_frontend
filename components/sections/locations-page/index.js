@@ -97,8 +97,8 @@ const LocationsComponents = (props) => (
 
 export const LocationsSection = (props) => {
   const goToDetails = (path) => {
-    H.goToRoute(path)
-  }
+    H.goToRoute(path);
+  };
   return (
     <div className='wrapper'>
       <div className='locations-wrapper'>
@@ -111,7 +111,7 @@ export const LocationsSection = (props) => {
         <VonderBox {...props} goToDetails={goToDetails} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default React.memo(LocationsSection)
+export default React.memo(LocationsSection);

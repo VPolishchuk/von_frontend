@@ -8,8 +8,8 @@ class ApartmentsPage extends React.Component {
   static pageTransitionDelayEnter = true
  
   constructor (props) {
-    super(props)
-    this.state = { loaded: false }
+    super(props);
+    this.state = { loaded: false };
   }
  
   // componentDidMount() {
