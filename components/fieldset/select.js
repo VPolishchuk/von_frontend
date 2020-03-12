@@ -4,7 +4,7 @@ import Select from 'react-select'
 import './style.scss'
 /// /////////////////////////////////////////////////
 
-const SelectInputComponent = ({
+export const SelectInputComponent = ({
   name,
   label,
   touched,
@@ -74,4 +74,4 @@ const SelectInputComponent = ({
   )
 }
 
-export default SelectInputComponent
+export default SelectInputComponent;

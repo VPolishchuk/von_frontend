@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import * as R from 'ramda'
 import classNames from 'classnames'
 import * as I from '../../../icon'
-import CheckboxInputComponent from '../../fieldset/checkbox'
-import './style.scss'
+import CheckboxInputComponent from '../../fieldset/checkbox';
+import { Paragraph } from '../../../ui';
 /// ////////////////////////////////////////////////////////////////
 
 const Document = ({
   docs
 }) => {
-  const keys = R.keys(docs)
+  const keys = R.keys(docs);
   return (
     <div className='docs-wrap'>
-      <p>Uploaded documents</p>
+      <Paragraph>Uploaded documents</Paragraph>
       {
         keys.map(
           (doc, i) => (
@@ -27,7 +27,7 @@ const Document = ({
   )
 }
 const ReviewSec = (props) => {
-  const values = R.path(['values'], props)
+  const values = R.path(['values'], props);
   const labels = R.keys(R.omit([
     'idCard',
     'confirm',
@@ -49,7 +49,7 @@ const ReviewSec = (props) => {
             (key, i) => (
               <div key={i}>
                 <span>{key}</span>
-                <p>{values[key]}</p>
+                <Paragraph>{values[key]}</Paragraph>
               </div>
             )
           )
@@ -63,7 +63,7 @@ const ReviewSec = (props) => {
       </div>
       <Document docs={docs} />
     </div>
-  )
-}
+  );
+};
 
-export default ReviewSec
+export default ReviewSec;

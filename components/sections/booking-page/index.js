@@ -3,10 +3,18 @@ import Link from 'next/link';
 import * as R from 'ramda';
 import { Formik } from 'formik';
 import classNames from 'classnames';
-import InputFile from '../../fieldset/input-file';
+import {
+  InputBox,
+  InputFile
+} from '../../fieldset/index';
 import * as I from '../../../icon/index.js';
 import ReviewSec from './review-sec';
-// import './style.scss'
+import {
+  Wrapper,
+  Paragraph,
+  InputWrap,
+  Button } from '../../../ui';
+import { BookingWrap } from './ui';
 /// ///////////////////////////////////////////
 const fieldSettings = {
   1: {
@@ -176,43 +184,38 @@ const FormComponent = (props) => {
                 )
               }
               return (
-                <div key={i} className='input-wrap'>
-                  <input
-                    {...filed}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                  />
-                  {
-                    filed.label &&
-                    <label for={filed.id}>{filed.label}</label>
-                  }
-                </div>
+                <InputBox
+                  i={i}
+                  filed={filed}
+                  handleBlur={handleBlur}
+                  handleChange={handleChange}
+                />
               )
             }
           )
           : <ReviewSec {...props} />
       }
       <div className='bottom-wrap'>
-        <button
+        <Button
           type='button'
           className='blackL'
           disable={R.equals(props.count, 1) && true}
           onClick={() => props.handleSepPrevFormIndex()}
         >
           {props.count > 1 ? 'Back' : 'Cancel'}
-        </button>
-        <button
+        </Button>
+        <Button
           type='submit'
           className='gradient'
         >
           Next
-        </button>
+        </Button>
       </div>
       <div>
         {
           props.forms.map(
             (tit, i) => {
-              const pointClass = classNames({'active': R.equals(R.add(i, 1), props.count)})
+              const pointClass = classNames({'active': R.equals(R.add(i, 1), props.count)});
               return (
                 <span key={i} className={pointClass} />
               )
@@ -225,15 +228,15 @@ const FormComponent = (props) => {
 }
 
 const TitleBox = ({ i, tit, count }) => {
-  const classWrap = classNames('title-wrap', { 'active': R.equals(count, i) })
+  const classWrap = classNames('title-wrap', { 'active': R.equals(count, i) });
   return (
     <div className={classWrap}>
       <div className='status-circle'>
         {i}
       </div>
-      <p>
+      <Paragraph>
         {tit}
-      </p>
+      </Paragraph>
     </div>
   )
 }
@@ -252,15 +255,15 @@ const LeftBox = (props) => {
 }
 
 export const BookingComponent = (props) => {
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(1);
   const handleSepPrevFormIndex = () => {
     if (count != 1) {
-      setCount(R.dec(count, 1))
+      setCount(R.dec(count, 1));
     }
   }
   return (
-    <div className='wrapper'>
-      <div className='booking-wrap'>
+    <Wrapper>
+      <BookingWrap className='booking-wrap'>
         <LeftBox
           {...props}
           count={count}
@@ -308,8 +311,8 @@ export const BookingComponent = (props) => {
             )
           }
         </Formik>
-      </div>
-    </div>
+      </BookingWrap>
+    </Wrapper>
   )
 }
 

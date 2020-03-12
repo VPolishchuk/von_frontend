@@ -1,6 +1,6 @@
 import React from 'react'
-import * as I from '../../icon/index'
-import { SearchWrap } from './ui'
+import * as I from '../../icon/index';
+import { SearchWrap } from './ui';
 /// //////////////////////////////////////
 
 export const SearchInput = (props) => {
@@ -12,4 +12,4 @@ export const SearchInput = (props) => {
   )
 }
 
-export default SearchInput
+export default SearchInput;

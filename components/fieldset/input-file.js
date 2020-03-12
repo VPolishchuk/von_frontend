@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import * as R from 'ramda'
 import * as I from '../../icon/index'
-
-import './style.scss'
+import { CustomFileWrap } from './ui';
+// import './style.scss'
 /// //////////////////////////////////////////////
 
-const InputFile = (props) => {
-  const [file, setFile] = useState(null)
-  const [name, setName] = useState(null)
+export const InputFile = (props) => {
+  const [file, setFile] = useState(null);
+  const [name, setName] = useState(null);
   const handelChange = (e) => {
-    const fileName = R.path(['name'], e.currentTarget.files[0])
-    setName(fileName)
-    setFile(e.currentTarget.files[0])
-  }
+    const fileName = R.path(['name'], e.currentTarget.files[0]);
+    setName(fileName);
+    setFile(e.currentTarget.files[0]);
+  };
   useEffect(() => {
     // props.setFieldValue(props.name, file)
-  }, [file])
+  }, [file]);
   return (
     <div key={props.i} className='input-wrap file'>
       {
         props.label &&
         <label for='file'>{props.label}</label>
       }
-      <div className='custom-file-wrap'>
+      <CustomFileWrap className='custom-file-wrap'>
         {
           name
             ? <div>
@@ -39,9 +39,9 @@ const InputFile = (props) => {
           className='inputfile'
           onChange={(e) => handelChange(e)}
         />
-      </div>
+      </CustomFileWrap>
     </div>
   )
 }
 
-export default InputFile
+export default InputFile;
