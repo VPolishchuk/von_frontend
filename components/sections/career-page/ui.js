@@ -3,8 +3,6 @@ import BgMain from '../../../public/static/career-page/bg-main.png';
 // ui
 import * as C from '../../../ui/constant';
 import {
-  gradient,
-  container,
   Container,
   sectionMargin } from '../../../ui/common';
 // ///////////////////////////////////////////////////////

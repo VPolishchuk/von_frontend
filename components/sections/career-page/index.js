@@ -1,7 +1,6 @@
-import React from 'react'
-import { locationMarkerIcon } from '../../../icon/index.js'
-import * as H from '../../../helpers'
-// import './style.scss'
+import React from 'react';
+import { locationMarkerIcon } from '../../../icon/index.js';
+import * as H from '../../../helpers';
 import {
   H2,
   H6,
@@ -10,7 +9,7 @@ import {
   Paragraph,
 } from '../../../ui';
 import { MainSectionWrap, ContainerSec } from './ui';
-/// ///////////////////////////////////////////
+/// ///////////////////////////////////////////////////
 
 const careerList = [
   {
