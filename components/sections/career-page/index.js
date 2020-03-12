@@ -1,7 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { locationMarkerIcon } from '../../../icon/index.js'
 import * as H from '../../../helpers'
-import './style.scss'
+// import './style.scss'
+import {
+  H2,
+  H6,
+  Wrapper,
+  Button,
+  Paragraph,
+} from '../../../ui';
+import { MainSectionWrap, ContainerSec } from './ui';
 /// ///////////////////////////////////////////
 
 const careerList = [
@@ -29,49 +37,49 @@ const careerList = [
   {
     title: 'Broker & Agent Development, Market Manager'
   }
-]
+];
 
 const CareerComponents = ({i, url, item}) => {
   const goToDetails = () => {
-    H.goToRoute('/detail-career')
+    H.goToRoute('/detail-career');
   }
   return (
     <div key={i} className='career-wrap'>
       <div>
-        <h6>{item.title}</h6>
-        <button onClick={() => goToDetails()}>
-        Apply Now
-        </button>
+        <H6>{item.title}</H6>
+        <Button onClick={() => goToDetails()}>
+          Apply Now
+        </Button>
       </div>
       <span>Sales</span>
       <div>
         <div className='location-icon'>
           {locationMarkerIcon(20, 20)}
         </div>
-      London, United Kingdom
+        London, United Kingdom
       </div>
-      <p>
-      Lorem ipsum dolor sit amet, consectetur
-      adipiscing elit. Augue id tempor at et
-      commodo vel consectetur placerat sed.
-      Massa ultricies lacus odio accumsan, id.
-      </p>
-      <button onClick={() => goToDetails()}>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Augue id tempor at et
+        commodo vel consectetur placerat sed.
+        Massa ultricies lacus odio accumsan, id.
+      </Paragraph>
+      <Button onClick={() => goToDetails()}>
       Apply Now
-      </button>
+      </Button>
     </div>
   )
 }
 
 export const CareerSection = (props) => (
-  <div className='wrapper'>
-    <div className='main-section-career'>
+  <Wrapper>
+    <MainSectionWrap className='main-section-career'>
       <div>
-        <h2>Do What You Love</h2>
+        <H2>Do What You Love</H2>
       </div>
-    </div>
-    <div className='container career'>
-      <h2>Recommended</h2>
+    </MainSectionWrap>
+    <ContainerSec>
+      <H2>Recommended</H2>
       {
         careerList.map(
           (item, i) => (
@@ -79,8 +87,8 @@ export const CareerSection = (props) => (
           )
         )
       }
-    </div>
-  </div>
+    </ContainerSec>
+  </Wrapper>
 )
 
-export default React.memo(CareerSection)
+export default React.memo(CareerSection);
