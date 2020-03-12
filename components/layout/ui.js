@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components'
-
+import styled, { keyframes } from 'styled-components';
+import * as C from '../../ui/constant';
 // /////////////////////////////////////////////////////////////
 
 export const Layout = styled.div`
@@ -23,7 +23,7 @@ export const ldsHourglass = keyframes`
   100% {
     transform: rotate(1800deg);
   }
-`
+`;
 
 export const LoaderBlock = styled.div`
   display: inline-block;
@@ -33,13 +33,13 @@ export const LoaderBlock = styled.div`
   &:after {
     content: " ";
     display: block;
-    border-radius: 50%;
     width: 0;
     height: 0;
     margin: 8px;
+    border-radius: 50%;
     box-sizing: border-box;
-    border: 32px solid #fff;
-    border-color: #fff transparent #fff transparent;
-    animation: lds-hourglass 1.2s infinite;
+    border: 32px solid ${C.white};
+    animation: ${ldsHourglass} 1.2s infinite;
+    border-color: ${C.white} transparent ${C.white} transparent;
   }
-`
+`;

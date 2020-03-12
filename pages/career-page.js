@@ -12,19 +12,19 @@ class CareerPage extends React.Component {
     this.state = { loaded: false };
   }
  
-  // componentDidMount() {
-  //   this.timeoutId = setTimeout(() => {
-  //     this.props.pageTransitionReadyToEnter()
-  //     this.setState({ loaded: true })
-  //   }, 2000)
-  // }
+  componentDidMount () {
+    this.timeoutId = setTimeout(() => {
+      this.props.pageTransitionReadyToEnter()
+      this.setState({ loaded: true })
+    }, 2000)
+  }
  
-  // componentWillUnmount() {
-  //   if (this.timeoutId) clearTimeout(this.timeoutId)
-  // }
+  componentWillUnmount () {
+    if (this.timeoutId) clearTimeout(this.timeoutId)
+  }
  
   render () {
-    // if (!this.state.loaded) return null
+    if (!this.state.loaded) return null
     return (
       <div>
         <Head>
