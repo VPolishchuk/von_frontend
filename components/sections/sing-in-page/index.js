@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
-import * as R from 'ramda'
-import * as I from '../../../icon/index.js'
-import BgImage from '../../../public/static/form-page/bg-1.png'
-import './style.scss'
+import React from 'react';
+import BgImage from '../../../public/static/form-page/bg-1.png';
+// ui
+import {
+  Wrapper,
+  Button,
+  Paragraph,
+} from '../../../ui';
+import {
+  SingInWrap,
+  FormContainer
+} from './ui';
 /// ///////////////////////////////////////////
 
 const fieldSettings = [
@@ -23,11 +30,6 @@ const FormComponent = (props) => {
       {
         fieldSettings.map(
           (filed, i) => {
-            // if (filed.type === 'checkbox') {
-            //   return (
-            //     // <InputFile filed={filed} key={i} i={i} />
-            //   )
-            // }
             return (
               <div key={i} className='input-wrap'>
                 {
@@ -40,20 +42,20 @@ const FormComponent = (props) => {
           }
         )
       }
-      <button className='gradient'>Sign In</button>
+      <Button className='gradient'>Sign In</Button>
     </form>
   )
 }
 
 export const SingInComponent = (props) => (
-  <div className='wrapper'>
-    <div className='container'>
-      <div className='sing-in-wrap'>
+  <Wrapper>
+    <FormContainer>
+      <SingInWrap className='sing-in-wrap'>
         <img alt='logo' src={BgImage} className='left-box' />
         <FormComponent {...props} />
-      </div>
-    </div>
-  </div>
+      </SingInWrap>
+    </FormContainer>
+  </Wrapper>
 )
 
 export default React.memo(SingInComponent)

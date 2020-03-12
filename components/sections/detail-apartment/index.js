@@ -1,8 +1,20 @@
-import React, { useState } from 'react'
-import * as R from 'ramda'
-import * as I from '../../../icon/index.js'
-
-import './style.scss'
+import * as R from 'ramda';
+import React from 'react';
+import * as I from '../../../icon/index.js';
+import {
+  H2,
+  H3,
+  H5,
+  Wrapper,
+  Button,
+  Container,
+  Paragraph,
+} from '../../../ui';
+import {
+  GridWrap,
+  SectionWrap,
+  Container
+} from './ui';
 /// ///////////////////////////////////////////
 
 const apartmentPlane = {
@@ -70,24 +82,23 @@ const apartmentPlane = {
       status: true
     }
   ]
-}
-
+};
 const PlaceBox = ({ size, info}) => (
   <div className='place-box'>
     <div>
       {R.keys(size).map(
         (item, i) => (
-          <p>
+          <Paragraph>
             <span>{item}:</span>
             {R.path([item], size)}
-          </p>
+          </Paragraph>
         )
       )}
     </div>
     <div>
       {info.map(
         (item, i) => (
-          <p key={i}>{item}</p>
+          <Paragraph key={i}>{item}</Paragraph>
         )
       )}
     </div>
@@ -106,7 +117,7 @@ const AmenitiesBox = ({ name, icon, i }) => (
 const RentalConditionsBox = ({ i, name, value }) => (
   <div key={i} className='rental-conditions-box'>
     <span>{name}</span>
-    <p>{value}</p>
+    <Paragraph>{value}</Paragraph>
   </div>
 )
 
@@ -121,21 +132,21 @@ const BillsBox = ({ i, type, status }) => (
 
 const LeftBox = (props) => (
   <div className='left-box'>
-    <h3>Private room in London</h3>
-    <button className='left small'>
+    <H3>Private room in London</H3>
+    <Button className='left small'>
       Modern apartment
-    </button>
-    <p><b>340€</b> / month</p>
-    <p>
+    </Button>
+    <Paragraph><b>340€</b> / month</Paragraph>
+    <Paragraph>
       Lorem ipsum dolor sit amet, consectetur elit.
       Eget fermentumblandit egestas auctor est
       phasellus condimentum diam. Ipsum aliquet
       euismod quam quam quam feugiat vel
       cursus.
-    </p>
+    </Paragraph>
     <hr />
     <div className='ap-info-wrap'>
-      <h5>Bedroom</h5>
+      <H5>Bedroom</H5>
       <PlaceBox
         size={R.path(['apartmentInfo', 'size'], props)}
         info={R.path(['apartmentInfo', 'info'], props)}
@@ -143,7 +154,7 @@ const LeftBox = (props) => (
     </div>
     <hr />
     <div className='ap-info-wrap'>
-      <h5>amenities</h5>
+      <H5>amenities</H5>
       <div>
         {
           R.path(['apartmentInfo', 'amenities'], props).map(
@@ -156,7 +167,7 @@ const LeftBox = (props) => (
     </div>
     <hr />
     <div className='ap-info-wrap'>
-      <h5>rental conditions</h5>
+      <H5>rental conditions</H5>
       <div>
         {
           R.path(['apartmentInfo', 'rentalConditions'], props).map(
@@ -169,7 +180,7 @@ const LeftBox = (props) => (
     </div>
     <hr />
     <div className='ap-info-wrap'>
-      <h5>bills</h5>
+      <H5>bills</H5>
       <div>
         {
           R.path(['apartmentInfo', 'bills'], props).map(
@@ -185,30 +196,30 @@ const LeftBox = (props) => (
 
 const RightBox = (props) => (
   <div className='right-box'>
-    <h5>Location</h5>
+    <H5>Location</H5>
     <div className='location-map' />
-    <h5>Location</h5>
-    <p>
+    <H5>Location</H5>
+    <Paragraph>
       <span>You choose Vonder at</span>
       <br />
       Nether St, London N3 1NT, UK
-    </p>
-    <button className='gradient'>
+    </Paragraph>
+    <Button className='gradient'>
       Book for 550$/month
-    </button>
+    </Button>
   </div>
 )
 
 export const ApartmentDetailSection = (props) => (
-  <div className='wrapper'>
-    <div className='main-section-apartment-details'>
+  <Wrapper>
+    <SectionWrap>
       <div />
-    </div>
-    <div className='container'>
+    </SectionWrap>
+    <Container className='container'>
       <LeftBox {...props} apartmentInfo={apartmentPlane} />
       <RightBox {...props} />
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 )
 
 export default React.memo(ApartmentDetailSection)

@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import * as R from 'ramda'
 import { saveIcon, earthIcon, clockIcon, phoneIcon, locationMarkerIcon } from '../../../icon/index.js'
-
-import './style.scss'
+// ui
+import {
+  Wrapper,
+  Button,
+  Container,
+  Paragraph,
+} from '../../../ui';
+import {
+  DayWrap,
+  MainSectionBlock
+} from './ui';
 /// ///////////////////////////////////////////
 
 const schedule = [
@@ -58,22 +67,22 @@ const schedule = [
 ]
 
 const DayBox = (props) => (
-  <div className='day-wrap'>
-    <p>{props.item.day}</p>
+  <DayWrap className='day-wrap'>
+    <Paragraph>{props.item.day}</Paragraph>
     <span>{`${R.path(['item', 'time', 'from'], props)} - ${R.path(['item', 'time', 'to'], props)}`}</span>
-  </div>
+  </DayWrap>
 )
 
 const LeftBox = (props) => (
   <div className='left-box'>
     <div>
-      <h4>Luminary Bakery</h4>
-      <button>
+      <H4>Luminary Bakery</H4>
+      <Button>
         book now
         <span>{saveIcon(20, 20)}</span>
-      </button>
+      </Button>
     </div>
-    <button className='left small'>Fine Dining</button>
+    <Button className='left small'>Fine Dining</Button>
     <div className='info-wrap'>
       <div className='icon-wrap'>
         {locationMarkerIcon(20, 20, '#D72066')}
@@ -93,13 +102,13 @@ const LeftBox = (props) => (
       </div>
       open now
     </div>
-    <p>
+    <Paragraph>
       Lorem ipsum dolor sit amet, consectetur elit.
       Eget fermentumblandit egestas auctor est
       phasellus condimentum diam. Ipsum aliquet
       euismod quam quam quam feugiat vel
       cursus.
-    </p>
+    </Paragraph>
     <hr />
     <div className='info-wrap uppercase'>
       <div className='icon-wrap'>
@@ -114,10 +123,10 @@ const LeftBox = (props) => (
         )
       )
     }
-    <button>
+    <Button>
       book now
       <span>{saveIcon(20, 20)}</span>
-    </button>
+    </Button>
   </div>
 )
 
@@ -158,15 +167,15 @@ const RightBox = (props) => (
 )
 
 export const GuideDetailSection = (props) => (
-  <div className='wrapper'>
-    <div className='main-section-guide-details'>
+  <Wrapper>
+    <MainSectionBlock>
       <div />
-    </div>
-    <div className='container guide-details'>
+    </MainSectionBlock>
+    <Container className='container'>
       <LeftBox {...props} />
       <RightBox {...props} />
-    </div>
-  </div>
+    </Container>
+  </Wrapper>
 )
 
-export default React.memo(GuideDetailSection)
+export default React.memo(GuideDetailSection);

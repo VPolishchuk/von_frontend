@@ -1,5 +1,5 @@
-import React from 'react'
-import './style.scss'
+import React from 'react';
+import './style.scss';
 /// //////////////////////////////////////////////////////////
 
 export const CheckboxInputComponent = (props) => {
@@ -44,4 +44,5 @@ export const CheckboxInputComponent = (props) => {
   )
 }
 
-export default CheckboxInputComponent
+export default CheckboxInputComponent;
+

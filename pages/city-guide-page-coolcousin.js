@@ -1,30 +1,30 @@
-import React from 'react'
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 import Layout from '../components/layout';
 import IframeSection from '../components/sections/city-guide-page-coolcousin';
-//////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////////////////
 
 class GuideMapPage extends React.Component {
   static pageTransitionDelayEnter = true
- 
+
   constructor (props) {
-    super(props)
-    this.state = { loaded: false }
+    super(props);
+    this.state = { loaded: false };
   }
- 
+
   componentDidMount () {
     this.timeoutId = setTimeout(() => {
-      this.props.pageTransitionReadyToEnter()
-      this.setState({ loaded: true })
-    }, 2000)
+      this.props.pageTransitionReadyToEnter();
+      this.setState({ loaded: true });
+    }, 2000);
   }
- 
+
   componentWillUnmount () {
-    if (this.timeoutId) clearTimeout(this.timeoutId)
+    if (this.timeoutId) clearTimeout(this.timeoutId);
   }
- 
+
   render () {
-    if (!this.state.loaded) return null
+    if (!this.state.loaded) return null;
     return (
       <div>
         <Head>
@@ -35,7 +35,7 @@ class GuideMapPage extends React.Component {
           <IframeSection {...this.props} />
         </Layout>
       </div>
-    )
+    );
   }
 }
 

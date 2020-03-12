@@ -5,7 +5,7 @@ import Img3 from '../../../public/static/city-guide/3.png'
 import Img4 from '../../../public/static/city-guide/4.png'
 import SearchForm from '../../search-component/index'
 import { saveIcon } from '../../../icon/index.js'
-import * as H from '../../../helpers'
+import * as H from '../../../helpers';
 import {
   H2,
   Wrapper,

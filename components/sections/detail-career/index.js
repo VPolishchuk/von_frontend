@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
-import * as R from 'ramda'
-import Link from 'next/link'
-import ComLogo from '../../../public/static/career-page/2.png'
-import { arrowDownIcon, locationMarkerIcon, uploadIcon } from '../../../icon/index.js'
-import InputFile from '../../fieldset/input-file'
-
-import './style.scss'
+import React, { useState } from 'react';
+import * as R from 'ramda';
+import Link from 'next/link';
+import ComLogo from '../../../public/static/career-page/2.png';
+import { arrowDownIcon, locationMarkerIcon, uploadIcon } from '../../../icon/index';
+import { InputFile } from '../../fieldset/index';
+import {
+  H2,
+  H3,
+  H5,
+  Wrapper,
+  Button,
+  Container,
+  Paragraph,
+} from '../../../ui';
+import {
+  GridWrap,
+  SectionWrap,
+  ContainerSec
+} from './ui';
 /// ///////////////////////////////////////////
 const fieldSettings = [
   {
@@ -21,7 +33,7 @@ const fieldSettings = [
     id: 'file',
     label: 'Resume file'
   }
-]
+];
 
 const JobForm = (props) => {
   return (
@@ -50,15 +62,15 @@ const JobForm = (props) => {
             )
           }
         </div>
-        <button>Send</button>
+        <Button>Send</Button>
       </div>
     </form>
   )
 }
 
 export const CareerDetailSection = (props) => (
-  <div className='wrapper'>
-    <div className='container career-detail'>
+  <Wrapper>
+    <ContainerSec className='container'>
       <div className='route-wrap'>
         <Link href='/career-page'>
           <a>
@@ -71,7 +83,7 @@ export const CareerDetailSection = (props) => (
       </div>
       <div className='career-wrap'>
         <img src={ComLogo} alt='company-logo' />
-        <h3>Community Manager</h3>
+        <H3>Community Manager</H3>
         <div>
           <span>Sales</span>
           <span><b>340€</b> / month</span>
@@ -83,8 +95,8 @@ export const CareerDetailSection = (props) => (
           London, United Kingdom
         </div>
         <hr />
-        <h5>Goals & Objectives</h5>
-        <p>
+        <H5>Goals & Objectives</H5>
+        <Paragraph>
           Creation of a collaborative environment
           amongst our members through events
           and personal introductions<br />
@@ -102,10 +114,10 @@ export const CareerDetailSection = (props) => (
           expectations<br />
 
           Managing building KPI’s<br />
-        </p>
+        </Paragraph>
         <hr />
-        <h5>Duties & Responsibilities</h5>
-        <p>
+        <H5>Duties & Responsibilities</H5>
+        <Paragraph>
           Recommend best practices, including
           but not limited to: community
           management, sales, events, training,
@@ -126,12 +138,12 @@ export const CareerDetailSection = (props) => (
           to members, including but not limited
           to: membership agreement and billing
           procedures<br />
-        </p>
-        <button>Apply Now</button>
+        </Paragraph>
+        <Button>Apply Now</Button>
       </div>
       <JobForm {...props} />
-    </div>
-  </div>
-)
+    </ContainerSec>
+  </Wrapper>
+);
 
-export default React.memo(CareerDetailSection)
+export default React.memo(CareerDetailSection);

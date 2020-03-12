@@ -26,7 +26,20 @@ import Img17 from '../../../public/static/locations/details/2.png'
 import Img18 from '../../../public/static/locations/details/3.png'
 
 // styles
-import './style.scss'
+import {
+  H2,
+  H3,
+  H5,
+  Wrapper,
+  Button,
+  Container,
+  Paragraph,
+} from '../../../ui';
+import {
+  GridWrap,
+  SectionWrap,
+  ContainerSec
+} from './ui';
 /// ///////////////////////////////////////////
 
 const testImage = [
@@ -82,7 +95,7 @@ const services = [
   //   image: Img12,
   //   title: '',
   // },
-]
+];
 
 const nearbyInfo = [
   {
@@ -97,7 +110,7 @@ const nearbyInfo = [
     image: Img18,
     title: 'Camden Town'
   }
-]
+];
 
 const locationPlane = {
   list1: [
@@ -145,20 +158,20 @@ const locationPlane = {
       image: Img15
     }
   ]
-}
+};
 
 const LocationCard = ({ image, text, title }) => (
   <div className='loc-card-wrap'>
     <img alt='image' src={image} />
     <div>
-      <h5>{title}</h5>
-      <p>{text}</p>
-      <button>
+      <H5>{title}</H5>
+      <Paragraph>{text}</Paragraph>
+      <Button>
         Explore
-      </button>
+      </Button>
     </div>
   </div>
-)
+);
 
 const NearbyBox = ({ items }) => {
   return (
@@ -179,42 +192,42 @@ const NearbyBox = ({ items }) => {
                 width='100%'
                 height='auto'
               />
-              <p>{item.title}</p>
+              <Paragraph>{item.title}</Paragraph>
             </div>
           ))
         }
       </div>
     </div>
   )
-}
+};
 
 const LeftBox = (props) => (
   <div className='left-box'>
-    <h3>Hill House</h3>
-    <p>
+    <H3>Hill House</H3>
+    <Paragraph>
         Hill House brings a new approach to city living. The Tower
         and the Podium have their own unique feel. And the shared common
         areas make sure that our residents’ homes extend way beyond their
         front door.
-    </p>
+    </Paragraph>
     <hr />
     <LocationPosition />
     <div className='ap-info-wrap'>
-      <h5>neighbourhood</h5>
-      <p>
+      <H5>neighbourhood</H5>
+      <Paragraph>
         Finchleyis part of the London Borough of Barnet, filled with leafy parks and peaceful
         residential streets, making it popular with families and professionals seeking a
         suburban lifestyle, without compromising on proximity to central London.
-      </p>
+      </Paragraph>
     </div>
     <hr />
     <div className='ap-info-wrap'>
-      <h5>Transport</h5>
-      <p>
+      <H5>Transport</H5>
+      <Paragraph>
         Finchleyhas four Underground stations, all on the High Barnet branch of the Northern Line.
         East Finchley is in Zone 3, and Finchley Central,
         West Finchley, and Woodside Park are in Zone 4. You have great direct routes to London hot spots such as:
-      </p>
+      </Paragraph>
       <br /><br />
       {
         R.path(['locationPlane', 'list1'], props).map(
@@ -224,9 +237,9 @@ const LeftBox = (props) => (
         )
       }
       <br /><br />
-      <p>
+      <Paragraph>
         There are also several bus routes from North Finchley bus station, situation across the road:
-      </p>
+      </Paragraph>
       <br /><br />
       {
         R.path(['locationPlane', 'list2'], props).map(
@@ -238,19 +251,19 @@ const LeftBox = (props) => (
     </div>
     <hr />
     <div className='ap-info-wrap'>
-      <h5>Nearby</h5>
+      <H5>Nearby</H5>
       {/* <NearbyBox items={nearbyInfo}/> */}
     </div>
     <hr />
     <div className='ap-info-wrap'>
-      <h5>What's included?</h5>
+      <H5>What's included?</H5>
       <div className='services-wrap'>
         {
           services.map(
             (item, i) => (
               <div key={i}>
                 <img key={i} src={item.image} alt='img' />
-                <p>{item.title}</p>
+                <Paragraph>{item.title}</Paragraph>
               </div>
             )
           )
@@ -258,7 +271,7 @@ const LeftBox = (props) => (
       </div>
     </div>
   </div>
-)
+);
 
 const SelectDateFilter = (props) => {
   return (
@@ -266,44 +279,45 @@ const SelectDateFilter = (props) => {
       <DatepickerComponent {...props} />
       <div />
     </form>
-  )
-}
+  );
+};
 
 const LocationPosition = () => (
   <div className='loc-pos-wrap'>
-    <h5>Location</h5>
+    <H5>Location</H5>
     <div className='location-map' />
-    <h5>Location</h5>
-    <p>Nether St, London N3 1NT, UK</p>
+    <H5>Location</H5>
+    <Paragraph>Nether St, London N3 1NT, UK</Paragraph>
     <div className='info-wrap'>
       <div className='icon-wrap'>
         {I.phoneIcon(20, 20)}
       </div>
       +44 20 7686 9779
     </div>
-    <button className='gradient'>
+    <Button className='gradient'>
       Check availability
-    </button>
+    </Button>
     <hr />
   </div>
-)
+);
+
 const RightBox = (props) => (
   <div className='right-box'>
     <LocationPosition />
     {/* <SelectDateFilter {...props} /> */}
   </div>
-)
+);
 
 export const LocationDetailSection = (props) => (
-  <div className='wrapper'>
+  <Wrapper>
     <div className='main-section-location-details'>
       <SliderComponent images={testImage} />
     </div>
     <div className='container'>
       <LeftBox {...props} locationPlane={locationPlane} />
       <RightBox {...props} />
-      <>'       '<div className='bottom-box'>
-        <h3>More locations in London</h3>
+      <div className='bottom-box'>
+        <H3>More locations in London</H3>
         {
           R.path(['moreLocations'], locationPlane).map(
             (item, i) => (
@@ -311,9 +325,9 @@ export const LocationDetailSection = (props) => (
             )
           )
         }
-      </div>'     '</>
+      </div>
     </div>
-  </div>
-)
+  </Wrapper>
+);
 
-export default React.memo(LocationDetailSection)
+export default React.memo(LocationDetailSection);

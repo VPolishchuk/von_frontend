@@ -71,7 +71,7 @@ const mediaMinWidthStyles = css`
               padding: 0 15px;
               justify-content: flex-start;
               &:hover {
-                color: $pink;
+                color: ${C.pink};
                 background-color: ${C.white};
               }
             }
@@ -229,7 +229,7 @@ export const Header = styled.header`
 
             &.active > div {
               &:first-child:hover {
-                background: $pink;
+                background: ${C.pink};
                 color: ${C.white};
                 cursor: pointer;
               }
@@ -263,7 +263,7 @@ export const Header = styled.header`
                 padding: 0 15px;
                 justify-content: flex-start;
                 &:hover {
-                  background: $pink;
+                  background: ${C.pink};
                   color: ${C.white};
                   cursor: pointer;
                 }

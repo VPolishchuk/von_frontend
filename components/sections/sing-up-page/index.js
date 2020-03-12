@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
-import CheckboxInputComponent from '../../fieldset/checkbox'
-import BgImage from '../../../public/static/form-page/bg-1.png'
-import * as I from '../../../icon/index.js'
-import './style.scss'
+import React from 'react';
+import Link from 'next/link';
+import CheckboxInputComponent from '../../fieldset/index';
+import BgImage from '../../../public/static/form-page/bg-1.png';
+// ui
+import {
+  Wrapper,
+  Button,
+  Paragraph,
+} from '../../../ui';
+import {
+  SingUpWrap,
+  FormContainer
+} from './ui';
 /// ///////////////////////////////////////////
+
 const fieldSettings = [
   {
     type: 'text',
@@ -22,7 +31,7 @@ const fieldSettings = [
     type: 'checkbox',
     label: 'I’ve accept Terms of Use and Privacy Policy'
   }
-]
+];
 
 const FormComponent = (props) => {
   return (
@@ -34,7 +43,7 @@ const FormComponent = (props) => {
             if (filed.type === 'checkbox') {
               return (
                 <CheckboxInputComponent {...props} {...filed} key={i} i={i} />
-              )
+              );
             }
             return (
               <div key={i} className='input-wrap'>
@@ -44,29 +53,29 @@ const FormComponent = (props) => {
                   <label for={filed.id}>{filed.label}</label>
                 }
               </div>
-            )
+            );
           }
         )
       }
-      <button className='gradient'>Sign up</button>
-      <p>
+      <Button className='gradient'>Sign up</Button>
+      <Paragraph>
         Already have an account?
         <Link href='/sing-in'>
           <a>Log in</a>
         </Link>
-      </p>
+      </Paragraph>
     </form>
   )
 }
 export const SingUpComponent = (props) => (
-  <div className='wrapper'>
-    <div className='container'>
-      <div className='sing-up-wrap'>
+  <Wrapper>
+    <FormContainer>
+      <SingUpWrap className='sing-up-wrap'>
         <img alt='logo' src={BgImage} className='left-box' />
         <FormComponent {...props} />
-      </div>
-    </div>
-  </div>
-)
+      </SingUpWrap>
+    </FormContainer>
+  </Wrapper>
+);
 
-export default React.memo(SingUpComponent)
+export default React.memo(SingUpComponent);

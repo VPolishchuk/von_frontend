@@ -6,10 +6,10 @@ import Logo from '../../public/static/logo.png'
 import LogoBlack from '../../public/static/logo-black.png'
 import SearchInput from '../fieldset/search-input'
 // hook
-import { useWindowsHeight } from '../../hook/useWindowHeight'
+import { useWindowsHeight } from '../../hook/useWindowHeight';
 // icon
-import * as I from '../../icon'
-import { Header } from './ui'
+import * as I from '../../icon';
+import { Header } from './ui';
 // ////////////////////////////////////
 
 const navConfig = [
@@ -107,7 +107,7 @@ const MobBar = (props) => (
 )
 
 const NavBar = (props) => {
-  const mobMenuClass = classNames('mob-nav-bar', { 'active': props.mobMenu })
+  const mobMenuClass = classNames('mob-nav-bar', { 'active': props.mobMenu });
   return (
     <nav className={props.navClass}>
       {
@@ -125,11 +125,11 @@ const NavBar = (props) => {
 }
 
 const HeaderComponent = (props) => {
-  const [active, setActive] = useState(false)
-  const { shouldShowActions } = useWindowsHeight()
-  const clNameHeader = classNames({ 'black': R.or(props.blackHeader, shouldShowActions) })
-  const clName = classNames('burger', { 'active': active })
-  const navClass = classNames({ 'active': active })
+  const [active, setActive] = useState(false);
+  const { shouldShowActions } = useWindowsHeight();
+  const clNameHeader = classNames({ 'black': R.or(props.blackHeader, shouldShowActions) });
+  const clName = classNames('burger', { 'active': active });
+  const navClass = classNames({ 'active': active });
   return (
     <Header className={clNameHeader}>
       <div className='container'>
@@ -152,4 +152,4 @@ const HeaderComponent = (props) => {
   )
 }
 
-export default HeaderComponent
+export default HeaderComponent;
