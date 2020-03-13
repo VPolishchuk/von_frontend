@@ -1,76 +1,100 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import * as R from 'ramda'
-// import Slider from '@farbenmeer/react-spring-slider'
 // images
-import Img5 from '../../public/static/city-guide/1.png'
-import Img6 from '../../public/static/city-guide/2.png'
-import Img3 from '../../public/static/city-guide/3.png'
-import Img4 from '../../public/static/city-guide/4.png'
+import Img5 from '../../public/static/city-guide/1.png';
+import Img6 from '../../public/static/city-guide/2.png';
+import Img3 from '../../public/static/city-guide/3.png';
+import Img4 from '../../public/static/city-guide/4.png';
 
-// import './style.scss';
+import {
+  ImageBox,
+  SliderWrap,
+  ActiveView,
+  SliderRow,
+  NavBox,
+  BulletComponent
+} from './ui';
 /// /////////////////////////////////////////////////
 
 const images = [Img5, Img6, Img3, Img4]
 
-const BulletComponent = ({ onClick, isActive }) => (
-  <li
-    style={{
-      width: '20px',
-      height: '20px',
-      cursor: 'pointer',
-      borderRadius: '50%',
-      margin: '10px 2px',
-      border: '1px solid #F9F9F9',
-      backgroundColor: isActive ? '#D72066' : 'transparent'
-    }}
-    onClick={onClick}
-  />
-)
-
-// const useSlider = () => {
-//   const [] = useState()
-//   const [] = useState()
-
-//   useEffect(() => {
-
-//   }, [])
-// }
-
 const SliderComponent = (props) => {
-  let sliderSetting = {
-    hasBullets: true,
-    BulletComponent: BulletComponent
+  // const [ imageIndex, setIndex ] = useState(props.i)
+  const [imagesArr, setImagesArr] = useState(images);
+  const [index, setIndex] = useState(0);
+  // const handleSetNexIndex = (nextIndex) => (
+  //   setIndex(R.gte(nextIndex, props.data.length) ? 0 : nextIndex)
+  // )
+  // const handleSetPrevIndex = (prevIndex) => {
+  //   setIndex(R.lt(prevIndex, 0) ? props.data.length - 1 : prevIndex)
+  // }
+  const handleSetIndex = (index) => {
+    setIndex(index);
   }
-  sliderSetting = R.not(R.isEmpty(R.path(['slSetting'], props))) && R.merge(sliderSetting, props.slSetting)
+  useEffect(() => {
+    // setInterval(function () {
+    //   // if (R.gte(index, imagesArr.length)) {
+    //   //   let newArr = imagesArr;
+    //   //   newArr.push(imagesArr);
+    //   //   newArr.splice(0, R.dec(imagesArr.length, 1));
+    //   //   return setImagesArr(newArr);
+    //   // }
+    //   // if (R.lt(index, 0)) {
+    //   //   let newArr = imagesArr;
+    //   //   newArr.reverse();
+    //   //   newArr.push(imagesArr);
+    //   //   newArr.splice(0, imagesArr.length);
+    //   //   // return setImagesArr(newArr);
+    //   // }
+
+    //   // if (R.gte(index, imagesArr.length)) {
+    //   //   return setIndex(0);
+    //   // }
+    //   // if (R.lt(index, 0)) {
+    //   //   return setIndex(R.dec(imagesArr.length, 1));
+    //   // }
+    //   // setIndex(R.add(index, 1));
+    // }, 3000);
+  }, [index]);
   return (
-    <div className='slider-wrap'>
-      {/* <Slider
-        {...sliderSetting}
+    <SliderWrap height={props.height}>
+      <ActiveView height={props.height}/>
+      <SliderRow
+        transform={`translateX(-${index * Math.floor(100 / imagesArr.length)}%)`}
       >
         {
-          R.or(props.images, images).map(
-            (item, i) => {
-              if (props.children) {
-                return (
-                  <props.children item={item} i={i} />
-                )
-              }
-              return (
-                <img
-                  key={i}
-                  src={item}
-                  width='100%'
-                  height='100%'
-                  alt='slide-img'
-                />
-              )
-            }
-          )
+          imagesArr.map((img, i) => (
+            <ImageBox height={props.height} key={i} src={img} alt='img'/>
+          ))
         }
-      </Slider> */}
-    </div>
-  )
+      </SliderRow>
+      {/* {
+        // props.isBulletBar &&
+        true &&
+        <NavBox>
+          {
+            images.map((img, i) => (
+              <BulletComponent
+                key={i}
+                // backgroundColor={isActive && '#D72066'}
+              />
+            ))
+          }
+        </NavBox>
+      } */}
+      <NavBox>
+        {
+          imagesArr.map((img, i) => (
+            <BulletComponent
+              key={i}
+              onClick={() => handleSetIndex(i)}
+              backgroundColor={R.equals(i, index) && '#D72066'}
+            />
+          ))
+        }
+      </NavBox>
+    </SliderWrap>
+  );
 }
 
 export default SliderComponent;
-

@@ -78,7 +78,7 @@ const mediaStyleS2 = css`
   @media (min-width: ${C.phone}) {
     padding-top: 0;
     margin-top: 70px;
-    & > p {
+    & p {
       color: ${C.blackL};
       text-align: center;
       font-size: ${C.fSBigTable};
@@ -115,7 +115,6 @@ const mediaStyleS2 = css`
 `;
 
 export const Section2 = styled.div`
-  ${container};
   ${sectionMargin};
   padding-top: 230px;
   width: 100%;
@@ -124,7 +123,7 @@ export const Section2 = styled.div`
   display: flex;
   flex-direction: column;
 
-  @keyframes textAnimation {
+  /* @keyframes textAnimation {
     from {
       opacity: 0;
       translate: transform(200px, 200px)
@@ -132,20 +131,20 @@ export const Section2 = styled.div`
       opacity: 1;
       translate: transform(0, 0)
     }
-  }
+  } */
 
   p + h2 {
     margin-top: 50px;
   }
   h2 {
-    animation: textAnimation 2s linear;
+    /* animation: textAnimation 2s linear; */
     &:first-child {
       font-weight: 900;
       font-family: GothamProBlack;
-      animation: textAnimation 2s linear;
+      /* animation: textAnimation 2s linear; */
     }
   }
-  & > p {
+  & p {
     color: ${C.blackL};
     text-align: center;
     &.second {
@@ -334,7 +333,7 @@ const mediaStyleS5 = css`
           display: block;
           text-align: left;
           padding-left: 25px;
-          font-size: $${C.fSBigLaptop};
+          font-size: ${C.fSBigLaptop};
           line-height: ${C.lHBigLaptop};
         }
         &.two {
@@ -358,7 +357,7 @@ const mediaStyleS5 = css`
 
 export const Section5 = styled.div`
   ${sectionMargin};
-  &.container {
+  & {
     & > h2 {
       margin: 40px 0;
     }

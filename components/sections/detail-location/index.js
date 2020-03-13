@@ -310,7 +310,7 @@ const RightBox = (props) => (
 export const LocationDetailSection = (props) => (
   <Wrapper>
     <MainSectionBlock className='main-section-location-details'>
-      <SliderComponent images={testImage} />
+      <SliderComponent images={testImage} height={'80vh'} />
     </MainSectionBlock>
     <Container className='container'>
       <LeftBox {...props} locationPlane={locationPlane} />

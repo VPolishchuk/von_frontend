@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import * as C from '../../ui/constant';
-import {downArrow} from '../../ui/common';
 // //////////////////////////////////////////////
 
 const mediaMinWidthStyles = css`

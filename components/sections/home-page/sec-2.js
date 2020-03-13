@@ -12,7 +12,7 @@ import * as R from 'ramda';
 
 import {
   Transition } from 'react-transition-group';
-import { H2, Paragraph } from '../../../ui/common';
+import { H2, Paragraph, Container } from '../../../ui/common';
 import { Section2 } from './ui';
 // ///////////////////////////////////////////
 
@@ -48,54 +48,57 @@ export const AboutSection = (props) => {
     }
   }, [props.scrollPosY])
   return (
-    <Section2 className='section-2 container'>
-      <Transition in={inProp} timeout={500}>
-        {state => {
-          return (
-            <>
-              <H2
-                ref={currentRef}
-                style={{
-                  ...defaultStyle,
-                  ...transitionStyles[state]
-                }}
-              >
-                WHAT IS VONDER?
-              </H2>
-              <Paragraph
-                style={{
-                  ...defaultStyle,
-                  ...transitionStyles[state]
-                }}
-              >
-                Vonder is a <span className='gradient'>global co-living </span>lifestyle
-                brand offering beautifully designed
-                urban spaces, <span>emphasising</span> experiences
-                and a vibrant local <span>community.</span>
-              </Paragraph>
-              <H2
-                style={{
-                  ...defaultStyle,
-                  ...transitionStyles[state]
-                }}
-              >
-                Our Homes
-              </H2>
-            </>
-          )
-        }}
-      </Transition>
-
+    <Section2 className='section-2'>
+      <Container>
+        <Transition in={inProp} timeout={500}>
+          {state => {
+            return (
+              <>
+                <H2
+                  ref={currentRef}
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                  }}
+                >
+                  WHAT IS VONDER?
+                </H2>
+                <Paragraph
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                  }}
+                >
+                  Vonder is a <span className='gradient'>global co-living </span>lifestyle
+                  brand offering beautifully designed
+                  urban spaces, <span>emphasising</span> experiences
+                  and a vibrant local <span>community.</span>
+                </Paragraph>
+                <H2
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state]
+                  }}
+                >
+                  Our Homes
+                </H2>
+              </>
+            )
+          }}
+        </Transition>
+      </Container>
       <SliderComponent images={images} />
-
-      <Paragraph className='second'>
-        We offer a variety of fully furnished quality studios, 1, 2, 3
-        – bedroom apartments with a cozy and urban design.
-      </Paragraph>
-      <div className='image-wrap'>
-        <img className='left' alt='im-1' src={Img1} />
-        <img className='right' alt='im-2' src={Img2} />
-      </div>
+      <br />
+      <Container>
+        <Paragraph className='second'>
+          We offer a variety of fully furnished quality studios, 1, 2, 3
+          – bedroom apartments with a cozy and urban design.
+        </Paragraph>
+        <div className='image-wrap'>
+          <img className='left' alt='im-1' src={Img1} />
+          <img className='right' alt='im-2' src={Img2} />
+        </div>
+      </Container>
     </Section2>
   )
 };
