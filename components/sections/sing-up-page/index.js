@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import CheckboxInputComponent from '../../fieldset/index';
 import BgImage from '../../../public/static/form-page/bg-1.png';
 // ui
 import {
@@ -8,6 +7,10 @@ import {
   Button,
   Paragraph,
 } from '../../../ui';
+import {
+  InputBox,
+  CheckboxInputComponent
+} from '../../fieldset/index';
 import {
   SingUpWrap,
   FormContainer
@@ -46,18 +49,12 @@ const FormComponent = (props) => {
               );
             }
             return (
-              <div key={i} className='input-wrap'>
-                <input {...filed} />
-                {
-                  filed.label &&
-                  <label for={filed.id}>{filed.label}</label>
-                }
-              </div>
+              <InputBox i={i} filed={filed} />
             );
           }
         )
       }
-      <Button className='gradient'>Sign up</Button>
+      <Button width={'100%'} className='gradient'>Sign up</Button>
       <Paragraph>
         Already have an account?
         <Link href='/sing-in'>

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import * as R from 'ramda';
 import * as C from './constant';
 // //////////////////////////////////////////////////////////////////////////////
 
@@ -115,13 +116,12 @@ export const Button = styled.button`
   border-radius: 5px;
   align-items: center;
   font-family: Roboto;
-  max-width: max-content;
   line-height: ${C.lHBPhone};
   justify-content: center;
   font-size: ${C.fSSmallTable};
   text-transform: capitalize;
   min-width: 150px;
-  width: max-content;
+  width: ${({width}) => R.or(width, 'max-content')} ;
   padding: 10px 15px;
   &.gradient {
     background: linear-gradient(90deg, #D3136D 0%, #F4892B 100%);

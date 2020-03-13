@@ -3,8 +3,10 @@ import * as R from 'ramda'
 import { saveIcon, earthIcon, clockIcon, phoneIcon, locationMarkerIcon } from '../../../icon/index.js'
 // ui
 import {
-  Wrapper,
+  H4,
   Button,
+  Wrapper,
+  InfoWrap,
   Container,
   Paragraph,
 } from '../../../ui';
@@ -64,14 +66,14 @@ const schedule = [
       to: '17:00'
     }
   }
-]
+];
 
 const DayBox = (props) => (
   <DayWrap className='day-wrap'>
     <Paragraph>{props.item.day}</Paragraph>
     <span>{`${R.path(['item', 'time', 'from'], props)} - ${R.path(['item', 'time', 'to'], props)}`}</span>
   </DayWrap>
-)
+);
 
 const LeftBox = (props) => (
   <div className='left-box'>
@@ -83,25 +85,25 @@ const LeftBox = (props) => (
       </Button>
     </div>
     <Button className='left small'>Fine Dining</Button>
-    <div className='info-wrap'>
+    <InfoWrap className='info-wrap'>
       <div className='icon-wrap'>
         {locationMarkerIcon(20, 20, '#D72066')}
       </div>
       71-73 Allen Rd, Stoke Newington,
       London N16 8RY, UK
-    </div>
-    <div className='info-wrap'>
+    </InfoWrap>
+    <InfoWrap className='info-wrap'>
       <div className='icon-wrap'>
         {phoneIcon(20, 20)}
       </div>
       +44 20 7686 9779
-    </div>
-    <div className='info-wrap uppercase'>
+    </InfoWrap>
+    <InfoWrap className='info-wrap uppercase'>
       <div className='icon-wrap'>
         {clockIcon(20, 20)}
       </div>
       open now
-    </div>
+    </InfoWrap>
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur elit.
       Eget fermentumblandit egestas auctor est
@@ -110,12 +112,12 @@ const LeftBox = (props) => (
       cursus.
     </Paragraph>
     <hr />
-    <div className='info-wrap uppercase'>
+    <InfoWrap className='info-wrap uppercase'>
       <div className='icon-wrap'>
         {clockIcon(20, 20)}
       </div>
       open now
-    </div>
+    </InfoWrap>
     {
       schedule.map(
         (item, i) => (
@@ -128,34 +130,34 @@ const LeftBox = (props) => (
       <span>{saveIcon(20, 20)}</span>
     </Button>
   </div>
-)
+);
 
 const RightBox = (props) => (
   <div className='right-box'>
-    <div className='info-wrap'>
+    <InfoWrap className='info-wrap'>
       71-73 Allen Rd, Stoke Newington,
       London N16 8RY, UK
-    </div>
+    </InfoWrap>
     <hr />
-    <div className='info-wrap'>
+    <InfoWrap className='info-wrap'>
       <div className='icon-wrap'>
         {phoneIcon(20, 20)}
       </div>
       +44 20 7686 9779
-    </div>
-    <div className='info-wrap'>
+    </InfoWrap>
+    <InfoWrap className='info-wrap'>
       <div className='icon-wrap'>
         {earthIcon(20, 20)}
       </div>
       Official Website
-    </div>
+    </InfoWrap>
     <hr />
-    <div className='info-wrap uppercase'>
+    <InfoWrap className='info-wrap uppercase'>
       <div className='icon-wrap'>
         {clockIcon(20, 20)}
       </div>
       open now
-    </div>
+    </InfoWrap>
     {
       schedule.map(
         (item, i) => (

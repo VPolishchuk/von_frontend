@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components';
 import * as C from '../../ui/constant';
+import Fb from '../../public/static/social/facebook.png';
+import Ins from '../../public/static/social/instagram.png';
+import Ln from '../../public/static/social/linkedin.png';
 import {downArrow} from '../../ui/common';
 // //////////////////////////////////////////////
 
@@ -287,19 +290,19 @@ export const Header = styled.header`
             .facebook {
               width: 30px;
               height: 30px;
-              background: url('../../public/static/social/facebook.png') no-repeat center;
+              background: url(${Fb}) no-repeat center;
               background-size: cover;
             }
             .instagram {
               width: 30px;
               height: 30px;
-              background: url('../../public/static/social/instagram.png') no-repeat center;
+              background: url(${Ins}) no-repeat center;
               background-size: cover;
             }
             .linkedin {
               width: 30px;
               height: 30px;
-              background: url('../../public/static/social/linkedin.png') no-repeat center;
+              background: url(${Ln}) no-repeat center;
               background-size: cover;
             }
           }

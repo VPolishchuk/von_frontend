@@ -15,6 +15,8 @@ class App extends React.Component {
 
   render () {
     const { Component, pageProps, router } = this.props;
+    console.log('router', router);
+    console.log('props', this.props);
     return (
       <div>
         <PageTransition
@@ -28,7 +30,7 @@ class App extends React.Component {
           }}
           loadingClassNames="lds-hourglass"
         >
-          <Component {...pageProps} ey={router.route} />
+          <Component {...pageProps} key={router.route} />
         </PageTransition>
         <style jsx global>{`
           .page-transition-enter {

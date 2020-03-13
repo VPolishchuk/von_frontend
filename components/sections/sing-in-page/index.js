@@ -7,6 +7,9 @@ import {
   Paragraph,
 } from '../../../ui';
 import {
+  InputBox
+} from '../../fieldset/index';
+import {
   SingInWrap,
   FormContainer
 } from './ui';
@@ -31,18 +34,12 @@ const FormComponent = (props) => {
         fieldSettings.map(
           (filed, i) => {
             return (
-              <div key={i} className='input-wrap'>
-                {
-                  filed.label &&
-                    <label>{filed.label}</label>
-                }
-                <input {...filed} />
-              </div>
-            )
+              <InputBox i={i} filed={filed} />
+            );
           }
         )
       }
-      <Button className='gradient'>Sign In</Button>
+      <Button width={'100%'} className='gradient'>Sign In</Button>
     </form>
   )
 }

@@ -15,7 +15,7 @@ import {
 
 const mediaSec = css`
   @media (min-width: ${C.phone}) {
-    & .container.career-detail {
+    & {
       .career-wrap {
         padding: 0 15px;
 
@@ -184,8 +184,10 @@ export const ContainerSec = styled(Container)`
     }
   }
 
-  .career-wrap + #job-form {
-    display: none;
+  & {
+    .career-wrap + #job-form {
+      display: none;
+    }
   }
   ${mediaSec}
 `;

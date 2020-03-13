@@ -5,17 +5,14 @@ import ComLogo from '../../../public/static/career-page/2.png';
 import { arrowDownIcon, locationMarkerIcon, uploadIcon } from '../../../icon/index';
 import { InputFile } from '../../fieldset/index';
 import {
-  H2,
   H3,
   H5,
   Wrapper,
   Button,
-  Container,
+  InfoWrap,
   Paragraph,
 } from '../../../ui';
 import {
-  GridWrap,
-  SectionWrap,
   ContainerSec
 } from './ui';
 /// ///////////////////////////////////////////
@@ -88,12 +85,12 @@ export const CareerDetailSection = (props) => (
           <span>Sales</span>
           <span><b>340€</b> / month</span>
         </div>
-        <div className='info-wrap'>
+        <InfoWrap className='info-wrap'>
           <div className='icon-wrap'>
             {locationMarkerIcon(20, 20, '#333')}
           </div>
           London, United Kingdom
-        </div>
+        </InfoWrap>
         <hr />
         <H5>Goals & Objectives</H5>
         <Paragraph>

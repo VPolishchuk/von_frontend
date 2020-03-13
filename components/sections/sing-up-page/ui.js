@@ -14,6 +14,8 @@ const media = css`
       width: 80%;
       height: 70%;
       display: flex;
+      min-height: 370px;
+      max-height: 430px;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);
       border-radius: 5px 0px 0px 5px;
       & >.left-box {
@@ -54,7 +56,7 @@ export const SingUpWrap = styled.div`
       font-family: Roboto;
       font-style: normal;
       font-weight: bold;
-      font-size: ${C.SLaptop};
+      font-size: ${C.fSLaptop};
       text-align: center;
       line-height: ${C.lHBigLaptop};
       text-transform: capitalize;

@@ -10,10 +10,12 @@ const media = css`
     align-items: center;
     justify-content: center;
     height: calc(100vh - 100px);
-    & .sing-up-wrap {
+    & > .sing-up-wrap {
       width: 80%;
       height: 70%;
       display: flex;
+      min-height: 370px;
+      max-height: 430px;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);
       border-radius: 5px 0px 0px 5px;
       & >.left-box {
@@ -54,7 +56,7 @@ export const SingInWrap = styled.div`
       font-family: Roboto;
       font-style: normal;
       font-weight: bold;
-      font-size: ${C.SLaptop};
+      font-size: ${C.fSLaptop};
       text-align: center;
       line-height: ${C.lHBigLaptop};
       text-transform: capitalize;
