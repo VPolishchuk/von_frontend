@@ -480,7 +480,7 @@ const mediaStyleS6 = css`
           align-self: center;
           & > h2.gradient {
             margin: 0.1em 0;
-            font-size: $${C.fSBigLaptop};
+            font-size: ${C.fSBigLaptop};
             line-height: ${C.lHBigLaptop};
           }
           & > p {

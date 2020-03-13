@@ -1,29 +1,29 @@
-import React, { useState } from 'react'
-import * as R from 'ramda'
-import * as I from '../../../icon/index.js'
-import { DatepickerComponent } from '../../fieldset/datepiker'
-import SliderComponent from '../../slider-component/index'
+import React, { useState } from 'react';
+import * as R from 'ramda';
+import * as I from '../../../icon/index.js';
+import { DatepickerComponent } from '../../fieldset/datepiker';
+import SliderComponent from '../../slider-component/index';
 // images
-import Img1 from '../../../public/static/home-page/services/1.png'
-import Img2 from '../../../public/static/home-page/services/2.png'
-import Img3 from '../../../public/static/home-page/services/3.png'
-import Img4 from '../../../public/static/home-page/services/4.png'
-import Img5 from '../../../public/static/home-page/services/5.png'
-import Img6 from '../../../public/static/home-page/services/6.png'
-import Img7 from '../../../public/static/home-page/services/7.png'
-import Img8 from '../../../public/static/home-page/services/8.png'
-import Img9 from '../../../public/static/home-page/services/9.png'
-import Img10 from '../../../public/static/home-page/services/10.png'
-import Img11 from '../../../public/static/home-page/services/11.png'
-import Img12 from '../../../public/static/home-page/services/12.png'
+import Img1 from '../../../public/static/home-page/services/1.png';
+import Img2 from '../../../public/static/home-page/services/2.png';
+import Img3 from '../../../public/static/home-page/services/3.png';
+import Img4 from '../../../public/static/home-page/services/4.png';
+import Img5 from '../../../public/static/home-page/services/5.png';
+import Img6 from '../../../public/static/home-page/services/6.png';
+import Img7 from '../../../public/static/home-page/services/7.png';
+import Img8 from '../../../public/static/home-page/services/8.png';
+import Img9 from '../../../public/static/home-page/services/9.png';
+import Img10 from '../../../public/static/home-page/services/10.png';
+import Img11 from '../../../public/static/home-page/services/11.png';
+import Img12 from '../../../public/static/home-page/services/12.png';
 // locations
-import Img13 from '../../../public/static/locations/1.png'
-import Img14 from '../../../public/static/locations/2.png'
-import Img15 from '../../../public/static/locations/3.png'
+import Img13 from '../../../public/static/locations/1.png';
+import Img14 from '../../../public/static/locations/2.png';
+import Img15 from '../../../public/static/locations/3.png';
 
-import Img16 from '../../../public/static/locations/details/1.png'
-import Img17 from '../../../public/static/locations/details/2.png'
-import Img18 from '../../../public/static/locations/details/3.png'
+import Img16 from '../../../public/static/locations/details/1.png';
+import Img17 from '../../../public/static/locations/details/2.png';
+import Img18 from '../../../public/static/locations/details/3.png';
 
 // styles
 import {
@@ -32,13 +32,12 @@ import {
   H5,
   Wrapper,
   Button,
+  InfoWrap,
   Container,
   Paragraph,
 } from '../../../ui';
 import {
-  GridWrap,
-  SectionWrap,
-  ContainerSec
+  MainSectionBlock
 } from './ui';
 /// ///////////////////////////////////////////
 
@@ -198,7 +197,7 @@ const NearbyBox = ({ items }) => {
         }
       </div>
     </div>
-  )
+  );
 };
 
 const LeftBox = (props) => (
@@ -288,12 +287,12 @@ const LocationPosition = () => (
     <div className='location-map' />
     <H5>Location</H5>
     <Paragraph>Nether St, London N3 1NT, UK</Paragraph>
-    <div className='info-wrap'>
+    <InfoWrap className='info-wrap'>
       <div className='icon-wrap'>
         {I.phoneIcon(20, 20)}
       </div>
       +44 20 7686 9779
-    </div>
+    </InfoWrap>
     <Button className='gradient'>
       Check availability
     </Button>
@@ -310,10 +309,10 @@ const RightBox = (props) => (
 
 export const LocationDetailSection = (props) => (
   <Wrapper>
-    <div className='main-section-location-details'>
+    <MainSectionBlock className='main-section-location-details'>
       <SliderComponent images={testImage} />
-    </div>
-    <div className='container'>
+    </MainSectionBlock>
+    <Container className='container'>
       <LeftBox {...props} locationPlane={locationPlane} />
       <RightBox {...props} />
       <div className='bottom-box'>
@@ -326,7 +325,7 @@ export const LocationDetailSection = (props) => (
           )
         }
       </div>
-    </div>
+    </Container>
   </Wrapper>
 );
 

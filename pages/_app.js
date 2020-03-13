@@ -1,11 +1,11 @@
-// import App from 'next/app'
+import App from 'next/app'
 // import { register, unregister } from 'next-offline/runtime';
 import React from 'react';
 import { Loader } from '../components/layout';
 import { PageTransition } from 'next-page-transitions';
 // ////////////////////////////////////////////////////////////////d
 
-class App extends React.Component {
+class MyApp extends App {
   // componentDidMount () {
   //   register()
   // }
@@ -15,17 +15,15 @@ class App extends React.Component {
 
   render () {
     const { Component, pageProps, router } = this.props;
-    console.log('router', router);
-    console.log('props', this.props);
     return (
       <div>
         <PageTransition
-          timeout={100}
+          timeout={300}
           classNames="page-transition"
           loadingComponent={<Loader />}
-          loadingDelay={300}
+          loadingDelay={400}
           loadingTimeout={{
-            enter: 200,
+            enter: 400,
             exit: 0
           }}
           loadingClassNames="lds-hourglass"
@@ -49,9 +47,8 @@ class App extends React.Component {
           }
         `}</style>
       </div>
-    )
+    );
   }
 }
 
-export default App;
-
+export default MyApp;

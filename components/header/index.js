@@ -46,10 +46,10 @@ const navConfig = [
 ]
 
 const LinkBox = ({ links, path, name, i }) => {
-  const [open, setOpen] = useState(false)
-  const activeClass = classNames({ 'open': open })
-  const arrowClass = classNames('down-arrow', { 'rotate': open })
-  const linkWrapClass = classNames('link-wrap', { 'active': open })
+  const [open, setOpen] = useState(false);
+  const activeClass = classNames({ 'open': open });
+  const arrowClass = classNames('down-arrow', { 'rotate': open });
+  const linkWrapClass = classNames('link-wrap', { 'active': open });
   return (
     <div
       className={linkWrapClass}

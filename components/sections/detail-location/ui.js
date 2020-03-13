@@ -126,7 +126,7 @@ export const MainSectionBlock = styled.div`
         display: none;
       }
       h5 + p {
-        color: $black;
+        color: ${C.black};
         padding: 0 1rem;
       }
       ${mediaLoc}
@@ -161,7 +161,7 @@ export const MainSectionBlock = styled.div`
         }
         & > span {
           font-weight: 500;
-          line-height: $lHMPhone;
+          line-height: ${C.lHMPhone};
           ${commonPadding};
         }
         .nearby-box {
@@ -169,13 +169,13 @@ export const MainSectionBlock = styled.div`
           display: flex;
           overflow: hidden;
           height: max-content;
-          min-width: $minWidth;
+          min-width: ${C.minWidth};
           & > div {
             display: flex;
             overflow-x: scroll;
             width: max-content;
             height: max-content;
-            min-width: $minWidth;
+            min-width: ${C.minWidth};
             & > div {
               width: 200px;
               height: 100%;
@@ -224,7 +224,7 @@ export const MainSectionBlock = styled.div`
     & p {
       text-align: justify;
       white-space: normal;
-      color: $llGrey;
+      color: ${C.llGrey};
     }
     & button {
       height: 50px;

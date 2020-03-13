@@ -13,7 +13,6 @@ import {
 import {
   GridWrap,
   SectionWrap,
-  Container
 } from './ui';
 /// ///////////////////////////////////////////
 
@@ -88,7 +87,7 @@ const PlaceBox = ({ size, info}) => (
     <div>
       {R.keys(size).map(
         (item, i) => (
-          <Paragraph>
+          <Paragraph key={i}>
             <span>{item}:</span>
             {R.path([item], size)}
           </Paragraph>
