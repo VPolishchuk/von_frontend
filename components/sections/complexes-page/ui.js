@@ -2,11 +2,7 @@ import styled, { css } from 'styled-components';
 import BgMain from '../../../public/static/locations/bg-main.png';
 // ui
 import * as C from '../../../ui/constant';
-import {
-  gradient,
-  container,
-  gridWrap,
-  sectionMargin } from '../../../ui';
+import { gridWrap } from '../../../ui';
 // ///////////////////////////////////////////////////////
 
 const mediaLocWrap = css`
@@ -109,7 +105,7 @@ export const GridWrap = styled.div`
     & > img {
       width: 100%;
       height: 300px;
-      margin: 20px 0;
+      /* margin: 20px 0; */
       object-fit: cover;
     }
   }
@@ -179,7 +175,7 @@ export const VWrap = styled.div`
   }
   & h2 {
     margin: 50px 0;
-    padding: 0 15px;
+    /* padding: 0 15px; */
   }
   & p {
     & > span {

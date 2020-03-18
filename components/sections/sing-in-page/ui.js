@@ -10,10 +10,11 @@ const media = css`
     align-items: center;
     justify-content: center;
     height: calc(100vh - 100px);
-    & > .sing-up-wrap {
+    & > .sing-in-wrap {
       width: 80%;
       height: 70%;
       display: flex;
+      max-width: 750px;
       min-height: 370px;
       max-height: 430px;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);
@@ -71,10 +72,10 @@ export const SingInWrap = styled.div`
 
     & > p {
       margin: 5px 0;
-      text-align: center;
-      font-size: ${C.fSMediumPhone};
-      text-transform: capitalize;
       color: ${C.black};
+      text-align: center;
+      text-transform: capitalize;
+      font-size: ${C.fSMediumPhone};
       & > a {
         margin-left: 5px;
         font-weight: bold;
@@ -86,5 +87,6 @@ export const SingInWrap = styled.div`
 `;
 
 export const FormContainer = styled(Container)`
+  height: calc(100vh - 130px);
   ${media};
 `;

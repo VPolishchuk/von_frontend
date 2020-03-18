@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react';
+// context
+import { LocationsOptions } from '../../../hook/useContensGlobal';
 // sections
 import { MainSection } from './sec-1'
 import { AboutSection } from './sec-2'
@@ -14,6 +16,7 @@ import { Wrapper } from '../../../ui/common';
 /// //////////////////////////////////////////////////
 const SectionComponent = (props) => {
   const { lastYPos } = useWindowsHeight();
+  // const { locations } = useContext(LocationsOptions);
   return (
     <Wrapper className='wrapper'>
       <MainSection {...props} scrollPosY={lastYPos} />
@@ -24,7 +27,7 @@ const SectionComponent = (props) => {
       <LifestyleSection {...props} scrollPosY={lastYPos} />
       <ContactUsSection {...props} scrollPosY={lastYPos} />
     </Wrapper>
-  )
-}
+  );
+};
 
 export default React.memo(SectionComponent);

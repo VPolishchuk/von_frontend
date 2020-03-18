@@ -1,7 +1,7 @@
-import React from 'react'
-import * as R from 'ramda'
-import { Portal } from '../../hook/useModal'
-import { ModalBox } from './ui'
+import React from 'react';
+import * as R from 'ramda';
+import { Portal } from '../../hook/useModal';
+import { ModalBox } from './ui';
 /// ////////////////////////////////
 
 const ModalComponent = ({ children, close, render }) => {
@@ -55,4 +55,4 @@ const ModalComponent = ({ children, close, render }) => {
   )
 }
 
-export default ModalComponent
+export default ModalComponent;

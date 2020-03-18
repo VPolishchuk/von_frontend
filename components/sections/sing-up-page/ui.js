@@ -14,6 +14,7 @@ const media = css`
       width: 80%;
       height: 70%;
       display: flex;
+      max-width: 750px;
       min-height: 370px;
       max-height: 430px;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.11);

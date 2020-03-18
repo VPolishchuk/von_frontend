@@ -48,7 +48,7 @@ export const LayoutBox = (props) => {
   const url = [
     '/sing-up',
     '/sing-in',
-    '/locations',
+    '/complexes',
     '/booking-page',
     '/support-page',
     '/detail-career',
@@ -60,12 +60,12 @@ export const LayoutBox = (props) => {
     <Layout>
       <HeaderComponent {...props} blackHeader={blackHeader} />
       {props.children}
-      {/* {open ? (
+      {open ? (
         <Modal
-        close={closeModal}
-        render={() => <h1>This is a Modal using Portals!</h1>}
+          close={closeModal}
+          render={() => <h1>This is a Modal using Portals!</h1>}
         />
-        ) : null} */}
+      ) : null}
       <FooterComponent {...props} />
       <GlobalStyle />
     </Layout>

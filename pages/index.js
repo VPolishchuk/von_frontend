@@ -1,17 +1,17 @@
-import React from 'react'
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 import Layout from '../components/layout';
 import SectionComponent from '../components/sections/home-page';
-// //////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////
 
 class HomePage extends React.Component {
+
   static pageTransitionDelayEnter = true
 
   constructor (props) {
     super(props);
     this.state = { loaded: false };
   }
-
   componentDidMount () {
     this.timeoutId = setTimeout(() => {
       this.props.pageTransitionReadyToEnter();
@@ -35,9 +35,8 @@ class HomePage extends React.Component {
           <SectionComponent {...this.props} />
         </Layout>
       </div>
-    )
+    );
   }
-}
+};
 
 export default HomePage;
-

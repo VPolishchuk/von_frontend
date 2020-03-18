@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import * as R from 'ramda';
 import * as I from '../../../icon/index.js';
-import { DatepickerComponent } from '../../fieldset/datepiker';
+import { CalendarInlineComponent } from '../../fieldset/datepiker';
+import { SelectInputComponent } from '../../fieldset/index';
 import SliderComponent from '../../slider-component/index';
 // images
 import Img1 from '../../../public/static/home-page/services/1.png';
@@ -37,6 +38,9 @@ import {
   Paragraph,
 } from '../../../ui';
 import {
+  BottomBoxWrap,
+  NearbyBoxWrap,
+  DateFormFilter,
   MainSectionBlock
 } from './ui';
 /// ///////////////////////////////////////////
@@ -174,17 +178,11 @@ const LocationCard = ({ image, text, title }) => (
 
 const NearbyBox = ({ items }) => {
   return (
-    <div className='nearby-box'>
+    <NearbyBoxWrap>
       <div>
         {
           items.map((item, i) => (
-            <div key={i}
-              style={{
-                width: '200px',
-                height: '200px',
-                marginRight: '10px'
-              }}
-            >
+            <div key={i}>
               <img
                 alt='image'
                 src={item.image}
@@ -196,8 +194,9 @@ const NearbyBox = ({ items }) => {
           ))
         }
       </div>
-    </div>
+    </NearbyBoxWrap>
   );
+
 };
 
 const LeftBox = (props) => (
@@ -239,7 +238,7 @@ const LeftBox = (props) => (
       <Paragraph>
         There are also several bus routes from North Finchley bus station, situation across the road:
       </Paragraph>
-      <br /><br />
+      <br/><br/>
       {
         R.path(['locationPlane', 'list2'], props).map(
           (item, i) => (
@@ -274,10 +273,11 @@ const LeftBox = (props) => (
 
 const SelectDateFilter = (props) => {
   return (
-    <form id='date-form-filter'>
-      <DatepickerComponent {...props} />
+    <DateFormFilter>
+      <CalendarInlineComponent {...props} />
       <div />
-    </form>
+      <SelectInputComponent label={'Which apartment type'} {...props}/>
+    </DateFormFilter>
   );
 };
 
@@ -303,7 +303,7 @@ const LocationPosition = () => (
 const RightBox = (props) => (
   <div className='right-box'>
     <LocationPosition />
-    {/* <SelectDateFilter {...props} /> */}
+    <SelectDateFilter {...props} />
   </div>
 );
 
@@ -315,16 +315,18 @@ export const LocationDetailSection = (props) => (
     <Container className='container'>
       <LeftBox {...props} locationPlane={locationPlane} />
       <RightBox {...props} />
-      <div className='bottom-box'>
+      <BottomBoxWrap>
         <H3>More locations in London</H3>
-        {
-          R.path(['moreLocations'], locationPlane).map(
-            (item, i) => (
-              <LocationCard key={++i} {...item} i={i} />
+        <div>
+          {
+            R.path(['moreLocations'], locationPlane).map(
+              (item, i) => (
+                <LocationCard key={++i} {...item} i={i} />
+              )
             )
-          )
-        }
-      </div>
+          }
+        </div>
+      </BottomBoxWrap>
     </Container>
   </Wrapper>
 );

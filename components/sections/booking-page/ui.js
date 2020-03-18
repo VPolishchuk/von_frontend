@@ -64,6 +64,7 @@ const mediaBookWrap = css`
       flex-wrap: wrap;
       padding-top: 80px;
       padding-left: 30px;
+      position: relative;
       height: max-content;
       flex-direction: row;
       justify-content: space-between;
@@ -131,7 +132,10 @@ export const BookingWrap = styled.div`
       height: max-content;
       flex-direction: column;
       .left-wrap {
-        @extend .review-wrap;
+        width: 100%;
+        display: flex;
+        height: max-content;
+        flex-direction: column;
         & > div {
           width: 100%;
           margin: 7px;
@@ -148,7 +152,10 @@ export const BookingWrap = styled.div`
         }
       }
       .docs-wrap {
-        @extend .review-wrap;
+        width: 100%;
+        display: flex;
+        height: max-content;
+        flex-direction: column;
         & > p {
           text-align: left;
           color: #000;
@@ -222,4 +229,131 @@ export const BookingWrap = styled.div`
     }
   }
   ${mediaBookWrap};
+`;
+
+const mediaLoad = css`
+  @media (min-width: ${C.phone}) {
+    width: 75%;
+    height: 100vh;
+  }
+`;
+
+export const LoadWrap = styled.div`
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  translate: all 0.3s;
+  justify-content: center;
+  background-color: ${C.white};
+  ${mediaLoad};
+`;
+
+export const LoaderBox = styled.div`
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background-color: ${C.dark};
+  & div {
+    transform-origin: 40px 40px;
+    animation: lds-spinner 1.2s linear infinite;
+  }
+  & div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 37px;
+    width: 6px;
+    height: 18px;
+    border-radius: 20%;
+    background: #fff;
+  }
+
+  & div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+  }
+  & div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+  }
+  & div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+  }
+  & div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+  }
+  & div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+  }
+  & div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+  }
+  & div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+  }
+  & div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+  }
+  & div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+  }
+  & div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+  }
+  & div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+  }
+  & div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+  }
+  @keyframes lds-spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`;
+
+export const CircleLoaderBox = styled.div`
+  display: inline-block;
+  transform: translateZ(1px);
+  & > div {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: red;
+    animation: lds-circle 1.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  @keyframes lds-circle {
+    0%, 100% {
+      animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(1800deg);
+      animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+    100% {
+      transform: rotateY(3600deg);
+    }
+}
 `;

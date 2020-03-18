@@ -621,24 +621,19 @@ export const Section7 = styled.div`
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      input {
-        margin: 10px 0;
-        border: 0;
+      & .input-wrap {
+        margin: 7px 0;
+      }
+      input, textarea {
         width: 100%;
-        height: 40px;
         padding-left: 10px;
         border-radius: 7px;
-        box-shadow: 0px 2.79914px 27.9914px rgba(30, 27, 28, 0.14);
+      }
+      input {
+        height: 40px;
       }
       textarea {
-        margin: 10px 0;
-        border: 0;
-        width: 100%;
-        height: 215px;
-        resize: none;
-        padding: 10px;
-        border-radius: 7px;
-        box-shadow: 0px 2.79914px 27.9914px rgba(30, 27, 28, 0.14);
+        margin-bottom: 15px;
       }
     }
     .social-wrap {

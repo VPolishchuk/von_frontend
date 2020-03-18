@@ -1,12 +1,12 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 // ///////////////////////////////////////////////////////////////////////////
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    // const initialProps = await Document.getInitialProps(ctx)
-    // console.log('MyDocument', initialProps)
-    return await Document.getInitialProps(ctx)
-    // return { ...initialProps }
-  }
+  // static async getInitialProps(ctx) {
+  //   // const initialProps = await Document.getInitialProps(ctx)
+  //   // console.log('MyDocument', initialProps)
+  //   return await Document.getInitialProps(ctx)
+  //   // return { ...initialProps }
+  // }
 
   render () {
     return (
@@ -35,7 +35,7 @@ class MyDocument extends Document {
           {/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
           {/* <link rel='mask-icon' href='/public/static/icons/safari-pinned-tab.svg' color='#5bbad5' /> */}
           <link rel='shortcut icon' href='/public/favicon.ico' />
-          {/* <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' /> */}
+          <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700' />
           {/* <meta name='twitter:card' content='summary' />
           <meta name='twitter:url' content='https://yourdomain.com' />
           <meta name='twitter:title' content='PWA App' />

@@ -1,14 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/layout';
-import LocationsSection from '../components/sections/locations-page';
+import ComplexesSection from '../components/sections/complexes-page';
 // ////////////////////////////////////////////
 
-class LocationPage extends React.Component {
-  static pageTransitionDelayEnter = true
-
+class ComplexesPage extends React.Component {
+  static pageTransitionDelayEnter = true;
   constructor (props) {
-    super(props)
+    super(props);
     this.state = { loaded: false };
   }
 
@@ -32,11 +31,11 @@ class LocationPage extends React.Component {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Layout>
-          <LocationsSection {...this.props} />
+          <ComplexesSection {...this.props} />
         </Layout>
       </div>
-    )
+    );
   }
 }
 
-export default LocationPage;
+export default ComplexesPage;

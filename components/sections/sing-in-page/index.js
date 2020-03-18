@@ -2,9 +2,8 @@ import React from 'react';
 import BgImage from '../../../public/static/form-page/bg-1.png';
 // ui
 import {
-  Wrapper,
   Button,
-  Paragraph,
+  Wrapper
 } from '../../../ui';
 import {
   InputBox
@@ -24,7 +23,7 @@ const fieldSettings = [
     type: 'email',
     placeholder: 'Email'
   }
-]
+];
 
 const FormComponent = (props) => {
   return (
@@ -32,9 +31,9 @@ const FormComponent = (props) => {
       <legend>Sign In</legend>
       {
         fieldSettings.map(
-          (filed, i) => {
+          (field, i) => {
             return (
-              <InputBox i={i} filed={filed} />
+              <InputBox i={i} field={field} />
             );
           }
         )

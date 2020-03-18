@@ -9,6 +9,7 @@ import {
 } from '../../fieldset/index';
 import * as I from '../../../icon/index.js';
 import ReviewSec from './review-sec';
+import { FormLoader, CircleLoader } from './loader';
 import {
   Wrapper,
   Paragraph,
@@ -145,6 +146,7 @@ const FormComponent = (props) => {
     values,
     errors,
     touched,
+    loader,
     initialValues,
     initialErrors,
     initialTouched,
@@ -154,7 +156,9 @@ const FormComponent = (props) => {
     resetForm,
     setErrors,
     setFieldValue,
-    setValues
+    setValues,
+    handleSubmit,
+    ...res
   } = props
   return (
     <form id='booking-form' className='booking-form' onSubmit={props.handleSubmit}>
@@ -162,16 +166,16 @@ const FormComponent = (props) => {
       {
         props.count < 4
           ? fieldSettings[props.count].fields.map(
-            (filed, i) => {
-              if (filed.type === 'checkbox') {
+            (field, i) => {
+              if (field.type === 'checkbox') {
                 return (
-                  <CheckboxInputComponent {...props} {...filed} key={i} i={i} />
-                )
+                  <CheckboxInputComponent {...props} {...field} key={i} i={i} />
+                );
               }
-              if (filed.type === 'file') {
+              if (field.type === 'file') {
                 return (
                   <InputFile
-                    {...filed}
+                    {...field}
                     key={i}
                     i={i}
                     values={values}
@@ -181,16 +185,16 @@ const FormComponent = (props) => {
                     setFieldValue={setFieldValue}
                   // onChange={handleChange}
                   />
-                )
+                );
               }
               return (
                 <InputBox
                   i={i}
-                  filed={filed}
+                  field={field}
                   handleBlur={handleBlur}
                   handleChange={handleChange}
                 />
-              )
+              );
             }
           )
           : <ReviewSec {...props} />
@@ -227,12 +231,12 @@ const FormComponent = (props) => {
   )
 }
 
-const TitleBox = ({ i, tit, count }) => {
+const TitleBox = ({ i, tit, count, loader }) => {
   const classWrap = classNames('title-wrap', { 'active': R.equals(count, i) });
   return (
     <div className={classWrap}>
       <div className='status-circle'>
-        {i}
+        {loader ? <CircleLoader /> : R.gt(count, i) && !loader ? I.checkmarkIcon(15, 15, '#27AE60') : i}
       </div>
       <Paragraph>
         {tit}
@@ -256,6 +260,7 @@ const LeftBox = (props) => {
 
 export const BookingComponent = (props) => {
   const [count, setCount] = useState(1);
+  const [loader, setLoader] = useState(false);
   const handleSepPrevFormIndex = () => {
     if (count != 1) {
       setCount(R.dec(count, 1));
@@ -267,53 +272,60 @@ export const BookingComponent = (props) => {
         <LeftBox
           {...props}
           count={count}
+          loader={loader}
           titles={titleList}
         />
-        <Formik
-          initialValues={{
-            name: 'Alex',
-            surname: 'Vance',
-            phoneNumber: '+99 999 999 99',
-            date: '22 April 1991',
-            country: 'Germany',
-            email: 'alexvancw34@mail.com',
-            nationality: 'German',
-            street: '',
-            city: '',
-            number: '+99 999 999 99',
-            postCode: '10707',
-            addressSuffix: '',
-            idCard: {},
-            salaryStatements: {},
-            certificateOfRentDebtFreeStatus: {},
-            selfAssesment: {},
-            confirm: false
-          }}
-          onSubmit={(values, actions) => {
-            console.log('values', values)
-            console.log('actions', actions)
-            // if (R.lt(count, R.length(R.values(fieldSettings)))) {
-            setCount(R.add(count, 1))
-            // }
-            // if (R.equals(props.nextFields, R.length(R.values(singUpFieldsSetting)))) {
-            //   props.sendSingUpRequest(values);
-            // }
-          }}
-        >
-          {
-            props => (
-              <FormComponent
-                {...props}
-                count={count}
-                forms={titleList}
-                handleSepPrevFormIndex={handleSepPrevFormIndex}
-              />
-            )
-          }
-        </Formik>
+        {
+          loader ? 
+          <FormLoader /> :
+          <Formik
+            initialValues={{
+              name: 'Alex',
+              surname: 'Vance',
+              phoneNumber: '+99 999 999 99',
+              date: '22 April 1991',
+              country: 'Germany',
+              email: 'alexvancw34@mail.com',
+              nationality: 'German',
+              street: '',
+              city: '',
+              number: '+99 999 999 99',
+              postCode: '10707',
+              addressSuffix: '',
+              idCard: {},
+              salaryStatements: {},
+              certificateOfRentDebtFreeStatus: {},
+              selfAssesment: {},
+              confirm: false
+            }}
+            onSubmit={(values, actions) => {
+              // if (R.lt(count, R.length(R.values(fieldSettings)))) {
+              // }
+              // if (R.equals(props.nextFields, R.length(R.values(singUpFieldsSetting)))) {
+              //   props.sendSingUpRequest(values);
+              // }
+              setLoader(true);
+              setTimeout(() => {
+                setCount(R.add(count, 1));
+                setLoader(false);
+              }, 1000);
+            }}
+          >
+            {
+              props => (
+                <FormComponent
+                  {...props}
+                  count={count}
+                  forms={titleList}
+                  handleSepPrevFormIndex={handleSepPrevFormIndex}
+                />
+              )
+            }
+          </Formik>
+        }
       </BookingWrap>
     </Wrapper>
   )
 }
 
-export default React.memo(BookingComponent)
+export default React.memo(BookingComponent);

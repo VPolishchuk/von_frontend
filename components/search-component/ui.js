@@ -63,8 +63,8 @@ export const SearchFormWrap = styled.form`
     padding: 0 5px;
     label {
       width: 100%;
-      color: ${C.dgrey};
       display: flex;
+      color: ${C.dgrey};
       align-items: left;
       line-height: ${C.lHPhone};
       font-size: ${C.fSBigPhone};
@@ -91,7 +91,7 @@ export const SearchFormWrap = styled.form`
         display: none;
       }
       & > .date-picker-wrap {
-        width: 100%;
+        /* width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -105,11 +105,12 @@ export const SearchFormWrap = styled.form`
         & .react-datepicker-wrapper {
           width: 49%;
           & .react-datepicker__input-container > input {
+            width: 100%;
             border: 0;
           }
-        }
+        } */
       }
     }
   }
-  ${mediaMinWidthStyles}
+  ${mediaMinWidthStyles};
 `;

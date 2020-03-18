@@ -1,8 +1,76 @@
 import React from 'react';
+import { Formik } from 'formik';
+// utils
+import { sendRequest } from '../../../utils/api';
+import endpointsMap from '../../../utils/endpoints-map';
 import Img from '../../../public/static/home-page/contact-us/1.png';
+import {
+  InputBox
+} from '../../fieldset/index';
 import { H2, H3, Paragraph, Button } from '../../../ui/common';
 import { Section7 } from './ui';
 /// ///////////////////////////////////////////
+
+const fieldsSetting = [
+  {
+    name: 'name',
+    type: 'text',
+    label: 'Name'
+  },
+  {
+    name: 'email',
+    type: 'email',
+    label: 'Email'
+  },
+  {
+    type: 'textarea',
+    label: 'Message',
+    name: 'messageText'
+  }
+];
+
+const Form = (props) => {
+  const {
+    values,
+    errors,
+    touched,
+    loader,
+    initialValues,
+    initialErrors,
+    initialTouched,
+    handleBlur,
+    handleChange,
+    handleReset,
+    resetForm,
+    setErrors,
+    setFieldValue,
+    setValues,
+    handleSubmit,
+    ...res
+  } = props;
+  return (
+    <form id='send' onSubmit={props.handleSubmit}>
+      {
+        fieldsSetting.map((field, i) => (
+          <InputBox
+            key={i}
+            field={field}
+            classN='shadow'
+            values={values}
+            errors={errors}
+            touched={touched}
+            handleBlur={handleBlur}
+            handleChange={handleChange}
+            setFieldValue={setFieldValue}
+          />
+        ))
+      }
+      <Button className='gradient' type='submit'>
+        Send
+      </Button>
+    </form>
+  );
+};
 
 export const ContactUsSection = (props) => (
   <Section7 className='section-7 container'>
@@ -10,17 +78,29 @@ export const ContactUsSection = (props) => (
     <div className='contact-wrap'>
       <div className='form-wrap'>
         <H3>
-					That's what's up!<br />
+          That's what's up!<br />
           <span>Say hello!</span>
         </H3>
-        <form id='send'>
-          <input type='name' placeholder='Name' />
-          <input type='email' placeholder='Email' />
-          <textarea placeholder='Message' rows='30' />
-          <Button className='gradient'>
-						Send
-          </Button>
-        </form>
+        <Formik
+          initialValues={{
+            name: '',
+            email: '',
+            messageText: ''
+          }}
+          onSubmit={(values, actions) => {
+            const options = {
+              data: values
+            };
+            sendRequest('post', endpointsMap.contactAs, options);
+          }}
+        >
+          {
+            props => (
+              <Form {...props} />
+            )
+          }
+        </Formik>
+
       </div>
       <div className='social-wrap'>
         <img src={Img} alt='img' className='social-image' />
@@ -35,6 +115,6 @@ export const ContactUsSection = (props) => (
       </div>
     </div>
   </Section7>
-)
+);
 
 export default ContactUsSection;

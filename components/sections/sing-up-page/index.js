@@ -42,14 +42,14 @@ const FormComponent = (props) => {
       <legend>Sign up</legend>
       {
         fieldSettings.map(
-          (filed, i) => {
-            if (filed.type === 'checkbox') {
+          (field, i) => {
+            if (field.type === 'checkbox') {
               return (
-                <CheckboxInputComponent {...props} {...filed} key={i} i={i} />
+                <CheckboxInputComponent {...props} {...field} key={i} i={i} />
               );
             }
             return (
-              <InputBox i={i} filed={filed} />
+              <InputBox i={i} field={field} />
             );
           }
         )

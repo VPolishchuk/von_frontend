@@ -1,5 +1,8 @@
 import React from 'react';
-import './style.scss';
+import {
+  CheckboxWrap,
+  CheckboxContainer
+} from './ui';
 /// //////////////////////////////////////////////////////////
 
 export const CheckboxInputComponent = (props) => {
@@ -11,12 +14,11 @@ export const CheckboxInputComponent = (props) => {
     checked,
     handleBlur,
     handelCastomChange,
-    ...rest } = props
-  console.log('CheckboxInputComponent', props)
+    ...rest } = props;
   return (
-    <div className='input-wrap'>
+    <CheckboxWrap>
       <label>
-        <div className={`checkbox-container ${checked ? 'checked' : ''}`}>
+        <CheckboxContainer className={`checkbox-container ${checked ? 'checked' : ''}`}>
           <input
             type={type}
             name={name}
@@ -35,12 +37,12 @@ export const CheckboxInputComponent = (props) => {
               <polyline points='20 6 9 17 4 12' />
             </svg>
           </div>
-        </div>
+        </CheckboxContainer>
         {
           label && <span>{label}</span>
         }
       </label>
-    </div>
+    </CheckboxWrap>
   )
 }
 

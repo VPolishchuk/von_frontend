@@ -1,35 +1,30 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
-import * as R from 'ramda'
-import classNames from 'classnames'
-import Logo from '../../public/static/logo.png'
-import LogoBlack from '../../public/static/logo-black.png'
-import SearchInput from '../fieldset/search-input'
+import React, { useState, useContext, useEffect } from 'react';
+import Link from 'next/link';
+import * as R from 'ramda';
+import *  as H from '../../helpers/index';
+import classNames from 'classnames';
+import Logo from '../../public/static/logo.png';
+import LogoBlack from '../../public/static/logo-black.png';
+import SearchInput from '../fieldset/search-input';
+// context
+import { LocationsOptions } from '../../hook/useContensGlobal';
 // hook
 import { useWindowsHeight } from '../../hook/useWindowHeight';
 // icon
 import * as I from '../../icon';
-import { Header } from './ui';
+import { Header, NavLinkMob } from './ui';
+import { Container } from '../../ui/index';
 // ////////////////////////////////////
 
 const navConfig = [
   {
     name: 'Locations',
-    links: [
-      {
-        path: '/locations',
-        name: 'London',
-        payload: 'London'
-      },
-      {
-        path: '/locations',
-        name: 'Berlin',
-        payload: 'Berlin'
-      }
-    ]
+    type: 'locations',
+    links: []
   },
   {
     name: 'City Guide',
+    type: 'cityGuide',
     links: [
       {
         path: '/city-guide-page',
@@ -43,7 +38,7 @@ const navConfig = [
       }
     ]
   }
-]
+];
 
 const LinkBox = ({ links, path, name, i }) => {
   const [open, setOpen] = useState(false);
@@ -69,7 +64,12 @@ const LinkBox = ({ links, path, name, i }) => {
         {
           links && links.map(
             (item, i) => (
-              <Link key={i} href={item.path}>
+              <Link key={i}
+                href={{
+                  pathname: item.path,
+                  query: R.path(['query'], item)
+                }}
+              >
                 <a>{item.name}</a>
               </Link>
             )
@@ -78,13 +78,16 @@ const LinkBox = ({ links, path, name, i }) => {
       </div>
 
     </div>
-  )
-}
+  );
+};
+
 const MobBar = (props) => (
   <div>
-    <img alt='logoBlack' src={LogoBlack} />
+    <Link href='/'>
+      <img alt='logoBlack' src={LogoBlack} />
+    </Link>
     <div className='search-input'>
-      <SearchInput {...props} class='mob-search' />
+      {/* <SearchInput {...props} class='mob-search' /> */}
     </div>
     {
       props.nav.map(
@@ -104,7 +107,7 @@ const MobBar = (props) => (
       <a><div className='linkedin' /></a>
     </div>
   </div>
-)
+);
 
 const NavBar = (props) => {
   const mobMenuClass = classNames('mob-nav-bar', { 'active': props.mobMenu });
@@ -121,35 +124,55 @@ const NavBar = (props) => {
         <MobBar {...props} />
       </div>
     </nav>
-  )
-}
+  );
+};
 
 const HeaderComponent = (props) => {
   const [active, setActive] = useState(false);
+  const [navSettings, setNavSettings] = useState([]);
   const { shouldShowActions } = useWindowsHeight();
   const clNameHeader = classNames({ 'black': R.or(props.blackHeader, shouldShowActions) });
   const clName = classNames('burger', { 'active': active });
   const navClass = classNames({ 'active': active });
+  const { locations } = useContext(LocationsOptions);
+  useEffect(() => {
+    if (H.isNotNilAndNotEmpty(locations)) {
+      const navLs = navConfig.map((item, i) => {
+        if (R.equals(item.type, 'locations')) {
+          let links = locations.map(loc => ({
+            path: '/complexes',
+            name: loc,
+            query: { location: loc }
+          }));
+          return R.assoc('links', links, item);
+        }
+        return item;
+      });
+      setNavSettings(navLs);
+    }
+  }, [locations]);
   return (
     <Header className={clNameHeader}>
-      <div className='container'>
+      <Container className='container'>
         <NavBar
           {...props}
-          nav={navConfig}
           mobMenu={active}
+          nav={navSettings}
           navClass={navClass}
         />
-        <img alt='logo' src={Logo} />
+        <Link href='/'>
+          <img alt='logo' src={Logo} />
+        </Link>
         <div className='search-input'>
-          <SearchInput {...props} />
+          {/* <SearchInput {...props} locations={locations} /> */}
         </div>
         <div
           className={clName}
           onClick={() => setActive(!active)}
         />
-      </div>
+      </Container>
     </Header>
-  )
-}
+  );
+};
 
 export default HeaderComponent;

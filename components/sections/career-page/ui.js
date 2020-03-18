@@ -66,8 +66,8 @@ export const ContainerSec = styled(Container)`
       h6 {
         padding: 0;
         margin: 7px 0;
-        color: ${C.darkGrey};
         text-align: left;
+        color: ${C.darkGrey};
         text-transform: capitalize;
       }
       h6 + button {

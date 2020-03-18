@@ -20,4 +20,11 @@ module.exports = withPlugins(
   }
 );
 
-// module.exports = optimizedImages(withSass(withCSS({})));
+// const nextConf = {
+//   devIndicators: {
+//     autoPrerender: false
+//   },
+//   handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif']
+// };
+
+// module.exports = optimizedImages(withSass(withCSS({nextConf})));

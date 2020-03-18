@@ -30,13 +30,14 @@ const mediaMinWidthStyles = css`
           min-height: 100%;
           min-width: 150px;
           color: ${C.white};
-          flex-direction: column;
-          font-size: ${C.fSMediumPhone};
           font-weight: bold;
-          height: max-content;
           position: relative;
           align-items: center;
+          height: max-content;
           translate: all 0.4s;
+          flex-direction: column;
+          text-transform:capitalize;
+          font-size: ${C.fSMediumPhone};
 
           & > div {
             display: flex;
@@ -124,10 +125,9 @@ export const Header = styled.header`
     }
     img {
       margin: 0 15px;
+      cursor: pointer;
       object-fit: none;
       object-position: left;
-      -o-object-fit: none;
-      -o-object-position: left;
     }
     img + .search-input {
       display: none;
@@ -218,13 +218,14 @@ export const Header = styled.header`
           }
           & .link-wrap {
             width: 100%;
-            min-height: 30px;
-            height: max-content;
             display: flex;
-            align-items: center;
+            min-height: 30px;
             color: ${C.blackL};
-            transition: transform 0.4s;
+            height: max-content;
+            align-items: center;
             flex-direction: column;
+            text-transform:capitalize;
+            transition: transform 0.4s;
             justify-content: space-between;
             &.active {
               cursor: pointer;

@@ -89,7 +89,11 @@ export const InputWrap = styled.div`
   position: relative;
   align-items: center;
   justify-content: space-between;
-  input {
+  &.textarea {
+    height: 215px;
+  }
+  input,
+  textarea {
     width: 100%;
     height: 50px;
     max-width: 450px;
@@ -97,6 +101,19 @@ export const InputWrap = styled.div`
     border-radius: 5px;
     box-sizing: border-box;
     border: 1px solid ${C.lightGrey};
+  }
+  textarea {
+    padding-top: 10px;
+    height: 215px;
+    resize: none;
+  }
+  input.shadow,
+  textarea.shadow {
+    border: 0;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0px 2.79914px 27.9914px rgba(30, 27, 28, 0.14);
   }
   & > label {
     position: absolute;
@@ -117,9 +134,84 @@ export const InputWrap = styled.div`
       font-size: 14px;
     }
   }
+  input:focus,
+  textarea:focus {
+    box-shadow: 0px 2.79914px 27.9914px rgb(23,133,242, 0.5);
+
+  }
   input:focus + label,
-  input:active + label {
+  textarea:focus + label {
     font-size: 10px;
     transform: translate(-10px, -34px);
+  }
+`;
+
+export const CheckboxWrap = styled.div`
+  & > label {
+    & span {
+      margin: 0 7px;
+    }
+  }
+`;
+
+export const CheckboxContainer = styled.div`
+	display: inline-flex;
+	input[type='checkbox'] {
+		border: 0;
+		padding: 0;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		position: absolute;
+		white-space: nowrap;
+	}
+	.styled-container {
+		width: 16px;
+		height: 16px;
+		background: salmon;
+		border-radius: 3px;
+		display: inline-block;
+		transition: all 150ms;
+		&.checked {
+			background: papayawhip;
+		}
+		&:focus + & {
+			box-shadow: 0 0 0 3px pink;
+		}
+		svg {
+			visibility: hidden;
+			&.checked {
+				visibility: visible;
+			}
+		}
+	}
+`;
+
+export const SelectWrap = styled(InputWrap)`
+  z-index: ${({zIndex}) => zIndex};
+`;
+
+export const DatePickerWrap = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  & > span {
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-right: 7px;
+  }
+  & .react-datepicker-wrapper {
+    width: 49%;
+    & .react-datepicker__input-container > input {
+      width: 100%;
+      height: 40px;
+      border: 0;
+    }
   }
 `;

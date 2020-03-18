@@ -7,6 +7,7 @@ import Img5 from '../../../public/static/locations/5.png';
 import Img6 from '../../../public/static/locations/6.png';
 import Img7 from '../../../public/static/locations/7.png';
 import * as H from '../../../helpers';
+import { useComplexes } from '../../../hook/useComplexes';
 import {
   H2,
   Wrapper,
@@ -87,14 +88,15 @@ const VonderBox = (props) => (
 const LocationsComponents = (props) => (
   <GridWrap className='grid-wrap'>
     {
-      props.locations.map(
+      props.complexes && props.complexes.map(
         (item, i) => (
           <div key={i} className='location-wrap'>
-            <img alt='img' src={item.image} />
+            <img alt='img' src={Img1} />
             <div>
               <div>
-                <p>{item.name}</p>
-                <p className='address'>{item.address}</p>
+                <Paragraph>{item.name}</Paragraph>
+                {/* <Paragraph className='address'>{item.address}</Paragraph> */}
+                <Paragraph className='address'>{item.location}</Paragraph>
               </div>
               <Button onClick={() => props.goToDetails('/detail-location')}>
                 Explore
@@ -105,9 +107,10 @@ const LocationsComponents = (props) => (
       )
     }
   </GridWrap>
-)
+);
 
-export const LocationsSection = (props) => {
+export const ComplexesSection = (props) => {
+  const { query, complexes } = useComplexes();
   const goToDetails = (path) => {
     H.goToRoute(path);
   };
@@ -115,15 +118,15 @@ export const LocationsSection = (props) => {
     <Wrapper className='wrapper'>
       <LocationsWrapper className='locations-wrapper'>
         <div>
-          <H2>Our locations in London</H2>
+          <H2>{`Our locations in ${query}`}</H2>
         </div>
       </LocationsWrapper>
       <Container className='container'>
-        <LocationsComponents locations={locations} goToDetails={goToDetails} />
+        <LocationsComponents complexes={complexes} goToDetails={goToDetails} />
         <VonderBox {...props} goToDetails={goToDetails} />
       </Container>
     </Wrapper>
   );
 };
 
-export default React.memo(LocationsSection);
+export default React.memo(ComplexesSection);

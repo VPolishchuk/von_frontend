@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import * as R from 'ramda';
-// import * as C from '../../ui/constant';
-// import {downArrow} from '../../ui/common';
 // ////////////////////////////////////////////
 
 export const SliderWrap = styled.div`
@@ -9,7 +7,6 @@ export const SliderWrap = styled.div`
   width: ${({width}) => R.or(width, '100vw')};
   position: relative;
   overflow: hidden;
-  border: 1px solid red;
 `;
 
 export const SliderRow = styled.div`

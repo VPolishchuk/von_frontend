@@ -1,25 +1,68 @@
-import React, { useEffect, useState } from 'react'
-import * as R from 'ramda'
-import Select from 'react-select'
-import './style.scss'
+import React from 'react';
+import Select from 'react-select';
+// import { borderRadius } from 'react-select/src/theme';
+import { SelectWrap } from './ui';
+import { boxShadow, zIndex } from 'styled-system';
 /// /////////////////////////////////////////////////
 
+const commonStyles = {
+  container: () => ({
+    display: 'flex',
+    width: '100%',
+    height: '50px'
+  }),
+  input: () => ({
+    width: '100%',
+    height: '50px'
+  }),
+  singleValue: () => ({
+    left: '0',
+    fontSize: '24px',
+    lineHeight: '28px',
+    fontFamily: 'Roboto',
+    position: 'absolute'
+  }),
+  indicatorSeparator: () => ({
+    display: 'none'
+  }),
+  placeholder: () => ({
+    display: 'none'
+  }),
+  menuList: () => ({
+    width: '100%',
+    borderRadius: '10px',
+    backgroundColor: 'white'
+  }),
+  menu: () => ({
+    width: '95%',
+    position: 'absolute',
+    top: '70px',
+    left: '0',
+    borderRadius: '10px',
+    boxShadow: '0px 10px 40px rgba(27, 0, 70, 0.15)',
+    zIndex: 'unset'
+  })
+  // option: () => ({
+  //   width: '100%',
+  //   height: '50px',
+  //   padding: '10px',
+  //   borderRadius: '10px'
+  // })
+}
 export const SelectInputComponent = ({
   name,
   label,
   touched,
   options,
   errors,
+  zIndex,
+  isSerchSt,
   labelDisplay,
   selectedOption,
-  handelCastomChange
+  handleCustomChange
 }) => {
   const customStyles = {
-    container: () => ({
-      display: 'flex',
-      width: '100%',
-      height: '50px'
-    }),
+    ...commonStyles,
     control: () => ({
       transition: 'all 100ms',
       position: 'relative',
@@ -27,27 +70,27 @@ export const SelectInputComponent = ({
       borderWidth: '0',
       width: '100%',
       alignItems: 'center'
-    }),
-    input: () => ({
+    })
+  };
+
+  const defaultStyles = {
+    ...commonStyles,
+    control: () => ({
+      transition: 'all 100ms',
+      position: 'relative',
+      display: 'flex',
+      borderWidth: '1px',
       width: '100%',
-      height: '50px'
-    }),
-    singleValue: () => ({
-      left: '0',
-      fontSize: '24px',
-      lineHeight: '28px',
-      fontFamily: 'Roboto',
-      position: 'absolute'
-    }),
-    indicatorSeparator: () => ({
-      display: 'none'
-    }),
-    placeholder: () => ({
-      display: 'none'
+      alignItems: 'center',
+      border: '1px solid #E6E5E5',
+      borderRadius: '5px'
     })
   }
   return (
-    <div className='input-wrap select'>
+    <SelectWrap
+      zIndex={zIndex}
+      className='input-wrap select'
+    >
       {
         label &&
         <label>{label}</label>
@@ -55,23 +98,11 @@ export const SelectInputComponent = ({
       <Select
         options={options}
         value={selectedOption}
-        styles={customStyles}
-        onChange={(newOpt) => handelCastomChange(name, newOpt)}
+        styles={isSerchSt ? customStyles : defaultStyles}
+        onChange={(newOpt) => handleCustomChange(newOpt, name)}
       />
-      {/* {R.or(R.has(name.value, touched), R.has(name.value, errors)) ? (
-        <div
-        className="error"
-        style={{
-            color: 'red',
-            fontSize: '12px',
-            marginTop: '5px',
-            textAlign: 'center',
-        }}
-        >
-        {errors[name.value]}</div>
-    ) : null} */}
-    </div>
-  )
-}
+    </SelectWrap>
+  );
+};
 
 export default SelectInputComponent;

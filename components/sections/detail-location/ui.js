@@ -68,34 +68,37 @@ const mediaMain = css`
         padding: 0 0 30px;
         flex-direction: column;
       }
-      .bottom-box {
-        width: 100%;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        .loc-card-wrap {
-          width: 100%;
-          margin: 15px 0;
-          height: 300px;
-          max-height: max-content;
-          display: flex;
-          justify-content: space-between;
-          img, div {
-            width: 48%;
-          }
-          img + div {
-            display: block;
-            h5 {
-              font-weight: 500;
-              text-align: left;
-              ${fontTemplate};
+    }
+  }
+`;
 
-            }
-          }
-          button {
-            margin: 30px 0;
-          }
+const mediaBotton = css`
+  @media (min-width: ${C.phone}) {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    .loc-card-wrap {
+      width: 100%;
+      margin: 15px 0;
+      height: 300px;
+      max-height: max-content;
+      display: flex;
+      justify-content: space-between;
+      img, div {
+        width: 48%;
+      }
+      img + div {
+        display: block;
+        h5 {
+          font-weight: 500;
+          text-align: left;
+          ${fontTemplate};
+
         }
+      }
+      button {
+        margin: 30px 0;
       }
     }
   }
@@ -249,37 +252,74 @@ export const MainSectionBlock = styled.div`
     .left-box + .right-box {
       display: none;
     }
-    .bottom-box {
+  }
+  ${mediaMain}
+`;
+
+export const BottomBoxWrap = styled.div`
+  width: 100%;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+  justify-content: center;
+  & h3 {
+    color: ${C.pink};
+    text-align: left;
+    margin: 20px 0;
+    text-transform: uppercase;
+  }
+  & h5 {
+    color: ${C.blackL};
+    margin: 15px 0;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  & .loc-card-wrap {
+    width: 100%;
+    img {
       width: 100%;
-      align-items: center;
-      padding-top: 50px;
-      flex-direction: column;
-      justify-content: center;
-      & h3 {
-        color: ${C.pink};
-        text-align: left;
-        margin: 20px 0;
-        text-transform: uppercase;
-      }
-      & h5 {
-        color: ${C.blackL};
-        margin: 15px 0;
-        font-weight: 500;
-        text-transform: capitalize;
-      }
-      & .loc-card-wrap {
+      object-fit: cover;
+      -o-object-fit: cover;
+      
+    }
+    img + div {
+      display: none;
+    }
+  }
+  ${mediaBotton}
+`;
+
+export const DateFormFilter = styled.form`
+  display: flex;
+  padding: 0 1rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const NearbyBoxWrap = styled.div`
+  width: 100%;
+  max-width: 800px;
+  /* min-width: 320px; */
+  overflow: scroll;
+  & > div {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    & > div {
+      width: 200px;
+      height: 200px;
+      margin-right: 10px;
+      img {
         width: 100%;
-        img {
-          width: 100%;
-          object-fit: cover;
-          -o-object-fit: cover;
-          
-        }
-        img + div {
-          display: none;
-        }
+        height: 85%;
+        object-fit: unset;
+      }
+      p {
+        width: 100%;
+        text-align: center;
       }
     }
   }
-  ${mediaMain}
 `;
