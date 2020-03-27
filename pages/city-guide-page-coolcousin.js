@@ -1,42 +1,20 @@
 import React from 'react';
 import Head from 'next/head';
+import withLayout from '../hoc/withLayout';
 import Layout from '../components/layout';
 import IframeSection from '../components/sections/city-guide-page-coolcousin';
 // ////////////////////////////////////////////////////////////////////////////////
 
-class GuideMapPage extends React.Component {
-  static pageTransitionDelayEnter = true
+const GuideMapPage = (props) => (
+  <div>
+    <Head>
+      <title>Guide Page</title>
+      <link rel='icon' href='/favicon.ico' />
+    </Head>
+    <Layout>
+      <IframeSection {...props} />
+    </Layout>
+  </div>
+);
 
-  constructor (props) {
-    super(props);
-    this.state = { loaded: false };
-  }
-
-  componentDidMount () {
-    this.timeoutId = setTimeout(() => {
-      this.props.pageTransitionReadyToEnter();
-      this.setState({ loaded: true });
-    }, 2000);
-  }
-
-  componentWillUnmount () {
-    if (this.timeoutId) clearTimeout(this.timeoutId);
-  }
-
-  render () {
-    if (!this.state.loaded) return null;
-    return (
-      <div>
-        <Head>
-          <title>Guide Map</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <Layout>
-          <IframeSection {...this.props} />
-        </Layout>
-      </div>
-    );
-  }
-}
-
-export default GuideMapPage;
+export default withLayout(GuideMapPage);

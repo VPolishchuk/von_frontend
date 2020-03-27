@@ -1,10 +1,13 @@
-import React from 'react';
 import * as R from 'ramda';
+import moment from 'moment';
+// import NextRouter from 'next/router';
 import Router from 'next/router';
+// import { useRouter } from 'next/router';
 // //////////////////////////////////////////
-
-export const goToRoute = (url, as, options) => (Router.push(url, as, options));
-
+// const router = useRouter();
+// export const goToRoute = (url, as, options) => NextRouter.push(url, as, options);
+export const goToRoute = (url, as, options) => Router.push(url, as, options);
+// export const goToRoute = (url, as, options) => router.push(url, as, options);
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // ADDITION RAMDA HELPERS
@@ -41,8 +44,6 @@ export const isNumber = R.is(Number);
 export const getItemFromLocalStorage = (itemName) => localStorage.getItem(itemName);
 export const setItemToLocalStorage = (itemName, itemValue) => localStorage.setItem(itemName, itemValue);
 
-export const genShortId = () => shortId.generate();
-
 export const ifElse = (predicate, ifSt, elseSt) => {
   if (predicate) return ifSt;
   return elseSt;
@@ -67,7 +68,7 @@ export const shouldReturn = (willExportPDF, content) => {
 export const renameKeys = R.curry((keysMap, obj) => R.reduce(
   (acc, key) => R.assoc(R.or(keysMap[key], key), obj[key], acc),
   {},
-  R.keys(obj),
+  R.keys(obj)
 ));
 
 // export const addMomentTime = (
@@ -90,9 +91,9 @@ export const getOrElse = (obj, prop, elseSt) => {
 //   moment(item).format(format)
 // );
 
-// export const createUnixTimeFormat = (item) => (
-//   moment(item).unix()
-// );
+export const createUnixTimeFormat = (item) => (
+  moment(item).unix()
+);
 
 // export const splitTime = (time) => {
 //   if (isNilOrEmpty(time)) return null;
@@ -107,25 +108,19 @@ export const getOrElse = (obj, prop, elseSt) => {
 //   return `12 + ${hoursAndMinutes[0]}:${hoursAndMinutes[1]}`
 // };
 
-// export const convertUnixCodeToTime = (time, format) => {
-//   if (!time) return null;
-//   return  (
-//     moment.unix(time).format(R.or(format, 'LT'))
-//   );
-// }
+export const convertUnixCodeToTime = (time, format) => {
+  if (!time) return null;
+  return (
+    moment.unix(time).format(R.or(format, 'LT'))
+  );
+};
 
-// export const convertUnixCodeToUTC = (time) => {
-//   if (!time) return null;
-//   return  (
-//     moment.unix(time).utc()
-//   );
-// }
-// export const checkColorBg = (x) => {
-//   if (Number.isInteger(R.divide(x, 2))) {
-//     return '#F1F1F3';
-//   }
-//   return '#fff';
-// };
+export const convertUnixCodeToUTC = (time) => {
+  if (!time) return null;
+  return (
+    moment.unix(time).utc()
+  );
+};
 
 // export const replaceKeysToParams = (options, endpoint) => {
 //   if (R.or(R.is(String, options), R.is(Number, options))) {

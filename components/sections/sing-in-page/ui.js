@@ -54,7 +54,7 @@ export const SingInWrap = styled.div`
     justify-content: center;
 
     legend {
-      font-family: Roboto;
+      font-family: RobotoRegular;
       font-style: normal;
       font-weight: bold;
       font-size: ${C.fSLaptop};

@@ -1,8 +1,7 @@
 import React from 'react';
 import SearchForm from '../../search-component/index';
-// import './style.scss'
 import { Section1 } from './ui';
-/// ///////////////////////////////////////////
+// ///////////////////////////////////////////////////
 
 export const MainSection = (props) => {
   return (
@@ -13,7 +12,7 @@ export const MainSection = (props) => {
         </div>
       </div>
     </Section1>
-  )
-}
+  );
+};
 
 export default MainSection;

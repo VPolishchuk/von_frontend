@@ -15,17 +15,20 @@ const fieldsSetting = [
   {
     name: 'name',
     type: 'text',
-    label: 'Name'
+    placeholder: 'Name'
+    // valid: require
   },
   {
     name: 'email',
     type: 'email',
-    label: 'Email'
+    placeholder: 'Email'
+    // valid: require
   },
   {
     type: 'textarea',
-    label: 'Message',
+    placeholder: 'Message',
     name: 'messageText'
+    // valid: require
   }
 ];
 
@@ -61,7 +64,6 @@ const Form = (props) => {
             touched={touched}
             handleBlur={handleBlur}
             handleChange={handleChange}
-            setFieldValue={setFieldValue}
           />
         ))
       }
@@ -100,7 +102,6 @@ export const ContactUsSection = (props) => (
             )
           }
         </Formik>
-
       </div>
       <div className='social-wrap'>
         <img src={Img} alt='img' className='social-image' />

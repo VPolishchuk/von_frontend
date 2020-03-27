@@ -1,42 +1,20 @@
 import React from 'react'
-import Head from 'next/head'
+import Head from 'next/head';
+import withLayout from '../hoc/withLayout';
 import Layout from '../components/layout';
 import BookingComponent from '../components/sections/booking-page';
-//////////////////////////////////////////////
+// ////////////////////////////////////////////
 
-class BookingPage extends React.Component {
-  static pageTransitionDelayEnter = true
- 
-  constructor (props) {
-    super(props)
-    this.state = { loaded: false }
-  }
- 
-  componentDidMount () {
-    this.timeoutId = setTimeout(() => {
-      this.props.pageTransitionReadyToEnter()
-      this.setState({ loaded: true })
-    }, 2000)
-  }
- 
-  componentWillUnmount () {
-    if (this.timeoutId) clearTimeout(this.timeoutId)
-  }
- 
-  render () {
-    if (!this.state.loaded) return null;
-    return (
-      <div>
-        <Head>
-          <title>Booking Page</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <Layout>
-          <BookingComponent {...this.props} />
-        </Layout>
-      </div>
-    )
-  }
-}
+const BookingPage = (props) => (
+  <div>
+    <Head>
+      <title>Booking Page</title>
+      <link rel='icon' href='/favicon.ico' />
+    </Head>
+    <Layout>
+      <BookingComponent {...props} />
+    </Layout>
+  </div>
+);
 
-export default BookingPage;
+export default withLayout(BookingPage);

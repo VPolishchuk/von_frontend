@@ -3,9 +3,9 @@ import { sendRequest } from '../utils/api';
 import * as H from '../helpers/index';
 import { useState, useEffect } from 'react';
 import endpointsMap from '../utils/endpoints-map';
-// /////////////////////////////////////////
+// ////////////////////////////////////////////////
 
-export const useComplexes = () => {
+export const useComplexes = (location) => {
   const [complexes, setComplexes] = useState(null);
   const queryParams = window.location.search;
   const query = R.last(R.split('=', queryParams));
@@ -13,7 +13,7 @@ export const useComplexes = () => {
     try {
       const options = {
         params: {
-          location: query
+          location: R.or(location, query)
         }
       };
       const res = await sendRequest('get', endpointsMap.complexes, options);
@@ -24,10 +24,8 @@ export const useComplexes = () => {
     }
   };
   useEffect(() => {
-    if (H.isNilOrEmpty(complexes)) {
-      getInitialProps();
-    }
-  }, [query]);
+    getInitialProps();
+  }, [query, location]);
 
   return {
     query,

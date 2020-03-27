@@ -1,15 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Link from 'next/link';
 import * as R from 'ramda';
-import *  as H from '../../helpers/index';
+import * as H from '../../helpers/index';
 import classNames from 'classnames';
 import Logo from '../../public/static/logo.png';
-import LogoBlack from '../../public/static/logo-black.png';
 import SearchInput from '../fieldset/search-input';
 // context
-import { LocationsOptions } from '../../hook/useContensGlobal';
+import { GlobalContext } from '../../hook/useContextGlobal';
 // hook
-import { useWindowsHeight } from '../../hook/useWindowHeight';
+import { useWindowsHeight } from '../../hook/useWindowParams';
 // icon
 import * as I from '../../icon';
 import { Header, NavLinkMob } from './ui';
@@ -84,7 +83,9 @@ const LinkBox = ({ links, path, name, i }) => {
 const MobBar = (props) => (
   <div>
     <Link href='/'>
-      <img alt='logoBlack' src={LogoBlack} />
+      <div className='logo-wrap'>
+        {I.logoBlack()}
+      </div>
     </Link>
     <div className='search-input'>
       {/* <SearchInput {...props} class='mob-search' /> */}
@@ -97,9 +98,11 @@ const MobBar = (props) => (
       )
     }
     <div className='link-wrap'>
-      <Link href='/support-page'>
-        <a>FAQ</a>
-      </Link>
+      <div>
+        <Link href='/support-page'>
+          <a>FAQ</a>
+        </Link>
+      </div>
     </div>
     <div className='social-box'>
       <a><div className='facebook' /></a>
@@ -128,20 +131,19 @@ const NavBar = (props) => {
 };
 
 const HeaderComponent = (props) => {
-  const [active, setActive] = useState(false);
   const [navSettings, setNavSettings] = useState([]);
   const { shouldShowActions } = useWindowsHeight();
   const clNameHeader = classNames({ 'black': R.or(props.blackHeader, shouldShowActions) });
-  const clName = classNames('burger', { 'active': active });
-  const navClass = classNames({ 'active': active });
-  const { locations } = useContext(LocationsOptions);
+  const clName = classNames('burger', { 'active': props.active });
+  const navClass = classNames({ 'active': props.active });
+  const { locations } = useContext(GlobalContext);
   useEffect(() => {
     if (H.isNotNilAndNotEmpty(locations)) {
       const navLs = navConfig.map((item, i) => {
         if (R.equals(item.type, 'locations')) {
           let links = locations.map(loc => ({
-            path: '/complexes',
             name: loc,
+            path: '/complexes',
             query: { location: loc }
           }));
           return R.assoc('links', links, item);
@@ -156,19 +158,22 @@ const HeaderComponent = (props) => {
       <Container className='container'>
         <NavBar
           {...props}
-          mobMenu={active}
           nav={navSettings}
           navClass={navClass}
+          mobMenu={props.active}
         />
         <Link href='/'>
           <img alt='logo' src={Logo} />
+          {/* <div className='logo-wrap'>
+            {I.logo()}
+          </div> */}
         </Link>
         <div className='search-input'>
           {/* <SearchInput {...props} locations={locations} /> */}
         </div>
         <div
           className={clName}
-          onClick={() => setActive(!active)}
+          onClick={() => props.setActive(!props.active)}
         />
       </Container>
     </Header>

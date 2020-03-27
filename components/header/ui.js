@@ -210,6 +210,12 @@ export const Header = styled.header`
           background-color: ${C.white};
           border-radius: 0px 0px 10px 10px;
           box-shadow: 0px 2px 20px rgba(30, 27, 28, 0.14);
+          & .logo-wrap {
+            height: 35px;
+            display: flex;
+            padding: 0 15px;
+            align-items: center;
+          }
           & .search-input {
             width: 100%;
             height: 30px;
@@ -285,6 +291,8 @@ export const Header = styled.header`
               margin: 0 10px;
               cursor: pointer;
               &:hover {
+                transition: all 0.3s;
+                transform: scale(1.01);
                 box-shadow: 0px 2.79914px 27.9914px rgba(30, 27, 28, 0.14);
               }
             }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Img1 from '../../../public/static/locations/1.png';
 import Img2 from '../../../public/static/locations/2.png';
 import Img3 from '../../../public/static/locations/3.png';
@@ -43,10 +43,10 @@ const locations = [
     name: 'Zenith House',
     image: Img4
   }
-]
+];
 
 const VonderBox = (props) => (
-  <>
+  <Fragment>
     <VWrap className='v-wrap first'>
       <div>
         <H2>Become a Vonderer</H2>
@@ -63,7 +63,7 @@ const VonderBox = (props) => (
         </Paragraph>
         <Button
           className='gradient'
-          onClick={() => props.goToDetails('/apartments-type-page')}
+          onClick={() => H.goToRoute('/apartments')}
         >
           Become a Vonderer
         </Button>
@@ -82,7 +82,7 @@ const VonderBox = (props) => (
         </Paragraph>
       </div>
     </VWrap>
-  </>
+  </Fragment>
 );
 
 const LocationsComponents = (props) => (
@@ -98,7 +98,7 @@ const LocationsComponents = (props) => (
                 {/* <Paragraph className='address'>{item.address}</Paragraph> */}
                 <Paragraph className='address'>{item.location}</Paragraph>
               </div>
-              <Button onClick={() => props.goToDetails('/detail-location')}>
+              <Button onClick={() => props.goToDetails(item.id)}>
                 Explore
               </Button>
             </div>
@@ -111,8 +111,8 @@ const LocationsComponents = (props) => (
 
 export const ComplexesSection = (props) => {
   const { query, complexes } = useComplexes();
-  const goToDetails = (path) => {
-    H.goToRoute(path);
+  const goToDetails = (id) => {
+    H.goToRoute('/complexes/[id]', `/complexes/${id}`);
   };
   return (
     <Wrapper className='wrapper'>

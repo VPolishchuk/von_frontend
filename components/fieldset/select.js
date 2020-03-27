@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Select from 'react-select';
 // import { borderRadius } from 'react-select/src/theme';
 import { SelectWrap } from './ui';
@@ -19,7 +19,7 @@ const commonStyles = {
     left: '0',
     fontSize: '24px',
     lineHeight: '28px',
-    fontFamily: 'Roboto',
+    fontFamily: 'RobotoRegular',
     position: 'absolute'
   }),
   indicatorSeparator: () => ({
@@ -59,6 +59,7 @@ export const SelectInputComponent = ({
   isSerchSt,
   labelDisplay,
   selectedOption,
+  setFieldValue,
   handleCustomChange
 }) => {
   const customStyles = {
@@ -85,7 +86,10 @@ export const SelectInputComponent = ({
       border: '1px solid #E6E5E5',
       borderRadius: '5px'
     })
-  }
+  };
+  useEffect(() => {
+    setFieldValue && setFieldValue(name, selectedOption);
+  }, [selectedOption]);
   return (
     <SelectWrap
       zIndex={zIndex}

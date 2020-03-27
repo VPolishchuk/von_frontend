@@ -83,4 +83,4 @@ export const SupportSection = (props) => (
   </Wrapper>
 )
 
-export default React.memo(SupportSection)
+export default React.memo(SupportSection);

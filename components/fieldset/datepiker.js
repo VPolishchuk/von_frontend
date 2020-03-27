@@ -1,13 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import * as R from 'ramda';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import * as I from '../../icon/index';
-import { DatePickerWrap } from './ui';
+import { DatePickerWrap, InlineCalendarWrap } from './ui';
+import { useWindowsHeight } from '../../hook/useWindowParams';
+// helpers
+import * as H from '../../helpers/index';
 import 'react-datepicker/dist/react-datepicker.css';
 /// ///////////////////////////////////////////////////////
 
 export const DatepickerComponent = (props) => {
-  const [startDate, setStartDate] = useState(new Date('2014/02/08'));
-  const [endDate, setEndDate] = useState(new Date('2014/02/10'));
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const { mobScreen } = useWindowsHeight();
+  useEffect(() => {
+    const currentDate = {
+      startDate,
+      endDate
+    };
+    props.setFieldValue && props.setFieldValue(props.name, currentDate);
+  }, [startDate, endDate]);
   return (
     <div className='input-wrap date'>
       {
@@ -25,6 +37,7 @@ export const DatepickerComponent = (props) => {
           selectsStart
           startDate={startDate}
           endDate={endDate}
+          withPortal={mobScreen}
         />
         -
         <DatePicker
@@ -34,6 +47,7 @@ export const DatepickerComponent = (props) => {
           startDate={startDate}
           endDate={endDate}
           minDate={startDate}
+          withPortal={mobScreen}
         />
       </DatePickerWrap>
     </div>
@@ -43,21 +57,38 @@ export const DatepickerComponent = (props) => {
 export default DatepickerComponent;
 
 export const CalendarInlineComponent = (props) => {
-  // const [startDate, setStartDate] = useState(new Date());
-  const [startDate, setStartDate] = useState(new Date('2014/02/08'));
-  const [endDate, setEndDate] = useState(new Date('2014/02/10'));
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const handleChange = (date) => {
+    let newDate = new Date(date).getTime();
+    let startD = new Date(startDate).getTime();
+    if (H.isNilOrEmpty(startDate)) {
+      return setStartDate(date);
+    }
+    if (R.lt(newDate, startD)) {
+      return setStartDate(date);
+    }
+    if (R.gt(newDate, startD)) {
+      setEndDate(date);
+    }
+  };
+  useEffect(() => {
+    const currentDate = {
+      startDate,
+      endDate
+    };
+    props.setFieldValue && props.setFieldValue(props.name, currentDate);
+  }, [startDate, endDate]);
   return (
-    <DatePicker
-      // selected={startDate}
-      onChange={date => setStartDate(date)}
-      selectsEnd
-      selectsStart
-      startDate={startDate}
-      endDate={endDate}
-      startDate={startDate}
-      endDate={endDate}
-      minDate={startDate}
-      inline
-    />
+    <InlineCalendarWrap className='inline-calendar-wrap'>
+      <DatePicker
+        onChange={date => handleChange(date)}
+        selectsEnd
+        selectsStart
+        startDate={startDate}
+        endDate={endDate}
+        inline
+      />
+    </InlineCalendarWrap>
   );
 };

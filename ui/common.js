@@ -87,7 +87,7 @@ export const Paragraph = styled.p`
   font-style: normal;
   font-weight: normal;
   white-space: normal;
-  font-family: Roboto;
+  font-family: Roboto, RobotoRegular;
   line-height: ${C.lHMPhone};
   font-size: ${C.fSBigPhone};
   &.black {
@@ -100,6 +100,11 @@ export const Paragraph = styled.p`
     line-height: ${C.lHBPhone};
     font-size: ${C.fSSmallTable};
   }
+  &.grey {
+    color: #878787;
+    text-align: center;
+    font-size: ${C.fSBigPhone};
+  }
   ${commonPadding};
   ${container};
 `;
@@ -111,18 +116,21 @@ export const Button = styled.button`
   display: flex;
   cursor: pointer;
   font-weight: 500;
-  background: ${C.pink};
+  min-width: 150px;
   font-style: normal;
   border-radius: 5px;
   align-items: center;
-  font-family: Roboto;
+  background: ${C.pink};
+  font-family: Roboto, RobotoRegular;
   line-height: ${C.lHBPhone};
   justify-content: center;
   font-size: ${C.fSSmallTable};
   text-transform: capitalize;
-  min-width: 150px;
   width: ${({width}) => R.or(width, 'max-content')} ;
   padding: 10px 15px;
+  &.small {
+    height: 35px;
+  }
   &.gradient {
     background: linear-gradient(90deg, #D3136D 0%, #F4892B 100%);
   }
@@ -133,6 +141,7 @@ export const Button = styled.button`
   &:active,
   &:focus,
   &:hover {
+    transform: scale(1.01);
     box-shadow: 0px 2px 20px rgba(30, 27, 28, 0.14);
   }
 `;
@@ -153,7 +162,7 @@ export const H2 = styled.h2`
   font-weight: bold;
   text-align: center;
   font-size: ${C.fSLLLaptop};
-  font-family: Roboto-Bold;
+  font-family: Roboto, RobotoRegular;
   line-height: ${C.lHBigDesktop};
   text-transform: uppercase;
   color: ${C.pink};
@@ -175,7 +184,7 @@ export const H3 = styled.h3`
   font-weight: 500;
   font-style: normal;
   text-align: center;
-  font-family: Roboto;
+  font-family: Roboto, RobotoRegular;
   font-size: ${C.fSLLaptop};
   text-transform: uppercase;
   line-height: ${C.lHBigLaptop};
@@ -188,7 +197,7 @@ export const H4 = styled.h4`
   text-align: left;
   font-weight: bold;
   font-style: normal;
-  font-family: Roboto;
+  font-family: Roboto, RobotoRegular;
   font-size: ${C.fSBigTable};
   line-height: ${C.lHMediumLaptop};
   ${commonPadding};
@@ -200,7 +209,7 @@ export const H5 = styled.h5`
   font-weight: 500;
   font-style: normal;
   text-align: center;
-  font-family: Roboto;
+  font-family: Roboto, RobotoRegular;
   line-height: $lHMTable;
   text-transform: uppercase;
   font-size: ${C.fSMediumTable};
@@ -215,7 +224,7 @@ export const H6 = styled.h6`
   font-weight: 500;
   font-style: normal;
   text-align: center;
-  font-family: Roboto;
+  font-family: Roboto, RobotoRegular;
   line-height: ${C.lHBPhone};
   text-transform: uppercase;
   font-size: ${C.fSMediumTable};
@@ -243,5 +252,33 @@ export const InfoWrap = styled.div`
     font-weight: bold;
     font-size: 16px;
     text-transform: uppercase;
+  }
+`;
+
+export const ModalBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* & > h5 {
+    font-size: ${C.fSMediumTable};
+    font-weight: 600;
+  } */
+  & > h6, h5 {
+    font-weight: 600;
+    line-height: ${C.lHBPhone};
+    text-transform: capitalize;
+    font-size: ${C.fSMediumTable};
+  }
+  & > p {
+    margin: 30px 0;
+    text-align: center;
+  }
+  & form {
+    width: 80%;
+    & button {
+      margin: auto;
+    }
   }
 `;

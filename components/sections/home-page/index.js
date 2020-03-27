@@ -1,22 +1,19 @@
-import React, { useContext } from 'react';
-// context
-import { LocationsOptions } from '../../../hook/useContensGlobal';
+import React from 'react';
 // sections
-import { MainSection } from './sec-1'
-import { AboutSection } from './sec-2'
-import { LocationSection } from './sec-3'
-import { ServicesSection } from './sec-4'
-import { LifestyleSection } from './sec-6'
-import { ContactUsSection } from './sec-7'
-import { ExperienceMoreSection } from './sec-5'
+import { MainSection } from './sec-1';
+import { AboutSection } from './sec-2';
+import { LocationSection } from './sec-3';
+import { ServicesSection } from './sec-4';
+import { LifestyleSection } from './sec-6';
+import { ContactUsSection } from './sec-7';
+import { ExperienceMoreSection } from './sec-5';
 // hook
-import { useWindowsHeight } from '../../../hook/useWindowHeight'
+import { useWindowsHeight } from '../../../hook/useWindowParams';
 // style
 import { Wrapper } from '../../../ui/common';
 /// //////////////////////////////////////////////////
 const SectionComponent = (props) => {
   const { lastYPos } = useWindowsHeight();
-  // const { locations } = useContext(LocationsOptions);
   return (
     <Wrapper className='wrapper'>
       <MainSection {...props} scrollPosY={lastYPos} />

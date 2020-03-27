@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import useModal from '../../hook/useModal';
 import HeaderComponent from '../header';
 import FooterComponent from '../footer';
+import * as I from '../../icon/index';
 import Modal from '../../components/modal';
-import { GlobalStyle } from '../../ui/index';
 import {
   Layout,
   LoaderBlock
 } from './ui';
 // //////////////////////////////////////////////
 
-// //////////////////////////////////////////
 export const Loader = (props) => {
   return (
     <div className='preloader'>
+      <div className='logo'>
+        {I.logo(250, 70)}
+      </div>
       <LoaderBlock />
       <style>
         {`
@@ -36,40 +38,69 @@ export const Loader = (props) => {
             flex-direction: column;
             justify-content: center;
           }
+          .logo {
+            width: 250px;
+            height: 70px;
+            margin-bottom: 70px;
+          }
         `}
       </style>
     </div>
-  )
-}
+  );
+};
+
 export const LayoutBox = (props) => {
   const router = useRouter();
-  const { open, openModal, closeModal } = useModal();
+  const [active, setActive] = useState(false);
+  const {
+    open,
+    openModal,
+    closeModal,
+    renderModal,
+    setRenderModal
+  } = useModal();
   const localUrl = R.path(['route'], router);
   const url = [
-    '/sing-up',
+    '/login',
     '/sing-in',
     '/complexes',
+    '/career/[id]',
     '/booking-page',
     '/support-page',
     '/detail-career',
+    '/complexes/[id]',
     '/detail-apartments',
     '/city-guide-page-coolcousin'
-  ]
+  ];
   const blackHeader = R.includes(localUrl, url);
   return (
     <Layout>
-      <HeaderComponent {...props} blackHeader={blackHeader} />
-      {props.children}
+      <HeaderComponent
+        {...props}
+        active={active}
+        setActive={setActive}
+        blackHeader={blackHeader}
+      />
+      {React.cloneElement(props.children, { open, renderModal, closeModal, setRenderModal, openModal })}
       {open ? (
         <Modal
           close={closeModal}
-          render={() => <h1>This is a Modal using Portals!</h1>}
+          render={() => renderModal}
         />
       ) : null}
       <FooterComponent {...props} />
-      <GlobalStyle />
+      <style>
+        {`
+          body {
+            margin: 0;
+            padding: 0;
+            overflow: ${R.or(active, open) ? 'hidden' : 'visible'};
+            overflow-x: hidden;
+          }
+        `}
+      </style>
     </Layout>
-  )
-}
+  );
+};
 
 export default LayoutBox;

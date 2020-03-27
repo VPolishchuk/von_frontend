@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as R from 'ramda';
 import * as C from '../../ui/constant';
 // ///////////////////////////////////////////
 
@@ -50,6 +51,7 @@ export const CustomFileWrap = styled.div`
   & > div {
     position: absolute;
     z-index: -1;
+    cursor: pointer;
     padding: 10px 15px; 
     width: max-content;
     height: 50px;
@@ -82,7 +84,7 @@ export const CustomFileWrap = styled.div`
 `;
 
 export const InputWrap = styled.div`
-  width: 100%;
+  width: ${({width}) => R.or(width, '100%')};
   height: 50px;
   display: flex;
   margin: 14px 0;
@@ -90,7 +92,7 @@ export const InputWrap = styled.div`
   align-items: center;
   justify-content: space-between;
   &.textarea {
-    height: 215px;
+    height: ${({ textAreaHeight }) => R.or(textAreaHeight, '215px')};
   }
   input,
   textarea {
@@ -104,7 +106,7 @@ export const InputWrap = styled.div`
   }
   textarea {
     padding-top: 10px;
-    height: 215px;
+    height: 100%;
     resize: none;
   }
   input.shadow,
@@ -127,6 +129,7 @@ export const InputWrap = styled.div`
   &.file {
     width: 100%;
     display: flex;
+    cursor: pointer;
     align-items: center;
     justify-content: space-between;
     & > label {
@@ -141,6 +144,9 @@ export const InputWrap = styled.div`
   }
   input:focus + label,
   textarea:focus + label {
+  /* input:valid + label,
+  textarea:valid + label */
+  /* { */
     font-size: 10px;
     transform: translate(-10px, -34px);
   }
@@ -206,12 +212,63 @@ export const DatePickerWrap = styled.div`
     height: 25px;
     margin-right: 7px;
   }
+  & div {
+    & .react-datepicker__input-container > input {
+      width: 100%;
+      height: 40px;
+      border: 0;
+      text-align: center;
+    }
+  }
   & .react-datepicker-wrapper {
     width: 49%;
     & .react-datepicker__input-container > input {
       width: 100%;
       height: 40px;
       border: 0;
+      text-align: center;
     }
   }
+`;
+
+export const InlineCalendarWrap = styled.div`
+  & .react-datepicker {
+    border: none;
+    font-family: RobotoThin;
+
+    & .react-datepicker__navigation.react-datepicker__navigation--previous {
+      top: 10px;
+      right: 40px;
+      left: auto;
+    }
+    & .react-datepicker__navigation.react-datepicker__navigation--next {
+
+    }
+    & .react-datepicker__month-container {
+
+      & .react-datepicker__header {
+        border-bottom: none;
+        background-color: ${C.white};
+        & .react-datepicker__current-month {
+          text-align: left;
+          padding-left: 1rem;
+        }
+        & .react-datepicker__day-names {
+
+        }
+      }
+      & .react-datepicker__month {
+        & .react-datepicker__week {
+          & .react-datepicker__day {
+            /* &:hover {
+              border-radius: 50%;
+              color: ${C.white};
+              background: rgb(1,136,234);
+            } */
+          }
+        }
+      }
+    }
+  }
+
 `;
