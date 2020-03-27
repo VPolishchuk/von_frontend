@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, Fragment } from 'react';
 import classNames from 'classnames';
 import SliderComponent from '../../slider-component/index'
-import Img1 from '../../../public/static/home-page/homes/loc-1.png'
+import Img1 from '../../../public/static/home-page/homes/loc-1.png';
 import Img2 from '../../../public/static/home-page/homes/loc-2.png'
 import Img5 from '../../../public/static/city-guide/1.png'
 import Img6 from '../../../public/static/city-guide/2.png'
@@ -20,9 +20,9 @@ const images = [Img5, Img6, Img3, Img4]
 
 export const AboutSection = (props) => {
   const currentRef = useRef()
-  const [inProp, setInProp] = useState(false)
+  const [inProp, setInProp] = useState(false);
 
-  const duration = 100
+  const duration = 100;
 
   const defaultStyle = {
     transition: `all ${duration}ms ease-in-out`,
@@ -44,16 +44,16 @@ export const AboutSection = (props) => {
 
   useEffect(() => {
     if (!inProp && props.scrollPosY >= R.multiply(R.path(['current', 'offsetParent', 'offsetTop'], currentRef), 0.3)) {
-      setInProp(!inProp)
+      setInProp(!inProp);
     }
-  }, [props.scrollPosY])
+  }, [props.scrollPosY]);
   return (
     <Section2 className='section-2'>
       <Container>
         <Transition in={inProp} timeout={500}>
           {state => {
             return (
-              <>
+              <Fragment>
                 <H2
                   ref={currentRef}
                   style={{
@@ -82,8 +82,8 @@ export const AboutSection = (props) => {
                 >
                   Our Homes
                 </H2>
-              </>
-            )
+              </Fragment>
+            );
           }}
         </Transition>
       </Container>

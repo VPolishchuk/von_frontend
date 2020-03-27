@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import * as C from '../../ui/constant';
+import * as R from 'ramda';
 // /////////////////////////////////////////////////////////////
 
 export const Layout = styled.div`
@@ -7,9 +8,10 @@ export const Layout = styled.div`
   display: flex;
   min-height: 100vh;
   position: relative;
+  height: max-content;
   flex-direction: column;
-  max-height: max-content;
-`
+  -webkit-overflow-scrolling: touch;
+`;
 
 export const ldsHourglass = keyframes`
   0% {

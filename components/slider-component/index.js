@@ -5,7 +5,8 @@ import Img5 from '../../public/static/city-guide/1.png';
 import Img6 from '../../public/static/city-guide/2.png';
 import Img3 from '../../public/static/city-guide/3.png';
 import Img4 from '../../public/static/city-guide/4.png';
-
+// helpers
+import * as H from '../../helpers/index';
 import {
   ImageBox,
   SliderWrap,
@@ -20,7 +21,7 @@ const images = [Img5, Img6, Img3, Img4]
 
 const SliderComponent = (props) => {
   // const [ imageIndex, setIndex ] = useState(props.i)
-  const [imagesArr, setImagesArr] = useState(images);
+  const [imagesArr, setImagesArr] = useState(null);
   const [index, setIndex] = useState(0);
   // const handleSetNexIndex = (nextIndex) => (
   //   setIndex(R.gte(nextIndex, props.data.length) ? 0 : nextIndex)
@@ -55,36 +56,36 @@ const SliderComponent = (props) => {
     //   // }
     //   // setIndex(R.add(index, 1));
     // }, 3000);
-  }, [index]);
+    if (H.isNilOrEmpty(imagesArr)) {
+      // let sliderArr = [R.last(images)];
+      // sliderArr.push(...images);
+      // sliderArr.push(R.head(images));
+      let sliderArr = [...images];
+      setImagesArr(sliderArr);
+    }
+  }, [index, props.images]);
+  console.log(imagesArr);
   return (
     <SliderWrap height={props.height}>
       <ActiveView height={props.height}/>
-      <SliderRow
-        transform={`translateX(-${index * Math.floor(100 / imagesArr.length)}%)`}
-      >
-        {
-          imagesArr.map((img, i) => (
-            <ImageBox height={props.height} key={i} src={img} alt='img'/>
-          ))
-        }
-      </SliderRow>
-      {/* {
-        // props.isBulletBar &&
-        true &&
-        <NavBox>
+      {
+        imagesArr &&
+        <SliderRow
+          transform={`translateX(-${index * Math.floor(100 / imagesArr.length)}%)`}
+        >
+          <ImageBox className='lastClone' height={props.height} src={R.last(imagesArr)} alt='img'/>
           {
-            images.map((img, i) => (
-              <BulletComponent
-                key={i}
-                // backgroundColor={isActive && '#D72066'}
-              />
+            imagesArr.map((img, i) => (
+              <ImageBox height={props.height} key={i} src={img} alt='img'/>
             ))
           }
-        </NavBox>
-      } */}
+          <ImageBox className='firstClone' height={props.height} src={R.head(imagesArr)} alt='img'/>
+
+        </SliderRow>
+      }
       <NavBox>
         {
-          imagesArr.map((img, i) => (
+          imagesArr && imagesArr.map((img, i) => (
             <BulletComponent
               key={i}
               onClick={() => handleSetIndex(i)}

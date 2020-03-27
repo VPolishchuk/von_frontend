@@ -74,7 +74,7 @@ export const Footer = styled.footer`
       height: 80px;
       justify-content: space-around;
 
-      font-family: Roboto;
+      font-family: RobotoRegular;
       font-style: normal;
       font-weight: normal;
       font-size: 13px;

@@ -17,13 +17,13 @@ export const Portal = ({ children }) => {
     modalRoot.appendChild(modalElement);
     return () => modalRoot.removeChild(modalElement);
   });
-
   return createPortal(children, modalElement);
 };
 
 const useModal = () => {
   const [open, onOpenModal] = useState(false);
   const [close, onCloseModal] = useState(false);
+  const [renderModal, setRenderModal] = useState(null);
 
   const openModal = () => {
     onOpenModal(true);
@@ -32,9 +32,16 @@ const useModal = () => {
   const closeModal = () => {
     onCloseModal(true);
     onOpenModal(false);
+    setRenderModal(null);
   };
-
-  return { open, close, openModal, closeModal };
+  return {
+    open,
+    close,
+    openModal,
+    closeModal,
+    renderModal,
+    setRenderModal
+  };
 };
 
 export default useModal;

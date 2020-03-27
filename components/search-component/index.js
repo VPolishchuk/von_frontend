@@ -1,82 +1,218 @@
 import React, { useEffect, useState, useContext } from 'react';
 import * as R from 'ramda';
+import { useRouter } from 'next/router';
+import { Formik } from 'formik';
 // context
-import { LocationsOptions } from '../../hook/useContensGlobal';
+import { GlobalContext } from '../../hook/useContextGlobal';
+import * as H from '../../helpers/index';
 // component
 import {
   DatepickerComponent,
   SelectInputComponent} from '../fieldset/index';
-
 import { SearchFormWrap } from './ui';
 import { Button } from '../../ui/common';
 /// //////////////////////////////////////////////////////////
 
-export const SearchForm = (props) => {
-  const { types, locations } = useContext(LocationsOptions);
-  const [selectedLocOption, setSelectedLocOption] = useState();
-  const [selectedTypeOption, setSelectedTypeOption] = useState();
-  const [locationsOptions, setLocationsOptions] = useState();
-  const [typesOptions, setTypesOptions] = useState();
-  const handleCustomChange = (opt, name) => {
-
-    if (name === 'locations') {
-      return setSelectedLocOption(opt);
+const fieldsSetting = {
+  form1: [
+    {
+      name: 'location',
+      type: 'select',
+      label: 'Choose Location',
+      zIndex: 11,
+      options: 'locationsOptions',
+      selectedOption: 'selectedLocOption',
+      handleCustomChange: 'handleCustomChange'
+    },
+    {
+      name: 'type',
+      type: 'select',
+      label: 'Apartment Type',
+      zIndex: 10,
+      options: 'typesOptions',
+      selectedOption: 'selectedLocOption'
+    },
+    {
+      name: 'date',
+      type: 'date',
+      label: 'Booking Time'
     }
-    setSelectedTypeOption(opt);
-  };
-  useEffect(() => {
-    const newLocOpt = locations.map((item) => ({value: item, label: item}));
-    setLocationsOptions(newLocOpt);
-    const newTypesOpt = types.map((item) => ({value: item, label: item}));
-    setTypesOptions(newTypesOpt);
-  }, [types, locations]);
-  if (props.guidePage) {
+  ],
+  form2: [
+    {
+      name: 'location',
+      type: 'select',
+      label: 'Choose Location',
+      zIndex: 11
+    },
+    {
+      name: 'date',
+      type: 'date',
+      label: 'Booking Time'
+    }
+  ]
+};
+
+const SearchFormComponent = ({
+  values,
+  errors,
+  loader,
+  touched,
+  resetForm,
+  setErrors,
+  setValues,
+  guidePage,
+  handleBlur,
+  handleReset,
+  handleChange,
+  handleSubmit,
+  typesOptions,
+  initialValues,
+  initialErrors,
+  setFieldValue,
+  initialTouched,
+  locationsOptions,
+  selectedLocOption,
+  handleCustomChange,
+  selectedTypeOption,
+  ...res
+}) => {
+  if (guidePage) {
     return (
       <SearchFormWrap id='search-form'>
-        <SelectInputComponent
-          {...props}
-          zIndex={11}
-          name='locations'
-          isSerchSt={true}
-          label='Choose Location'
-          options={locationsOptions}
-          selectedOption={selectedLocOption}
-          handleCustomChange={handleCustomChange}
-        />
-        <DatepickerComponent {...props} label='Booking Time' />
-        <Button className='gradient '>
-        Search
+        {
+          R.path(['form2'], fieldsSetting).map((field, i) => {
+            if (R.equals(field.type, 'date')) {
+              return (
+                <DatepickerComponent {...field} label='Booking Time' />
+              );
+            }
+            return (
+              <SelectInputComponent
+                {...res}
+                zIndex={11}
+                name='location'
+                isSerchSt={true}
+                label='Choose Location'
+                options={locationsOptions}
+                setFieldValue={setFieldValue}
+                selectedOption={selectedLocOption}
+                handleCustomChange={handleCustomChange}
+              />
+            );
+          })
+        }
+        <Button className='gradient'>
+          Search
         </Button>
       </SearchFormWrap>
     );
   }
   return (
-    <SearchFormWrap id='search-form'>
+    <SearchFormWrap id='search-form' onSubmit={handleSubmit}>
       <SelectInputComponent
-        {...props}
+        {...res}
         zIndex={11}
-        name='locations'
+        name='location'
         isSerchSt={true}
         label='Choose Location'
         options={locationsOptions}
+        setFieldValue={setFieldValue}
         selectedOption={selectedLocOption}
         handleCustomChange={handleCustomChange}
       />
       <SelectInputComponent
-        {...props}
+        {...res}
         zIndex={10}
-        name='types'
+        name='type'
         isSerchSt={true}
         options={typesOptions}
         label='Apartment Type'
+        setFieldValue={setFieldValue}
         selectedOption={selectedTypeOption}
         handleCustomChange={handleCustomChange}
       />
-      <DatepickerComponent {...props} label='Booking Time' />
-      <Button className='gradient '>
+      <DatepickerComponent
+        {...res}
+        name='date'
+        label='Booking Time'
+        setFieldValue={setFieldValue} />
+      {/* {
+        R.path(['form1'], fieldsSetting).map((field, i) => {
+          if (R.equals(field.type, 'date')) {
+            return (
+              <DatepickerComponent {...field} label='Booking Time' />
+            );
+          }
+          return (
+            <SelectInputComponent
+              {...field}
+              zIndex={11}
+              isSerchSt={true}
+              // options={locationsOptions}
+              // selectedOption={selectedLocOption}
+              // handleCustomChange={handleCustomChange}
+            />
+          );
+        })
+      } */}
+      <Button type='submit' className='gradient'>
         Search
       </Button>
     </SearchFormWrap>
+  );
+};
+
+export const SearchForm = (props) => {
+  const router = useRouter();
+  const { optionsTypes, optionsLocations } = useContext(GlobalContext);
+  const [selectedLocOption, setSelectedLocOption] = useState();
+  const [selectedTypeOption, setSelectedTypeOption] = useState();
+  const [locationsOptions, setLocationsOptions] = useState();
+  const [typesOptions, setTypesOptions] = useState();
+  const handleCustomChange = (opt, name) => {
+    if (name === 'location') {
+      return setSelectedLocOption(opt);
+    }
+    setSelectedTypeOption(opt);
+  };
+  useEffect(() => {
+    setLocationsOptions(optionsLocations);
+    setTypesOptions(optionsTypes);
+  }, [optionsLocations, optionsTypes]);
+  let initialValues = props.guidePage
+    ? {
+      location: {},
+      date: {}
+    }
+    : {
+      location: {},
+      type: {},
+      date: {}
+    };
+  return (
+    <Formik
+      initialValues={{
+        ...initialValues
+      }}
+      onSubmit={(values, actions) => {
+        props.getData(values, props.renderModalWindow, router, props.setData);
+      }}
+    >
+      {
+        props => (
+          <SearchFormComponent
+            {...props}
+            guidePage={props.guidePage}
+            typesOptions={typesOptions}
+            locationsOptions={locationsOptions}
+            selectedLocOption={selectedLocOption}
+            handleCustomChange={handleCustomChange}
+            selectedTypeOption={selectedTypeOption}
+          />
+        )
+      }
+    </Formik>
   );
 };
 

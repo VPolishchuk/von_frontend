@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import * as R from 'ramda';
+import { Loader } from '../../layout';
 import { Formik } from 'formik';
 import classNames from 'classnames';
+import * as H from '../../../helpers';
+// hook
+import { useAuth } from '../../../hook/useAuth';
 import {
   InputBox,
   InputFile
@@ -10,6 +14,7 @@ import {
 import * as I from '../../../icon/index.js';
 import ReviewSec from './review-sec';
 import { FormLoader, CircleLoader } from './loader';
+import { ModalComponent } from './modal-box'; 
 import {
   Wrapper,
   Paragraph,
@@ -182,7 +187,6 @@ const FormComponent = (props) => {
                     errors={errors}
                     touched={touched}
                     onBlur={handleBlur}
-                    setFieldValue={setFieldValue}
                   // onChange={handleChange}
                   />
                 );
@@ -265,7 +269,11 @@ export const BookingComponent = (props) => {
     if (count != 1) {
       setCount(R.dec(count, 1));
     }
-  }
+  };
+  const renderModalWindow = () => {
+    props.setRenderModal(ModalComponent);
+    props.openModal();
+  };
   return (
     <Wrapper>
       <BookingWrap className='booking-wrap'>
@@ -276,56 +284,69 @@ export const BookingComponent = (props) => {
           titles={titleList}
         />
         {
-          loader ? 
-          <FormLoader /> :
-          <Formik
-            initialValues={{
-              name: 'Alex',
-              surname: 'Vance',
-              phoneNumber: '+99 999 999 99',
-              date: '22 April 1991',
-              country: 'Germany',
-              email: 'alexvancw34@mail.com',
-              nationality: 'German',
-              street: '',
-              city: '',
-              number: '+99 999 999 99',
-              postCode: '10707',
-              addressSuffix: '',
-              idCard: {},
-              salaryStatements: {},
-              certificateOfRentDebtFreeStatus: {},
-              selfAssesment: {},
-              confirm: false
-            }}
-            onSubmit={(values, actions) => {
-              // if (R.lt(count, R.length(R.values(fieldSettings)))) {
-              // }
-              // if (R.equals(props.nextFields, R.length(R.values(singUpFieldsSetting)))) {
-              //   props.sendSingUpRequest(values);
-              // }
-              setLoader(true);
-              setTimeout(() => {
-                setCount(R.add(count, 1));
-                setLoader(false);
-              }, 1000);
-            }}
-          >
-            {
-              props => (
-                <FormComponent
-                  {...props}
-                  count={count}
-                  forms={titleList}
-                  handleSepPrevFormIndex={handleSepPrevFormIndex}
-                />
-              )
-            }
-          </Formik>
+          loader
+            ? <FormLoader />
+            : <Formik
+              initialValues={{
+                name: 'Alex',
+                surname: 'Vance',
+                phoneNumber: '+99 999 999 99',
+                date: '22 April 1991',
+                country: 'Germany',
+                email: 'alexvancw34@mail.com',
+                nationality: 'German',
+                street: '',
+                city: '',
+                number: '+99 999 999 99',
+                postCode: '10707',
+                addressSuffix: '',
+                idCard: {},
+                salaryStatements: {},
+                certificateOfRentDebtFreeStatus: {},
+                selfAssesment: {},
+                confirm: false
+              }}
+              onSubmit={(values, actions) => {
+                // if (R.lt(count, R.length(R.values(fieldSettings)))) {
+                // }
+                // if (R.equals(props.nextFields, R.length(R.values(singUpFieldsSetting)))) {
+                //   props.sendSingUpRequest(values);
+                // }
+                setLoader(true);
+                setTimeout(() => {
+                  setCount(R.add(count, 1));
+                  setLoader(false);
+                }, 1000);
+                // let status = 200;
+                // if (R.equals(status, 200)) {
+                //   H.goToRoute('/login');
+                //   renderModalWindow();
+                // }
+              }}
+            >
+              {
+                props => (
+                  <FormComponent
+                    {...props}
+                    count={count}
+                    forms={titleList}
+                    handleSepPrevFormIndex={handleSepPrevFormIndex}
+                  />
+                )
+              }
+            </Formik>
         }
       </BookingWrap>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default React.memo(BookingComponent);
+const AuthCheck = (props) => {
+  const { accessToken, loader } = useAuth();
+  return (
+    loader
+      ? <Loader/>
+      : accessToken && <BookingComponent {...props} />
+  );
+}
+export default React.memo(AuthCheck);

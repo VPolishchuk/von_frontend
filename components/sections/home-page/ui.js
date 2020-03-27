@@ -228,7 +228,7 @@ export const Section3 = styled.div`
       li {
         display: flex;
         align-items: center;
-        font-family: Roboto;
+        font-family: RobotoRegular;
         font-size: ${C.fSBigPhone};
         line-height: ${C.lHMPhone};
         text-transform: capitalize;
@@ -443,7 +443,7 @@ const mediaStyleS6 = css`
           justify-content: center;
           li {
             margin: 10px 15px;
-            font-family: Roboto;
+            font-family: RobotoRegular;
             font-size: ${C.fSBigPhone};
             line-height: ${C.lHMPhone};
             text-align: left;
@@ -509,7 +509,7 @@ export const Section6 = styled.div`
       list-style-type: none;
       li {
         margin: 15px 0;
-        font-family: Roboto;
+        font-family: RobotoRegular;
         font-size: ${C.fSBigPhone};
         line-height: ${C.lHMPhone};
         text-align: left;
@@ -656,6 +656,8 @@ export const Section7 = styled.div`
             margin: 0 10px;
             cursor: pointer;
             &:hover {
+              transition: all 0.3s;
+              transform: scale(1.01);
               box-shadow: 0px 2.79914px 27.9914px rgba(30, 27, 28, 0.14);
             }
           }

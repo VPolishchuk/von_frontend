@@ -19,7 +19,11 @@ export const InputBox = ({
   const customClass = classNames('input-wrap', field.type);
   if (R.equals(field.type, 'textarea')) {
     return (
-      <InputWrap key={i} className={customClass}>
+      <InputWrap
+        key={i}
+        className={customClass}
+        textAreaHeight={field.textAreaHeight}
+      >
         <textarea
           {...field}
           rows='30'
@@ -29,11 +33,10 @@ export const InputBox = ({
           className={classN}
           onBlur={handleBlur}
           onChange={handleChange}
-          setFieldValue={setFieldValue}
         />
         {
           field.label &&
-          <label for={field.id}>{field.label}</label>
+          <label htmlFor={field.id}>{field.label}</label>
         }
       </InputWrap>
     );
@@ -48,11 +51,10 @@ export const InputBox = ({
         className={classN}
         onBlur={handleBlur}
         onChange={handleChange}
-        setFieldValue={setFieldValue}
       />
       {
         field.label &&
-        <label for={field.id}>{field.label}</label>
+        <label htmlFor={field.id}>{field.label}</label>
       }
     </InputWrap>
   );

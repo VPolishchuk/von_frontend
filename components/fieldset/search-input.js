@@ -9,7 +9,7 @@ export const SearchInput = (props) => {
       <label htmlFor='search'>{I.searchIcon(25, 20, props.class ? '#D72066' : '#fff')}</label>
       <input className={props.class} type='text' id='search' name='search' placeholder='Search' />
     </SearchWrap>
-  )
-}
+  );
+};
 
 export default SearchInput;

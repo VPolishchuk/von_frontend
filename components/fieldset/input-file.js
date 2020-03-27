@@ -13,13 +13,13 @@ export const InputFile = (props) => {
     setFile(e.currentTarget.files[0]);
   };
   useEffect(() => {
-    // props.setFieldValue(props.name, file)
+    props.setFieldValue && props.setFieldValue(props.name, file);
   }, [file]);
   return (
     <InputWrap key={props.i} className='file'>
       {
         props.label &&
-        <label for='file'>{props.label}</label>
+        <label htmlFor='file'>{props.label}</label>
       }
       <CustomFileWrap className='custom-file-wrap'>
         {
@@ -40,7 +40,7 @@ export const InputFile = (props) => {
         />
       </CustomFileWrap>
     </InputWrap>
-  )
-}
+  );
+};
 
 export default InputFile;

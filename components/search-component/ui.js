@@ -14,7 +14,7 @@ const mediaMinWidthStyles = css`
         width: calc(100%/3);
         & input {
           color: ${C.blackL};
-          font-family: Roboto;
+          font-family: RobotoRegular;
           line-height: ${C.lHMTable};
           font-size: ${C.fSMediumTable};
         }

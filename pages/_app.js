@@ -1,12 +1,10 @@
-import App from 'next/app'
+import App from 'next/app';
 // import { register, unregister } from 'next-offline/runtime';
 import React from 'react';
-import { sendRequest } from '../utils/api';
-import { Loader } from '../components/layout';
-import endpointsMap from '../utils/endpoints-map';
+import { Loader } from '../components/layout/index';
 import { PageTransition } from 'next-page-transitions';
-import { LocationsOptions } from '../hook/useContensGlobal';
-// ////////////////////////////////////////////////////////////////d
+import { GlobalProvider } from '../hook/useContextGlobal';
+// ////////////////////////////////////////////////////////////////
 
 class MyApp extends App {
   // componentDidMount () {
@@ -17,10 +15,10 @@ class MyApp extends App {
   // }
 
   render () {
-    const { Component, pageProps, router, locations, types } = this.props;
+    const { Component, pageProps, router } = this.props;
     return (
       <div>
-        <LocationsOptions.Provider value={{locations, types}} >
+        <GlobalProvider>
           <PageTransition
             timeout={300}
             classNames="page-transition"
@@ -50,22 +48,10 @@ class MyApp extends App {
               transition: opacity 300ms;
             }
             `}</style>
-        </LocationsOptions.Provider>
+        </GlobalProvider>
       </div>
     );
   }
 }
-
-MyApp.getInitialProps = async function () {
-  try {
-    const resLocations = await sendRequest('get', endpointsMap.locations);
-    const resApartmens = await sendRequest('get', endpointsMap.apartmens);
-    const { locations } = await resLocations.data;
-    const { types } = await resApartmens.data;
-    return { locations, types };
-  } catch (err) {
-    console.error(err);
-  }
-};
 
 export default MyApp;

@@ -122,7 +122,7 @@ export const BookingWrap = styled.div`
       font-weight: bold;
       line-height: 30px;
       text-align: center;
-      font-family: Roboto;
+      font-family: RobotoRegular;
       text-transform: capitalize;
     }
 
